@@ -1,0 +1,12 @@
+.pyramid {
+    background-color: darkblue;
+    color: orange
+}
+
+.safeHaven {
+    color: white
+}
+
+.activePyramid {
+    border: 2px solid red
+}

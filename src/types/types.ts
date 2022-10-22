@@ -10,6 +10,8 @@ type Answer = {
 };
 
 export type Pyramid = {
-    id: number,
-    quantity: number
-}
+  id: number;
+  quantity: number ;
+  currency: "zł"
+  safeHaven: "safeHaven" | "";
+};

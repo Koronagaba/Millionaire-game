@@ -1,4 +1,6 @@
-const data = [
+import { Pyramid, SingleData } from "../types/types";
+
+const data: SingleData[] = [
   {
     id: 1,
     question: "What is Your name?",
@@ -67,19 +69,19 @@ const data = [
   },
 ];
 
-const pyramid = [
-  { id: 1, quantity: 500 },
-  { id: 2, quantity: 1000 },
-  { id: 3, quantity: 2000 },
-  { id: 4, quantity: 5000 },
-  { id: 5, quantity: 10000 },
-  { id: 6, quantity: 20000 },
-  { id: 7, quantity: 40000 },
-  { id: 8, quantity: 75000 },
-  { id: 9, quantity: 125000 },
-  { id: 10, quantity: 250000 },
-  { id: 11, quantity: 500000 },
-  { id: 12, quantity: 1000000 },
+const pyramid: Pyramid[] = [
+  { id: 12, quantity: 1000000, currency: "zł", safeHaven: "safeHaven" },
+  { id: 11, quantity: 500000, currency: "zł", safeHaven: "" },
+  { id: 10, quantity: 250000, currency: "zł", safeHaven: "" },
+  { id: 9, quantity: 125000, currency: "zł", safeHaven: "" },
+  { id: 8, quantity: 75000, currency: "zł", safeHaven: "" },
+  { id: 7, quantity: 40000, currency: "zł", safeHaven: "safeHaven" },
+  { id: 6, quantity: 20000, currency: "zł", safeHaven: "" },
+  { id: 5, quantity: 10000, currency: "zł", safeHaven: "" },
+  { id: 4, quantity: 5000, currency: "zł", safeHaven: "" },
+  { id: 3, quantity: 2000, currency: "zł", safeHaven: "" },
+  { id: 2, quantity: 1000, currency: "zł", safeHaven: "safeHaven" },
+  { id: 1, quantity: 500, currency: "zł", safeHaven: "" },
 ];
 
 export { data, pyramid };
