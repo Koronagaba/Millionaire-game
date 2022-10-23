@@ -3,7 +3,7 @@ import { Pyramid, SingleData } from "../types/types";
 const data: SingleData[] = [
   {
     id: 1,
-    question: "What is Your name?",
+    question: "Whats your name?",
     answers: [
       {
         answer: "Wiktor",
@@ -46,8 +46,52 @@ const data: SingleData[] = [
     ],
   },
   {
-    id: 1,
+    id: 3,
     question: "Third quest?",
+    answers: [
+      {
+        answer: "first",
+        isCorrect: true,
+      },
+      {
+        answer: "second",
+        isCorrect: false,
+      },
+      {
+        answer: "third",
+        isCorrect: false,
+      },
+      {
+        answer: "fourth",
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    id: 4,
+    question: "Fourth quest?",
+    answers: [
+      {
+        answer: "first",
+        isCorrect: false,
+      },
+      {
+        answer: "second",
+        isCorrect: false,
+      },
+      {
+        answer: "third",
+        isCorrect: false,
+      },
+      {
+        answer: "fourth",
+        isCorrect: true,
+      },
+    ],
+  },
+  {
+    id: 5,
+    question: "Fifth quest?",
     answers: [
       {
         answer: "first",

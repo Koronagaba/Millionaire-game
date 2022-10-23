@@ -1,12 +1,17 @@
-import React from "react";
+import {useEffect} from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../app/store";
 import { pyramid } from "../../data/data";
 
 import "../../styles/Pyramid.css";
 
 const Pyramid = () => {
-  
-const questionNumber = 10
 
+  const questionNumber = useSelector((state: RootState) => state.questions.questionNumber)
+
+console.log(questionNumber);
+
+ 
   return (
     <div className="aside pyramid">
       <h1>Pyramid</h1>
