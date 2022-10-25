@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 
 import { drawQuestion, nextQuestion } from "../../features/questionsSlice";
+import { Answer } from "../../types/types";
 
 const Question = () => {
   const dispatch = useDispatch();
@@ -42,3 +43,4 @@ const Question = () => {
 };
 
 export default Question;
+    

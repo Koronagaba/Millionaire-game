@@ -4,7 +4,7 @@ export type SingleData = {
   answers: Answer[];
 };
 
-type Answer = {
+export type Answer = {
   answer: string;
   isCorrect: boolean;
 };
