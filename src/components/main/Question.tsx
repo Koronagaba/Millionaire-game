@@ -41,11 +41,14 @@ const Question = () => {
         {questionNumber}. {currentQuestion?.question}
       </h1>
       <button onClick={onNextQuest}>Next quest</button>
-      {currentQuestion?.answers.map((answer) => (
-        <div>
-          <button className="btn">{answer.answer}</button>
-        </div>
-      ))}
+      <div className="answers">
+        <button className="btn">A: {currentQuestion?.answers[0].answer}</button>
+        <button className="btn">B: {currentQuestion?.answers[1].answer}</button>
+      </div>
+      <div className="answers">
+        <button className="btn">C: {currentQuestion?.answers[2].answer}</button>
+        <button className="btn">D: {currentQuestion?.answers[3].answer}</button>
+      </div>
     </div>
   );
 };
