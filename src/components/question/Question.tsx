@@ -1,9 +1,15 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../app/store";
+import {
+  difficultData,
+  easyData,
+  mediumData,
+  quiteDifficultData,
+} from "../../data/data";
 
 import { drawQuestion, nextQuestion } from "../../features/questionsSlice";
-import { Answer } from "../../types/types";
+import { Answer, SingleData } from "../../types/types";
 
 const Question = () => {
   const dispatch = useDispatch();
@@ -13,14 +19,21 @@ const Question = () => {
   );
 
   useEffect(() => {
-    dispatch(drawQuestion());
+    dispatch(drawQuestion(easyData));
   }, []);
 
   const onNextQuest = () => {
+    if (questionNumber <= 3) {
+      dispatch(drawQuestion(easyData));
+    } else if (questionNumber > 3 && questionNumber <= 6) {
+      dispatch(drawQuestion(mediumData));
+    } else if (questionNumber > 6 && questionNumber <= 9) {
+      dispatch(drawQuestion(quiteDifficultData));
+    } else if (questionNumber > 9 && questionNumber <= 12) {
+      dispatch(drawQuestion(difficultData));
+    }
     dispatch(nextQuestion());
-    dispatch(drawQuestion());
   };
-
 
   return (
     <div>
@@ -43,4 +56,3 @@ const Question = () => {
 };
 
 export default Question;
-    
