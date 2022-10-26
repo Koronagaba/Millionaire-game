@@ -1,0 +1,29 @@
+.main {
+    border: yellow 3px solid;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+  .row{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .btn {
+    min-width: 100px;
+    padding: 3px 10px;
+    font-size: 1em;
+    /* border:none; */
+  }
+
+ 
+  .question {
+    border: 2px green solid;
+    width: 100%;
+    height: 50%
+  }
+
+  .header {
+    height: 50%;
+    border: 2px solid brown
+  }

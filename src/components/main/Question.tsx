@@ -14,7 +14,7 @@ import { Answer, SingleData } from "../../types/types";
 const Question = () => {
   const dispatch = useDispatch();
 
-  const { questionNumber, randomQuestion } = useSelector(
+  const { questionNumber, currentQuestion } = useSelector(
     (state: RootState) => state.questions
   );
 
@@ -36,21 +36,16 @@ const Question = () => {
   };
 
   return (
-    <div>
-      <h1>Pyramid</h1>
-      <div>
+    <div className="question">
+      <h1>
+        {questionNumber}. {currentQuestion?.question}
+      </h1>
+      <button onClick={onNextQuest}>Next quest</button>
+      {currentQuestion?.answers.map((answer) => (
         <div>
-          <h1>
-            {questionNumber}. {randomQuestion?.question}
-          </h1>
-          <button onClick={onNextQuest}>Next quest</button>
-          {randomQuestion?.answers.map((answer) => (
-            <div>
-              <button className="btn">{answer.answer}</button>
-            </div>
-          ))}
+          <button className="btn">{answer.answer}</button>
         </div>
-      </div>
+      ))}
     </div>
   );
 };

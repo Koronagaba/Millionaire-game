@@ -1,16 +1,15 @@
 import React from "react";
-import Pyramid from "./components/pyramid/Pyramid";
-import Question from "./components/question/Question";
-
+import Aside from "./components/aside/Aside";
+import Main from "./components/main/Main";
+import "./styles/App.css";
 
 function App() {
   return (
-    <div className="container center">
-      <h1>Millionaire</h1>
-      <div className="row">
-     <Question />
-      <Pyramid />
-    </div>
+    <div className="wrapper">
+      <div className="container center row">
+          <Main />
+          <Aside />
+      </div>
     </div>
   );
 }

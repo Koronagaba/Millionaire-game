@@ -1,0 +1,16 @@
+.aside {
+background-color: rgb(34, 34, 189);
+width: 30%;
+border: 1px solid purple;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.stretch {
+    display: flex;
+}
+
+.lifebous {
+    height: 20%;
+}

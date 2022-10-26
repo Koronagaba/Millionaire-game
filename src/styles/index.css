@@ -15,18 +15,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.center {
-  margin: 0 auto
-}
-
-.container {
-  max-width: 800px;
-  width: 80%;
-
-}
-
-.row{
-  display: flex;
-  justify-content: space-between;
-}

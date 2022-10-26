@@ -3,12 +3,12 @@ import { SingleData } from "../types/types";
 
 interface QuestionState {
   questionNumber: number;
-  randomQuestion: SingleData | null;
+  currentQuestion: SingleData | null;
 }
 
 const initialState: QuestionState = {
   questionNumber: 1,
-  randomQuestion: null,
+  currentQuestion : null,
 };
 
 const questionsSlice = createSlice({
@@ -20,7 +20,7 @@ const questionsSlice = createSlice({
     },
     drawQuestion(state, { payload }) {
       const random = Math.floor(Math.random() * payload.length);
-      state.randomQuestion = payload[random];
+      state.currentQuestion = payload[random];
       payload.splice(random, 1);
     },
   },
