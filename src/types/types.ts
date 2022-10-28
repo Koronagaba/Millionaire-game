@@ -1,17 +1,17 @@
 export type SingleData = {
   id: number;
   question: string;
-  answers: Answer[];
+  answers: AnswerType[];
 };
 
-export type Answer = {
+export type AnswerType = {
   answer: string;
   isCorrect: boolean;
 };
 
 export type Pyramid = {
   id: number;
-  quantity: number ;
-  currency: "zł"
+  quantity: number;
+  currency: "zł";
   safeHaven: "safeHaven" | "";
 };
