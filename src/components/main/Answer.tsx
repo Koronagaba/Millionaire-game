@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { createImmediatelyInvokedFunctionExpression } from "typescript";
 import { RootState } from "../../app/store";
 import {
   easyData,
@@ -6,10 +8,18 @@ import {
   quiteDifficultData,
   difficultData,
 } from "../../data/data";
-import { drawQuestion, nextQuestion } from "../../features/questionsSlice";
+import {
+  chooseAnswer,
+  drawQuestion,
+  nextQuestion,
+} from "../../features/questionsSlice";
+import { AnswerType } from "../../types/types";
+import "../../styles/main/Answer.css";
 
 const Answer = () => {
-  const { currentQuestion, questionNumber } = useSelector(
+  const [style, setStyle] = useState("");
+
+  const { currentQuestion, questionNumber, selectedAnswer } = useSelector(
     (state: RootState) => state.questions
   );
 
@@ -28,11 +38,21 @@ const Answer = () => {
     dispatch(nextQuestion());
   };
 
+  const selectAnswer = (answer: AnswerType) => {
+    dispatch(chooseAnswer(answer));
+    setStyle(answer.isCorrect ? "answer checked correct" : "answer checked wrong");
+  };
+
   return (
     <div className="answers">
-      <button onClick={onNextQuest}>Next quest</button>
       {currentQuestion?.answers.map((answer) => (
-        <button className="answer">{answer.answer}</button>
+        <button
+          className={selectedAnswer === answer ? style : "answer"}
+          key={answer.id}
+          onClick={() => selectAnswer(answer)}
+        >
+          {answer.answer}
+        </button>
       ))}
     </div>
   );

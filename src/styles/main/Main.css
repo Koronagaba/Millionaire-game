@@ -23,19 +23,3 @@
   .question {
     border: 2px green solid;
   }
-
-.answers {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  border: 3px solid yellow;
-  padding: 20px 0;  
-}
-
-  .answer {
-    min-width: 40%;
-    padding: 5px;
-    font-size: 1em;
-    margin: 2px;
-    border: none;
-  }

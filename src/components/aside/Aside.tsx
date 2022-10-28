@@ -1,5 +1,5 @@
 import Pyramid from "./Pyramid";
-import '../../styles/Aside.css'
+import '../../styles/aside/Aside.css'
 import LifeBous from "./LifeBous";
 
 const Aside = () => {
