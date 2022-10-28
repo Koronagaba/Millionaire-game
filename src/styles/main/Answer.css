@@ -23,7 +23,7 @@
 .checked {}
 
 .correct {
-    animation: correct 5s forwards;
+    animation: correct 4s forwards;
 }
 
 .wrong {

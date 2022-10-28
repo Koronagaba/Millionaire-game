@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createImmediatelyInvokedFunctionExpression } from "typescript";
 import { RootState } from "../../app/store";
 import {
   easyData,
@@ -18,6 +17,7 @@ import "../../styles/main/Answer.css";
 
 const Answer = () => {
   const [style, setStyle] = useState("");
+  const [gameOver, setGameOver] = useState(false);
 
   const { currentQuestion, questionNumber, selectedAnswer } = useSelector(
     (state: RootState) => state.questions
@@ -40,20 +40,36 @@ const Answer = () => {
 
   const selectAnswer = (answer: AnswerType) => {
     dispatch(chooseAnswer(answer));
-    setStyle(answer.isCorrect ? "answer checked correct" : "answer checked wrong");
+    setStyle(
+      answer.isCorrect ? "answer checked correct" : "answer checked wrong"
+    );
+
+    setTimeout(() => {
+      if (answer.isCorrect) {
+        onNextQuest();
+      } else {
+        setGameOver(true);
+      }
+    }, 4000);
   };
 
   return (
     <div className="answers">
-      {currentQuestion?.answers.map((answer) => (
-        <button
-          className={selectedAnswer === answer ? style : "answer"}
-          key={answer.id}
-          onClick={() => selectAnswer(answer)}
-        >
-          {answer.answer}
-        </button>
-      ))}
+      {gameOver ? (
+        <h1>Game Over</h1>
+      ) : (
+        <>
+          {currentQuestion?.answers.map((answer) => (
+            <button
+              className={selectedAnswer === answer ? style : "answer"}
+              key={answer.id}
+              onClick={() => selectAnswer(answer)}
+            >
+              {answer.answer}
+            </button>
+          ))}
+        </>
+      )}
     </div>
   );
 };
