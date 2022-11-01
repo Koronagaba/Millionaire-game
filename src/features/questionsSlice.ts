@@ -1,16 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { AnswerType, SingleData } from "../types/types";
+import { AnswerType, Pyramid, SingleData } from "../types/types";
 
 interface QuestionState {
   questionNumber: number;
   currentQuestion: SingleData | null;
-  selectedAnswer: AnswerType | null
+  selectedAnswer: AnswerType | null;
+  award: number
 }
 
 const initialState: QuestionState = {
   questionNumber: 1,
   currentQuestion : null,
-  selectedAnswer: null
+  selectedAnswer: null,
+  award: 0
 };
 
 const questionsSlice = createSlice({
@@ -27,9 +29,12 @@ const questionsSlice = createSlice({
     },
     chooseAnswer(state, action) {
         state.selectedAnswer = action.payload
+    },
+    showCurrentAward(state, {payload}) {
+      state.award = payload
     }
   },
 });
 
-export const { nextQuestion, drawQuestion, chooseAnswer } = questionsSlice.actions;
+export const { nextQuestion, drawQuestion, chooseAnswer, showCurrentAward } = questionsSlice.actions;
 export default questionsSlice.reducer;

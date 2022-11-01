@@ -6,11 +6,13 @@ import {
   mediumData,
   quiteDifficultData,
   difficultData,
+  pyramid,
 } from "../../data/data";
 import {
   chooseAnswer,
   drawQuestion,
   nextQuestion,
+  showCurrentAward,
 } from "../../features/questionsSlice";
 import { AnswerType } from "../../types/types";
 import "../../styles/main/Answer.css";
@@ -18,10 +20,8 @@ import "../../styles/main/Answer.css";
 const Answer = () => {
   const [style, setStyle] = useState("");
   const [gameOver, setGameOver] = useState(false);
-
-  const { currentQuestion, questionNumber, selectedAnswer } = useSelector(
-    (state: RootState) => state.questions
-  );
+  const { currentQuestion, questionNumber, selectedAnswer, award } =
+    useSelector((state: RootState) => state.questions);
 
   const dispatch = useDispatch();
 
@@ -44,6 +44,8 @@ const Answer = () => {
       answer.isCorrect ? "answer checked correct" : "answer checked wrong"
     );
 
+    dispatch(showCurrentAward(pyramid[questionNumber - 1].quantity));
+
     setTimeout(() => {
       if (answer.isCorrect) {
         onNextQuest();
@@ -56,7 +58,10 @@ const Answer = () => {
   return (
     <div className="answers">
       {gameOver ? (
-        <h1>Game Over</h1>
+        <div>
+          <h1>Game Over</h1>
+          <p>You won: {award}</p>
+        </div>
       ) : (
         <>
           {currentQuestion?.answers.map((answer) => (
