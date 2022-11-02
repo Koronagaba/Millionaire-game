@@ -1,12 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit';
-import gameOverSlice from '../features/gameOverSlice';
-import questionsSlice from '../features/questionsSlice';
-
+import { configureStore } from "@reduxjs/toolkit";
+import gameOverSlice from "../features/gameOverSlice";
+import questionsSlice from "../features/questionsSlice";
+import timerSlice from "../features/timerSlice";
 
 export const store = configureStore({
   reducer: {
-   questions: questionsSlice,
-   gameOver: gameOverSlice
+    questions: questionsSlice,
+    gameOver: gameOverSlice,
+    timer: timerSlice,
   },
 });
 
