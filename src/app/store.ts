@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
+import gameOverSlice from '../features/gameOverSlice';
 import questionsSlice from '../features/questionsSlice';
 
 
 export const store = configureStore({
   reducer: {
-   questions: questionsSlice
+   questions: questionsSlice,
+   gameOver: gameOverSlice
   },
 });
 
