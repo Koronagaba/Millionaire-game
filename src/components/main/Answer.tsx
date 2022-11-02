@@ -12,16 +12,19 @@ import {
   chooseAnswer,
   drawQuestion,
   nextQuestion,
-  showCurrentAward,
 } from "../../features/questionsSlice";
+import { setGameOver, showCurrentAward } from "../../features/gameOverSlice";
 import { AnswerType } from "../../types/types";
 import "../../styles/main/Answer.css";
+import { setStopTimer } from "../../features/timerSlice";
 
 const Answer = () => {
   const [style, setStyle] = useState("");
-  const [gameOver, setGameOver] = useState(false);
-  const { currentQuestion, questionNumber, selectedAnswer, award } =
-    useSelector((state: RootState) => state.questions);
+  const { currentQuestion, questionNumber, selectedAnswer } = useSelector(
+    (state: RootState) => state.questions
+  );
+
+  const { award, gameOver} = useSelector((state: RootState) => state.gameOver);
 
   const dispatch = useDispatch();
 
@@ -46,11 +49,14 @@ const Answer = () => {
 
     dispatch(showCurrentAward(pyramid[questionNumber - 1].quantity));
 
+    // stop timer
+    dispatch(setStopTimer(true))
+
     setTimeout(() => {
       if (answer.isCorrect) {
         onNextQuest();
       } else {
-        setGameOver(true);
+        dispatch(setGameOver())
       }
     }, 4000);
   };
