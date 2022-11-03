@@ -24,7 +24,7 @@ const Answer = () => {
     (state: RootState) => state.questions
   );
 
-  const { award, gameOver} = useSelector((state: RootState) => state.gameOver);
+  const { award, gameOver } = useSelector((state: RootState) => state.gameOver);
 
   const dispatch = useDispatch();
 
@@ -47,19 +47,34 @@ const Answer = () => {
       answer.isCorrect ? "answer checked correct" : "answer checked wrong"
     );
 
-    dispatch(showCurrentAward(pyramid[questionNumber - 1].quantity));
+    // dispatch(showCurrentAward(pyramid[questionNumber - 1].quantity));
 
     // stop timer
-    dispatch(setStopTimer(true))
+    dispatch(setStopTimer(true));
 
     setTimeout(() => {
       if (answer.isCorrect) {
-        onNextQuest();
+        if (questionNumber === 12) {
+          dispatch(showCurrentAward(pyramid[11].quantity));
+          // You are Milionaire!!!!
+        } else {
+          onNextQuest();
+          dispatch(chooseAnswer(null));
+        }
       } else {
-        dispatch(setGameOver())
+        dispatch(setGameOver());
+        dispatch(chooseAnswer(null));
+        console.log("wrong", questionNumber);
+        if (questionNumber <= 2) dispatch(showCurrentAward(0));
+        else if (questionNumber >= 3 && questionNumber <= 7) {
+          dispatch(showCurrentAward(pyramid[1].quantity));
+        } else if (questionNumber >= 8 && questionNumber <= 12) {
+          dispatch(showCurrentAward(pyramid[6].quantity));
+        }
       }
-    }, 4000);
+    }, 20);
   };
+  console.log(questionNumber);
 
   return (
     <div className="answers">
