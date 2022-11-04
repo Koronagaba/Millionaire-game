@@ -41,17 +41,19 @@ const Answer = () => {
     dispatch(nextQuestion());
   };
 
+
+
   const selectAnswer = (answer: AnswerType) => {
+ if(selectedAnswer ) return    //Protection against multiple selection of answers
+
+
     dispatch(chooseAnswer(answer));
     setStyle(
       answer.isCorrect ? "answer checked correct" : "answer checked wrong"
     );
 
-    // dispatch(showCurrentAward(pyramid[questionNumber - 1].quantity));
-
     // stop timer
     dispatch(setStopTimer(true));
-
     setTimeout(() => {
       if (answer.isCorrect) {
         if (questionNumber === 12) {
@@ -72,9 +74,10 @@ const Answer = () => {
           dispatch(showCurrentAward(pyramid[6].quantity));
         }
       }
-    }, 20);
+    }, 3000);
   };
-  console.log(questionNumber);
+
+ 
 
   return (
     <div className="answers">
