@@ -2,7 +2,7 @@ import React from "react";
 import Answer from "./Answer";
 import Header from "./Header";
 import Question from "./Question";
-import "../../styles/main/Main.css"
+import "../../styles/main/Main.css";
 import Timer from "./Timer";
 
 const Main = () => {
@@ -11,8 +11,8 @@ const Main = () => {
       <Header />
       <div className="quiz">
         <Timer />
-      <Question />
-      <Answer />
+        <Question />
+        <Answer />
       </div>
     </div>
   );

@@ -8,20 +8,21 @@ import {
   setStopTimer,
   setTimerToinitialValue,
 } from "../../features/timerSlice";
+import "../../styles/main/Timer.css";
 
 const Timer = () => {
   const { questionNumber } = useSelector((state: RootState) => state.questions);
   const { stopTimer, timer } = useSelector((state: RootState) => state.timer);
   const dispatch = useDispatch();
 
-  const calculateAward = useCalculateAward()
+  const calculateAward = useCalculateAward();
 
   useEffect(() => {
     if (timer === 0) {
       dispatch(setGameOver());
       dispatch(setStopTimer(true));
       // Show award
-      calculateAward()
+      calculateAward();
     } else {
       if (stopTimer) return;
 
@@ -39,8 +40,8 @@ const Timer = () => {
   }, [questionNumber]);
 
   return (
-    <div>
-      <h1>Timer: {timer}</h1>
+    <div className="timer">
+      <p>{timer}</p>
     </div>
   );
 };
