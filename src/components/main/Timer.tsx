@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useCalculateAward } from "../../app/hooks/useCalculateAward";
 import { RootState } from "../../app/store";
 import { setGameOver } from "../../features/gameOverSlice";
 import {
@@ -13,10 +14,14 @@ const Timer = () => {
   const { stopTimer, timer } = useSelector((state: RootState) => state.timer);
   const dispatch = useDispatch();
 
+  const calculateAward = useCalculateAward()
+
   useEffect(() => {
     if (timer === 0) {
       dispatch(setGameOver());
       dispatch(setStopTimer(true));
+      // Show award
+      calculateAward()
     } else {
       if (stopTimer) return;
 
@@ -31,7 +36,6 @@ const Timer = () => {
   useEffect(() => {
     dispatch(setTimerToinitialValue());
     dispatch(setStopTimer(false));
-    console.log(timer);
   }, [questionNumber]);
 
   return (

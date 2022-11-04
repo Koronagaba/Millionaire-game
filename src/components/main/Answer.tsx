@@ -17,16 +17,16 @@ import { setGameOver, showCurrentAward } from "../../features/gameOverSlice";
 import { AnswerType } from "../../types/types";
 import "../../styles/main/Answer.css";
 import { setStopTimer } from "../../features/timerSlice";
+import { useCalculateAward } from "../../app/hooks/useCalculateAward";
 
 const Answer = () => {
   const [style, setStyle] = useState("");
   const { currentQuestion, questionNumber, selectedAnswer } = useSelector(
     (state: RootState) => state.questions
   );
-
   const { award, gameOver } = useSelector((state: RootState) => state.gameOver);
-
   const dispatch = useDispatch();
+  const calculateAward = useCalculateAward();
 
   const onNextQuest = () => {
     if (questionNumber <= 3) {
@@ -41,24 +41,20 @@ const Answer = () => {
     dispatch(nextQuestion());
   };
 
-
-
   const selectAnswer = (answer: AnswerType) => {
- if(selectedAnswer ) return    //Protection against multiple selection of answers
-
+    if (selectedAnswer) return; //Protection against multiple selection of answers
 
     dispatch(chooseAnswer(answer));
-    setStyle(
-      answer.isCorrect ? "answer checked correct" : "answer checked wrong"
-    );
-
+    setStyle(answer.isCorrect ? "answer checked correct" : "answer checked wrong");
     // stop timer
     dispatch(setStopTimer(true));
+
     setTimeout(() => {
       if (answer.isCorrect) {
         if (questionNumber === 12) {
           dispatch(showCurrentAward(pyramid[11].quantity));
           // You are Milionaire!!!!
+          
         } else {
           onNextQuest();
           dispatch(chooseAnswer(null));
@@ -66,18 +62,10 @@ const Answer = () => {
       } else {
         dispatch(setGameOver());
         dispatch(chooseAnswer(null));
-        console.log("wrong", questionNumber);
-        if (questionNumber <= 2) dispatch(showCurrentAward(0));
-        else if (questionNumber >= 3 && questionNumber <= 7) {
-          dispatch(showCurrentAward(pyramid[1].quantity));
-        } else if (questionNumber >= 8 && questionNumber <= 12) {
-          dispatch(showCurrentAward(pyramid[6].quantity));
-        }
+        calculateAward();
       }
     }, 3000);
   };
-
- 
 
   return (
     <div className="answers">
