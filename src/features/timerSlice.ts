@@ -6,7 +6,7 @@ interface TimerState {
 }
 
 const initialState: TimerState = {
-  timer: 5,
+  timer: 10,
   stopTimer: false,
 };
 
@@ -21,7 +21,7 @@ const timerSlice = createSlice({
         state.timer = state.timer - 1
     },
     setTimerToinitialValue(state){
-        state.timer = 5
+        state.timer = 10
     }
   },
 });

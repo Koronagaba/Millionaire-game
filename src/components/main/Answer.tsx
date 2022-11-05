@@ -25,6 +25,7 @@ const Answer = () => {
     (state: RootState) => state.questions
   );
   const { award, gameOver } = useSelector((state: RootState) => state.gameOver);
+  const {timer} =useSelector((state:RootState) => state.timer)
   const dispatch = useDispatch();
   const calculateAward = useCalculateAward();
 
