@@ -64,7 +64,7 @@ const Answer = () => {
         dispatch(chooseAnswer(null));
         calculateAward();
       }
-    }, 3000);
+    }, 5000);
   };
 
   return (
