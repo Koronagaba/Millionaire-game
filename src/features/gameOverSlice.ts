@@ -14,8 +14,8 @@ const gameOverSlice = createSlice({
   name: "gameOver",
   initialState,
   reducers: {
-    setGameOver(state) {
-      state.gameOver = true;
+    setGameOver(state, {payload}) {
+      state.gameOver = payload;
     },
     showCurrentAward(state, { payload }) {
       state.award = payload;

@@ -24,8 +24,6 @@ const Answer = () => {
   const { currentQuestion, questionNumber, selectedAnswer } = useSelector(
     (state: RootState) => state.questions
   );
-  const { award, gameOver } = useSelector((state: RootState) => state.gameOver);
-  const {timer} =useSelector((state:RootState) => state.timer)
   const dispatch = useDispatch();
   const calculateAward = useCalculateAward();
 
@@ -46,7 +44,9 @@ const Answer = () => {
     if (selectedAnswer) return; //Protection against multiple selection of answers
 
     dispatch(chooseAnswer(answer));
-    setStyle(answer.isCorrect ? "answer checked correct" : "answer checked wrong");
+    setStyle(
+      answer.isCorrect ? "answer checked correct" : "answer checked wrong"
+    );
     // stop timer
     dispatch(setStopTimer(true));
 
@@ -55,13 +55,12 @@ const Answer = () => {
         if (questionNumber === 12) {
           dispatch(showCurrentAward(pyramid[11].quantity));
           // You are Milionaire!!!!
-          
         } else {
           onNextQuest();
           dispatch(chooseAnswer(null));
         }
       } else {
-        dispatch(setGameOver());
+        dispatch(setGameOver(true));
         dispatch(chooseAnswer(null));
         calculateAward();
       }
@@ -70,24 +69,17 @@ const Answer = () => {
 
   return (
     <div className="answers">
-      {gameOver ? (
-        <div>
-          <h1>Game Over</h1>
-          <p>You won: {award}</p>
-        </div>
-      ) : (
-        <>
-          {currentQuestion?.answers.map((answer) => (
-            <button
-              className={selectedAnswer === answer ? style : "answer"}
-              key={answer.id}
-              onClick={() => selectAnswer(answer)}
-            >
-              {answer.answer}
-            </button>
-          ))}
-        </>
-      )}
+      <>
+        {currentQuestion?.answers.map((answer) => (
+          <button
+            className={selectedAnswer === answer ? style : "answer"}
+            key={answer.id}
+            onClick={() => selectAnswer(answer)}
+          >
+            {answer.answer}
+          </button>
+        ))}
+      </>
     </div>
   );
 };

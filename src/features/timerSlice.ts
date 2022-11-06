@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface TimerState {
-  timer: number;
+  // timer: number;
   stopTimer: boolean;
 }
 
 const initialState: TimerState = {
-  timer: 10,
+  // timer: 10,
   stopTimer: false,
 };
 
@@ -17,14 +17,16 @@ const timerSlice = createSlice({
     setStopTimer(state, {payload}) {
       state.stopTimer  = payload;
     },
-    runTimer(state) {
-        state.timer = state.timer - 1
-    },
-    setTimerToinitialValue(state){
-        state.timer = 10
-    }
+    // runTimer(state) {
+    //     state.timer = state.timer - 1
+    // },
+    // setTimerToinitialValue(state){
+    //     state.timer = 10
+    // }
   },
 });
 
-export const { setStopTimer, runTimer, setTimerToinitialValue } = timerSlice.actions;
+export const { setStopTimer,
+  //  runTimer, setTimerToinitialValue 
+  } = timerSlice.actions;
 export default timerSlice.reducer;
