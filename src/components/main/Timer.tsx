@@ -37,6 +37,9 @@ const Timer = () => {
   // }, [timer, dispatch, stopTimer]);
 
   useEffect(() => {
+    // Reset stopwatch
+    setKey((prevState) => prevState + 1);
+
     dispatch(setStopTimer(false));
   }, [questionNumber, dispatch]);
 
@@ -61,6 +64,7 @@ const Timer = () => {
   return (
     <div>
       <CountdownCircleTimer
+        key={key}
         isPlaying={!stopTimer}
         duration={timer}
         colors={["#004777", "#F7B801", "#A30000", "#A30000"]}

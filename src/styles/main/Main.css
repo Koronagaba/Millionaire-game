@@ -13,7 +13,7 @@
   }
 
   .quiz {
-    border: black solid 2px;
+    /* border: black solid 2px; */
     height: 50%;
     display: flex;
     flex-direction: column;
