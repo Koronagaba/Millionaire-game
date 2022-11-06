@@ -49,27 +49,25 @@ const Timer = () => {
       dispatch(setStopTimer(true));
       // Show award
       calculateAward();
-      return <div className="timer">Too lale...</div>;
+      return <div>Too lale...</div>;
     }
 
-    return (
-      <div className="timer">
-        <div className="text">Remaining</div>
-        <div className="value">{remainingTime}</div>
-        <div className="text">seconds</div>
-      </div>
-    );
+    return <div>{remainingTime}</div>
   };
 
   return (
-    <div>
+    <div className="timer">
       <CountdownCircleTimer
         key={key}
         isPlaying={!stopTimer}
         duration={timer}
-        colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
-        colorsTime={[10, 6, 3, 0]}
+        colors={["#004777", "#F7B801", "#A30000"]}
+        colorsTime={[10, 7, 0]}
         onComplete={() => ({ delay: 1 })}
+        size={80}
+        strokeWidth={8}
+        // trailStrokeWidth={2}
+        strokeLinecap='square'
       >
         {renderTime}
       </CountdownCircleTimer>

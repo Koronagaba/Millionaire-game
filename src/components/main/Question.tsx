@@ -17,13 +17,11 @@ const Question = () => {
   }, []);
 
   return (
-    <>
       <div className="question">
         <h1>
           {questionNumber}. {currentQuestion?.question}
         </h1>
       </div>
-    </>
   );
 };
 
