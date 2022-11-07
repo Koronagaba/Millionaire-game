@@ -11,10 +11,9 @@ const Pyramid = () => {
 
   return (
     <div className="pyramid">
-      <h1>Pyramid</h1>
       {pyramid.map(({ id, quantity, currency, safeHaven }) => (
         <div
-          className={`row ${safeHaven} ${
+          className={`row space ${safeHaven} ${
             questionNumber === id ? "activePyramid" : " "
           } `}
           key={id}
