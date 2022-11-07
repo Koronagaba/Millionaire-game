@@ -1,6 +1,7 @@
 import fiftyfifty_white_transparent from "../../assets/fiftyfifty-white-transparent.svg";
 import public_white_transparent from "../../assets/public-white-transparent.svg";
 import thirtySec_white_transparent from "../../assets/30sec-white-transparent.svg";
+import '../../styles/aside/Lifebous.css';
 
 const Lifebous = () => {
   return (
