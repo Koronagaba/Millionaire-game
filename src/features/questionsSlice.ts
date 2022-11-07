@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { AnswerType, Pyramid, SingleData } from "../types/types";
+import { AnswerType, SingleData } from "../types/types";
 
 interface QuestionState {
   questionNumber: number;
@@ -21,6 +21,9 @@ const questionsSlice = createSlice({
     nextQuestion(state) {
       state.questionNumber++;
     },
+    setQuestionNumber(state, {payload}){
+      state.questionNumber = payload
+    },
     drawQuestion(state, { payload }) {
       const random = Math.floor(Math.random() * payload.length);
       state.currentQuestion = payload[random];
@@ -32,5 +35,5 @@ const questionsSlice = createSlice({
   },
 });
 
-export const { nextQuestion, drawQuestion, chooseAnswer } = questionsSlice.actions;
+export const { nextQuestion, drawQuestion, chooseAnswer, setQuestionNumber } = questionsSlice.actions;
 export default questionsSlice.reducer;
