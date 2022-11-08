@@ -1,16 +1,21 @@
 import { useDispatch } from 'react-redux'
 import { useAppSelector } from '../../app/hooks/hooks'
+import { easyData } from '../../data/data'
 import { setGameOver } from '../../features/gameOverSlice'
-import { setQuestionNumber } from '../../features/questionsSlice'
+import { setDisableThirtySecond } from '../../features/lifebousSlice'
+import { drawQuestion, setQuestionNumber } from '../../features/questionsSlice'
 
+export const easyDataCopy = [...easyData]
 
 const GameOver = () => {
     const dispatch = useDispatch()
 const {award} = useAppSelector((state) => state.gameOver)
 
 const onPlayAgain = () => {
+  dispatch(drawQuestion(easyDataCopy));
   dispatch(setGameOver(false))
   dispatch(setQuestionNumber(1))
+  dispatch(setDisableThirtySecond(false))
 }
 
   return (
