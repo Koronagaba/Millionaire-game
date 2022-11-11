@@ -1,23 +1,31 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface LifebousState {
   disableThirtySec: boolean;
-  twoIdsWrongAnswers: number[];
+  twoIdsWrongAnswers: TwoIdsWrongAnswersInterface;
+}
+
+interface TwoIdsWrongAnswersInterface {
+  ids: number[];
+  questionId?: number;
 }
 
 const initialState: LifebousState = {
   disableThirtySec: false,
-  twoIdsWrongAnswers: [],
+  twoIdsWrongAnswers: { ids: [] },
 };
 
 const lifebousSlice = createSlice({
   name: "lifebous",
   initialState,
   reducers: {
-    setDisableThirtySecond(state, { payload }) {
+    setDisableThirtySecond(state, { payload }: { payload: boolean }) {
       state.disableThirtySec = payload;
     },
-    setTwoIdsWrongAnswers(state, { payload }) {
+    setTwoIdsWrongAnswers(
+      state,
+      { payload }: { payload: TwoIdsWrongAnswersInterface }
+    ) {
       state.twoIdsWrongAnswers = payload;
     },
   },

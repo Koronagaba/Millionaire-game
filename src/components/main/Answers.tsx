@@ -20,10 +20,10 @@ import { setStopTimer } from "../../features/timerSlice";
 import { useCalculateAward } from "../../app/hooks/useCalculateAward";
 import { easyDataCopy } from "./Question";
 import { useAppSelector } from "../../app/hooks/hooks";
+import classNames from "classnames";
 
-type RemovedWrongAnswerIdsType = [] | [number, number]
+type RemovedWrongAnswerIdsType = [] | [number, number];
 const Answers = () => {
-  const [style, setStyle] = useState("");
   const {
     currentQuestion,
     questionNumber,
@@ -31,7 +31,8 @@ const Answers = () => {
     // easyDataCopy
   } = useSelector((state: RootState) => state.questions);
   const { twoIdsWrongAnswers } = useAppSelector((state) => state.lifebous);
-  const [removedWrongAnswerIds, setRemovedWrongAnswerIds] = useState<RemovedWrongAnswerIdsType>([])
+  const [removedWrongAnswerIds, setRemovedWrongAnswerIds] =
+    useState<RemovedWrongAnswerIdsType>([]);
 
   const dispatch = useDispatch();
   const calculateAward = useCalculateAward();
@@ -54,9 +55,6 @@ const Answers = () => {
     if (selectedAnswer) return; //Protection against multiple selection of answers
 
     dispatch(chooseAnswer(answer));
-    setStyle(
-      answer.isCorrect ? "answer checked correct" : "answer checked wrong"
-    );
     // stop timer
     dispatch(setStopTimer(true));
 
@@ -79,31 +77,25 @@ const Answers = () => {
 
   return (
     <div className="answers">
-      <>
-        {currentQuestion?.answers.map((answer) => {
-          return (
-            <button
-              className={selectedAnswer === answer ? style : "answer"}
-              key={answer.id}
-              onClick={() => selectAnswer(answer)}
-            >
-              {answer.answer}
-            </button>
-          );
-
-          twoIdsWrongAnswers.map((itemTwoId) => {
-            //   return (
-            //   <button
-            //   className={selectedAnswer === answer ? style : "answer"}
-            //   key={answer.id}
-            //   onClick={() => selectAnswer(answer)}
-            // >
-            //   {answer.answer}
-            // </button>
-            //   )
-          });
-        })}
-      </>
+      {currentQuestion?.answers.map((answer) => {
+        const selected = selectedAnswer === answer;
+        const disabled =
+          twoIdsWrongAnswers?.questionId === currentQuestion.id &&
+          twoIdsWrongAnswers.ids.includes(answer.id);
+        return (
+          <button
+            className={classNames("answer", {
+              checked: selected,
+              [answer.isCorrect ? "correct" : "wrong"]: selected,
+              disabled,
+            })}
+            key={answer.id}
+            onClick={() => (disabled ? undefined : selectAnswer(answer))}
+          >
+            {answer.answer}
+          </button>
+        );
+      })}
     </div>
   );
 };

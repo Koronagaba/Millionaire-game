@@ -26,7 +26,7 @@ const Lifebous = () => {
   };
 
   const handleFiftyFifty = () => {
-    if (!currentQuestion) return;
+    if (twoIdsWrongAnswers.questionId || !currentQuestion ) return;
     const wrongAnswersIds = currentQuestion.answers
       .filter((answer) => answer.isCorrect === false)
       .map((wrongAnswer) => wrongAnswer.id);
@@ -34,7 +34,7 @@ const Lifebous = () => {
 
     const random = Math.floor(Math.random() * wrongAnswersIds.length);
     wrongAnswersIds.splice(random, 1);
-    dispatch(setTwoIdsWrongAnswers(wrongAnswersIds));
+    dispatch(setTwoIdsWrongAnswers({ids: wrongAnswersIds, questionId: currentQuestion.id }));
   };
 
 
@@ -46,7 +46,9 @@ const Lifebous = () => {
         alt="public help lifebous"
       />
       <img
-        className="img_lifebous"
+        className={classNames("img_lifebous", {
+          lifebousDisabled: twoIdsWrongAnswers.questionId,
+        })}
         onClick={handleFiftyFifty}
         src={fiftyfifty_white_transparent}
         alt="fifty-fifty lifebous"
