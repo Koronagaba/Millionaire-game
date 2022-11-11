@@ -1,6 +1,6 @@
 import Pyramid from "./Pyramid";
-import '../../styles/aside/Aside.css'
-import LifeBous from "./LifeBous";
+import "../../styles/aside/Aside.css";
+import LifeBous from "./LifeBous/LifeBous";
 
 const Aside = () => {
   return (

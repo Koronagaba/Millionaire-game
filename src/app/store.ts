@@ -10,6 +10,7 @@ export const store = configureStore({
     gameOver: gameOverSlice,
     timer: timerSlice,
     lifebous: lifebousSlice,
+  
   },
 });
 

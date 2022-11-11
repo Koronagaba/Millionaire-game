@@ -4,16 +4,23 @@ import { RootState } from "../../app/store";
 import { easyData } from "../../data/data";
 import { drawQuestion } from "../../features/questionsSlice";
 
+export const easyDataCopy = [...easyData]
+
 const Question = () => {
   const dispatch = useDispatch();
 
-  const { questionNumber, currentQuestion } = useSelector(
+  const { questionNumber, currentQuestion, 
+    // easyDataCopy
+   } = useSelector(
     (state: RootState) => state.questions
   );
 
+
+
   // Initial draw a question
   useEffect(() => {
-    dispatch(drawQuestion(easyData));
+    dispatch(drawQuestion(easyDataCopy));
+    
   }, []);
 
   return (

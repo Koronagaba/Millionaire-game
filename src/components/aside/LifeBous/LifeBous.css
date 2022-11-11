@@ -1,0 +1,20 @@
+.lifebous {
+    display: flex;
+    justify-content: space-around;
+    margin: auto 0;
+}
+
+.img_lifebous {
+    transition: transform .1s ease-in
+}
+
+.img_lifebous:hover {
+    transform: scale(1.05);
+    cursor: pointer
+}
+
+.img_lifebous.lifebousDisabled {
+    filter: invert(1);
+    cursor: not-allowed;
+    transform: none;
+}

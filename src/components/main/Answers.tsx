@@ -18,18 +18,27 @@ import { AnswerType } from "../../types/types";
 import "../../styles/main/Answer.css";
 import { setStopTimer } from "../../features/timerSlice";
 import { useCalculateAward } from "../../app/hooks/useCalculateAward";
+import { easyDataCopy } from "./Question";
+import { useAppSelector } from "../../app/hooks/hooks";
 
-const Answer = () => {
+type RemovedWrongAnswerIdsType = [] | [number, number]
+const Answers = () => {
   const [style, setStyle] = useState("");
-  const { currentQuestion, questionNumber, selectedAnswer } = useSelector(
-    (state: RootState) => state.questions
-  );
+  const {
+    currentQuestion,
+    questionNumber,
+    selectedAnswer,
+    // easyDataCopy
+  } = useSelector((state: RootState) => state.questions);
+  const { twoIdsWrongAnswers } = useAppSelector((state) => state.lifebous);
+  const [removedWrongAnswerIds, setRemovedWrongAnswerIds] = useState<RemovedWrongAnswerIdsType>([])
+
   const dispatch = useDispatch();
   const calculateAward = useCalculateAward();
 
   const onNextQuest = () => {
     if (questionNumber <= 3) {
-      dispatch(drawQuestion(easyData));
+      dispatch(drawQuestion(easyDataCopy));
     } else if (questionNumber > 3 && questionNumber <= 6) {
       dispatch(drawQuestion(mediumData));
     } else if (questionNumber > 6 && questionNumber <= 9) {
@@ -38,6 +47,7 @@ const Answer = () => {
       dispatch(drawQuestion(difficultData));
     }
     dispatch(nextQuestion());
+    // console.log(easyData);
   };
 
   const selectAnswer = (answer: AnswerType) => {
@@ -70,18 +80,32 @@ const Answer = () => {
   return (
     <div className="answers">
       <>
-        {currentQuestion?.answers.map((answer) => (
-          <button
-            className={selectedAnswer === answer ? style : "answer"}
-            key={answer.id}
-            onClick={() => selectAnswer(answer)}
-          >
-            {answer.answer}
-          </button>
-        ))}
+        {currentQuestion?.answers.map((answer) => {
+          return (
+            <button
+              className={selectedAnswer === answer ? style : "answer"}
+              key={answer.id}
+              onClick={() => selectAnswer(answer)}
+            >
+              {answer.answer}
+            </button>
+          );
+
+          twoIdsWrongAnswers.map((itemTwoId) => {
+            //   return (
+            //   <button
+            //   className={selectedAnswer === answer ? style : "answer"}
+            //   key={answer.id}
+            //   onClick={() => selectAnswer(answer)}
+            // >
+            //   {answer.answer}
+            // </button>
+            //   )
+          });
+        })}
       </>
     </div>
   );
 };
 
-export default Answer;
+export default Answers;

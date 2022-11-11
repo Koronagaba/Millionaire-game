@@ -1,5 +1,5 @@
 import React from "react";
-import Answer from "./Answer";
+import Answers from "./Answers";
 import Header from "./Header";
 import Question from "./Question";
 import "../../styles/main/Main.css";
@@ -19,7 +19,7 @@ const Main = () => {
         <div className="quiz">
           <Timer />
           <Question />
-          <Answer />
+          <Answers />
         </div>
       )}
     </div>

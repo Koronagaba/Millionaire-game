@@ -2,10 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface LifebousState {
   disableThirtySec: boolean;
+  twoIdsWrongAnswers: number[];
 }
 
 const initialState: LifebousState = {
   disableThirtySec: false,
+  twoIdsWrongAnswers: [],
 };
 
 const lifebousSlice = createSlice({
@@ -15,8 +17,12 @@ const lifebousSlice = createSlice({
     setDisableThirtySecond(state, { payload }) {
       state.disableThirtySec = payload;
     },
+    setTwoIdsWrongAnswers(state, { payload }) {
+      state.twoIdsWrongAnswers = payload;
+    },
   },
 });
 
-export const { setDisableThirtySecond } = lifebousSlice.actions;
+export const { setDisableThirtySecond, setTwoIdsWrongAnswers } =
+  lifebousSlice.actions;
 export default lifebousSlice.reducer;
