@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import {
@@ -21,6 +21,7 @@ import { useCalculateAward } from "../../app/hooks/useCalculateAward";
 import { easyDataCopy } from "./Question";
 import { useAppSelector } from "../../app/hooks/hooks";
 import classNames from "classnames";
+import { resetTwoIdsInTheGame } from "../../features/lifebousSlice";
 
 type RemovedWrongAnswerIdsType = [] | [number, number];
 const Answers = () => {
@@ -30,7 +31,7 @@ const Answers = () => {
     selectedAnswer,
     // easyDataCopy
   } = useSelector((state: RootState) => state.questions);
-  const { twoIdsWrongAnswers } = useAppSelector((state) => state.lifebous);
+  const { twoIdsWrongAnswers, twoIdsInTheGame } = useAppSelector((state) => state.lifebous);
   const [removedWrongAnswerIds, setRemovedWrongAnswerIds] =
     useState<RemovedWrongAnswerIdsType>([]);
 
@@ -48,9 +49,10 @@ const Answers = () => {
       dispatch(drawQuestion(difficultData));
     }
     dispatch(nextQuestion());
-    // console.log(easyData);
-  };
+    dispatch(resetTwoIdsInTheGame())
 
+  
+  };
   const selectAnswer = (answer: AnswerType) => {
     if (selectedAnswer) return; //Protection against multiple selection of answers
 
@@ -78,6 +80,7 @@ const Answers = () => {
   return (
     <div className="answers">
       {currentQuestion?.answers.map((answer) => {
+  
         const selected = selectedAnswer === answer;
         const disabled =
           twoIdsWrongAnswers?.questionId === currentQuestion.id &&

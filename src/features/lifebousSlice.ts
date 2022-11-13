@@ -1,18 +1,20 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface LifebousState {
-  disableThirtySec: boolean;
-  twoIdsWrongAnswers: TwoIdsWrongAnswersInterface;
-}
-
 interface TwoIdsWrongAnswersInterface {
   ids: number[];
   questionId?: number;
 }
 
+interface LifebousState {
+  disableThirtySec: boolean;
+  twoIdsWrongAnswers: TwoIdsWrongAnswersInterface;
+  twoIdsInTheGame: number[]
+}
+
 const initialState: LifebousState = {
   disableThirtySec: false,
   twoIdsWrongAnswers: { ids: [] },
+  twoIdsInTheGame: []
 };
 
 const lifebousSlice = createSlice({
@@ -28,9 +30,15 @@ const lifebousSlice = createSlice({
     ) {
       state.twoIdsWrongAnswers = payload;
     },
+    setTwoIdsInTheGame(state, {payload}){
+      state.twoIdsInTheGame = payload
+    },
+    resetTwoIdsInTheGame(state){
+      state.twoIdsInTheGame = []
+    }
   },
 });
 
-export const { setDisableThirtySecond, setTwoIdsWrongAnswers } =
+export const { setDisableThirtySecond, setTwoIdsWrongAnswers, setTwoIdsInTheGame, resetTwoIdsInTheGame } =
   lifebousSlice.actions;
 export default lifebousSlice.reducer;

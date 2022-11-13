@@ -1,6 +1,6 @@
 import React from "react";
 import Answers from "./Answers";
-import Header from "./Header";
+import Header from "./header/Header";
 import Question from "./Question";
 import "../../styles/main/Main.css";
 import Timer from "./Timer";
