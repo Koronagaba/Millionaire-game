@@ -1,9 +1,5 @@
 .aside {
-/* background-color: rgb(34, 34, 189); */
-/* background-color: #00225c; */
-/* background-color: #0d368c; */
-/* background-color: #155ae9; */
-background: linear-gradient(18deg, #0d368c 0%,   #00225c 100%);
+background: linear-gradient(18deg, #013ea6 10%,  #01102b   100%);
 width: 30%;
 display: flex;
 flex-direction: column;

@@ -5,7 +5,7 @@ import Question from "./Question";
 import "../../styles/main/Main.css";
 import Timer from "./Timer";
 import { useAppSelector } from "../../app/hooks/hooks";
-import GameOver from "./GameOver";
+import GameOver from "./gameOver/GameOver";
 
 const Main = () => {
   const gameOver = useAppSelector((state) => state.gameOver.gameOver);
@@ -13,13 +13,16 @@ const Main = () => {
   return (
     <div className="main">
       <Header />
+
       {gameOver ? (
         <GameOver />
       ) : (
         <div className="quiz">
           <Timer />
-          <Question />
-          <Answers />
+          <div>
+            <Question />
+            <Answers />
+          </div>
         </div>
       )}
     </div>
