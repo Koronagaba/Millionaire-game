@@ -1,28 +1,37 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 interface TwoIdsWrongAnswersInterface {
   ids: number[];
   questionId?: number;
 }
 
+interface AnswersAfterPublicHelp {
+  id?: number;
+  answerTheAudience: number;
+}
+
 interface LifebousState {
-  disableThirtySec: boolean;
+  disableThirtySecLifebous: boolean;
   twoIdsWrongAnswers: TwoIdsWrongAnswersInterface;
-  twoIdsInTheGame: number[]
+  twoIdsInTheGame: number[];
+  disablePublicHelpLifebous: boolean;
+  answersAfterPublicHelp: AnswersAfterPublicHelp[];
 }
 
 const initialState: LifebousState = {
-  disableThirtySec: false,
+  disableThirtySecLifebous: false,
   twoIdsWrongAnswers: { ids: [] },
-  twoIdsInTheGame: []
+  twoIdsInTheGame: [],
+  disablePublicHelpLifebous: false,
+  answersAfterPublicHelp: [],
 };
 
 const lifebousSlice = createSlice({
   name: "lifebous",
   initialState,
   reducers: {
-    setDisableThirtySecond(state, { payload }: { payload: boolean }) {
-      state.disableThirtySec = payload;
+    setDisableThirtySecondLifebous(state, { payload }: { payload: boolean }) {
+      state.disableThirtySecLifebous = payload;
     },
     setTwoIdsWrongAnswers(
       state,
@@ -30,15 +39,30 @@ const lifebousSlice = createSlice({
     ) {
       state.twoIdsWrongAnswers = payload;
     },
-    setTwoIdsInTheGame(state, {payload}){
-      state.twoIdsInTheGame = payload
+    setTwoIdsInTheGame(state, { payload }) {
+      state.twoIdsInTheGame = payload;
     },
-    resetTwoIdsInTheGame(state){
-      state.twoIdsInTheGame = []
-    }
+    resetTwoIdsInTheGame(state) {
+      state.twoIdsInTheGame = [];
+    },
+    setDisablePublicHelpLifebous(state, { payload }: { payload: boolean }) {
+      state.disablePublicHelpLifebous = payload;
+    },
+    setAnswersAfterPublicHelp(
+      state,
+      { payload }: { payload: AnswersAfterPublicHelp[] }
+    ) {
+      state.answersAfterPublicHelp = payload;
+    },
   },
 });
 
-export const { setDisableThirtySecond, setTwoIdsWrongAnswers, setTwoIdsInTheGame, resetTwoIdsInTheGame } =
-  lifebousSlice.actions;
+export const {
+  setDisableThirtySecondLifebous,
+  setTwoIdsWrongAnswers,
+  setTwoIdsInTheGame,
+  resetTwoIdsInTheGame,
+  setDisablePublicHelpLifebous,
+  setAnswersAfterPublicHelp,
+} = lifebousSlice.actions;
 export default lifebousSlice.reducer;

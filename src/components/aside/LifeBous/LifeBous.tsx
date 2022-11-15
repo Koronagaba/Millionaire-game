@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import fiftyfifty_white_transparent from "../../../assets/fiftyfifty-white-transparent.svg";
 import public_white_transparent from "../../../assets/public-white-transparent.svg";
 import thirtySec_white_transparent from "../../../assets/30sec-white-transparent.svg";
@@ -5,17 +6,31 @@ import { useDispatch } from "react-redux";
 import { setExtraTime } from "../../../features/timerSlice";
 import { useAppSelector } from "../../../app/hooks/hooks";
 import {
-  setDisableThirtySecond,
+  setAnswersAfterPublicHelp,
+  setDisablePublicHelpLifebous,
+  setDisableThirtySecondLifebous,
   setTwoIdsInTheGame,
   setTwoIdsWrongAnswers,
 } from "../../../features/lifebousSlice";
 import classNames from "classnames";
 import "./LifeBous.css";
 
+interface ProbabilityOfAudience {
+  id?: number;
+  probabilityAmount: number;
+}
+
 const Lifebous = () => {
-  const { disableThirtySec, twoIdsWrongAnswers } = useAppSelector(
-    (state) => state.lifebous
-  );
+  const [oneHundredPercentinAmount, setOneHundredPercent] = useState(0);
+  const [answersWithProbabilityAudience, setAnswersWithProbabilityAudience] =
+    useState<ProbabilityOfAudience[]>([]);
+
+  const {
+    disableThirtySecLifebous,
+    twoIdsWrongAnswers,
+    disablePublicHelpLifebous,
+    answersAfterPublicHelp,
+  } = useAppSelector((state) => state.lifebous);
   const { currentQuestion } = useAppSelector((state) => state.questions);
   const dispatch = useDispatch();
 
@@ -29,19 +44,62 @@ const Lifebous = () => {
   const threeIdsWrongAnswers = showWrongAnswersIds();
 
   const handlePublicHelp = () => {
-    if(twoIdsWrongAnswers.questionId === currentQuestion?.id) {
-     // With fiftyFifty lifebous
-      
-    }else {
-      
+    if (disablePublicHelpLifebous) return;
+    if (twoIdsWrongAnswers.questionId === currentQuestion?.id) {
+      // With fiftyFifty lifebous
+    } else {
+      currentQuestion?.answers.map((answer) => {
+        if (answer.isCorrect) {
+          // Probability for true answer
+          const trueRandom = Math.floor(Math.random() * (100 - 60 + 1) + 60);
 
-    console.log(threeIdsWrongAnswers);
-console.log('nie ma question Id');
+          setAnswersWithProbabilityAudience((prevState) => [
+            ...prevState,
+            {
+              id: answer.id,
+              probabilityAmount: trueRandom,
+            },
+          ]);
+        } else {
+          //Probability for false answer
+          const falseRandom = Math.floor(Math.random() * 80);
 
+          setAnswersWithProbabilityAudience((prevState) => [
+            ...prevState,
+            {
+              id: answer.id,
+              probabilityAmount: falseRandom,
+            },
+          ]);
+        }
+      });
+      dispatch(setDisablePublicHelpLifebous(true));
     }
-    
   };
 
+  useEffect(() => {
+    const sum = answersWithProbabilityAudience.reduce(
+      (accumulator, currentValue) =>
+        accumulator + currentValue.probabilityAmount,
+      0
+    );
+    setOneHundredPercent(sum);
+
+    const answerWithCalculatedPercents = answersWithProbabilityAudience.map(
+      (answer) => ({
+        id: answer.id,
+        answerTheAudience: Math.round(
+          (answer.probabilityAmount * 100) / oneHundredPercentinAmount
+        ),
+      })
+    );
+
+    dispatch(setAnswersAfterPublicHelp(answerWithCalculatedPercents));
+  }, [answersWithProbabilityAudience, oneHundredPercentinAmount, dispatch]);
+
+  console.log(answersAfterPublicHelp);
+
+  ////////////////////////////////////
   const handleFiftyFifty = () => {
     if (twoIdsWrongAnswers.questionId || !currentQuestion) return;
     if (!threeIdsWrongAnswers) return;
@@ -66,16 +124,18 @@ console.log('nie ma question Id');
   };
 
   const handleExtraTime = () => {
-    if (!disableThirtySec) {
+    if (!disableThirtySecLifebous) {
       dispatch(setExtraTime(30));
-      dispatch(setDisableThirtySecond(true));
+      dispatch(setDisableThirtySecondLifebous(true));
     }
   };
 
   return (
     <div className="lifebous">
       <img
-        className="img_lifebous"
+        className={classNames("img_lifebous", {
+          lifebousDisabled: disablePublicHelpLifebous,
+        })}
         onClick={handlePublicHelp}
         src={public_white_transparent}
         alt="public help lifebous"
@@ -90,7 +150,7 @@ console.log('nie ma question Id');
       />
       <img
         className={classNames("img_lifebous", {
-          lifebousDisabled: disableThirtySec,
+          lifebousDisabled: disableThirtySecLifebous,
         })}
         onClick={handleExtraTime}
         src={thirtySec_white_transparent}
