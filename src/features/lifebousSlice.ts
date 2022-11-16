@@ -5,6 +5,11 @@ interface TwoIdsWrongAnswersInterface {
   questionId?: number;
 }
 
+interface PorbabilityAnswers {
+  id?: number;
+  probabilityAmount: number;
+}
+
 interface AnswersAfterPublicHelp {
   id?: number;
   answerTheAudience: number;
@@ -15,7 +20,8 @@ interface LifebousState {
   twoIdsWrongAnswers: TwoIdsWrongAnswersInterface;
   twoIdsInTheGame: number[];
   disablePublicHelpLifebous: boolean;
-  answersAfterPublicHelp: AnswersAfterPublicHelp[];
+  probabilityAnswers: PorbabilityAnswers[];
+  percentAnswersAfterPublicHelp: AnswersAfterPublicHelp[];
 }
 
 const initialState: LifebousState = {
@@ -23,14 +29,18 @@ const initialState: LifebousState = {
   twoIdsWrongAnswers: { ids: [] },
   twoIdsInTheGame: [],
   disablePublicHelpLifebous: false,
-  answersAfterPublicHelp: [],
+  probabilityAnswers: [],
+  percentAnswersAfterPublicHelp: [],
 };
 
 const lifebousSlice = createSlice({
   name: "lifebous",
   initialState,
   reducers: {
-    setDisableThirtySecondLifebous(state, { payload }: { payload: boolean }) {
+    toggleDisableThirtySecondLifebous(
+      state,
+      { payload }: { payload: boolean }
+    ) {
       state.disableThirtySecLifebous = payload;
     },
     setTwoIdsWrongAnswers(
@@ -45,24 +55,32 @@ const lifebousSlice = createSlice({
     resetTwoIdsInTheGame(state) {
       state.twoIdsInTheGame = [];
     },
-    setDisablePublicHelpLifebous(state, { payload }: { payload: boolean }) {
+    toggleDisablePublicHelpLifebous(state, { payload }: { payload: boolean }) {
       state.disablePublicHelpLifebous = payload;
     },
-    setAnswersAfterPublicHelp(
+    addProbabilityAnswers(state, { payload }) {
+      state.probabilityAnswers.push(payload);
+    },
+    clearProbabilityAnswers(state) {
+      state.probabilityAnswers = [];
+    },
+    addAnswersWithCalculatedPercents(
       state,
       { payload }: { payload: AnswersAfterPublicHelp[] }
     ) {
-      state.answersAfterPublicHelp = payload;
+      state.percentAnswersAfterPublicHelp = payload;
     },
   },
 });
 
 export const {
-  setDisableThirtySecondLifebous,
+  toggleDisableThirtySecondLifebous,
   setTwoIdsWrongAnswers,
   setTwoIdsInTheGame,
   resetTwoIdsInTheGame,
-  setDisablePublicHelpLifebous,
-  setAnswersAfterPublicHelp,
+  toggleDisablePublicHelpLifebous,
+  addProbabilityAnswers,
+  clearProbabilityAnswers,
+  addAnswersWithCalculatedPercents,
 } = lifebousSlice.actions;
 export default lifebousSlice.reducer;

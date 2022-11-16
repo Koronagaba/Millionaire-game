@@ -6,30 +6,27 @@ import { useDispatch } from "react-redux";
 import { setExtraTime } from "../../../features/timerSlice";
 import { useAppSelector } from "../../../app/hooks/hooks";
 import {
-  setAnswersAfterPublicHelp,
-  setDisablePublicHelpLifebous,
-  setDisableThirtySecondLifebous,
+  addProbabilityAnswers,
+  addAnswersWithCalculatedPercents,
+  toggleDisablePublicHelpLifebous,
+  toggleDisableThirtySecondLifebous,
   setTwoIdsInTheGame,
   setTwoIdsWrongAnswers,
 } from "../../../features/lifebousSlice";
 import classNames from "classnames";
 import "./LifeBous.css";
 
-interface ProbabilityOfAudience {
-  id?: number;
-  probabilityAmount: number;
-}
-
 const Lifebous = () => {
   const [oneHundredPercentinAmount, setOneHundredPercent] = useState(0);
-  const [answersWithProbabilityAudience, setAnswersWithProbabilityAudience] =
-    useState<ProbabilityOfAudience[]>([]);
+  // const [answersWithProbabilityAudience, setAnswersWithProbabilityAudience] =
+  //   useState<ProbabilityOfAudience[]>([]);
 
   const {
     disableThirtySecLifebous,
     twoIdsWrongAnswers,
     disablePublicHelpLifebous,
-    answersAfterPublicHelp,
+    probabilityAnswers,
+    percentAnswersAfterPublicHelp,
   } = useAppSelector((state) => state.lifebous);
   const { currentQuestion } = useAppSelector((state) => state.questions);
   const dispatch = useDispatch();
@@ -51,53 +48,50 @@ const Lifebous = () => {
       currentQuestion?.answers.map((answer) => {
         if (answer.isCorrect) {
           // Probability for true answer
-          const trueRandom = Math.floor(Math.random() * (100 - 60 + 1) + 60);
+          const randomForTrueAnswer = Math.floor(
+            Math.random() * (100 - 60 + 1) + 60
+          );
 
-          setAnswersWithProbabilityAudience((prevState) => [
-            ...prevState,
-            {
+          dispatch(
+            addProbabilityAnswers({
               id: answer.id,
-              probabilityAmount: trueRandom,
-            },
-          ]);
+              probabilityAmount: randomForTrueAnswer,
+            })
+          );
         } else {
           //Probability for false answer
-          const falseRandom = Math.floor(Math.random() * 80);
-
-          setAnswersWithProbabilityAudience((prevState) => [
-            ...prevState,
-            {
+          const randomForFalseAnswer = Math.floor(Math.random() * 80);
+          dispatch(
+            addProbabilityAnswers({
               id: answer.id,
-              probabilityAmount: falseRandom,
-            },
-          ]);
+              probabilityAmount: randomForFalseAnswer,
+            })
+          );
         }
       });
-      dispatch(setDisablePublicHelpLifebous(true));
+      dispatch(toggleDisablePublicHelpLifebous(true));
     }
   };
 
   useEffect(() => {
-    const sum = answersWithProbabilityAudience.reduce(
+    const sum = probabilityAnswers.reduce(
       (accumulator, currentValue) =>
         accumulator + currentValue.probabilityAmount,
       0
     );
     setOneHundredPercent(sum);
 
-    const answerWithCalculatedPercents = answersWithProbabilityAudience.map(
-      (answer) => ({
-        id: answer.id,
-        answerTheAudience: Math.round(
-          (answer.probabilityAmount * 100) / oneHundredPercentinAmount
-        ),
-      })
-    );
+    const answersWithCalculatedPercents = probabilityAnswers.map((answer) => ({
+      id: answer.id,
+      answerTheAudience: Math.round(
+        (answer.probabilityAmount * 100) / oneHundredPercentinAmount
+      ),
+    }));
 
-    dispatch(setAnswersAfterPublicHelp(answerWithCalculatedPercents));
-  }, [answersWithProbabilityAudience, oneHundredPercentinAmount, dispatch]);
+    dispatch(addAnswersWithCalculatedPercents(answersWithCalculatedPercents));
+  }, [probabilityAnswers, oneHundredPercentinAmount, dispatch]);
 
-  console.log(answersAfterPublicHelp);
+  console.log(percentAnswersAfterPublicHelp);
 
   ////////////////////////////////////
   const handleFiftyFifty = () => {
@@ -126,7 +120,7 @@ const Lifebous = () => {
   const handleExtraTime = () => {
     if (!disableThirtySecLifebous) {
       dispatch(setExtraTime(30));
-      dispatch(setDisableThirtySecondLifebous(true));
+      dispatch(toggleDisableThirtySecondLifebous(true));
     }
   };
 

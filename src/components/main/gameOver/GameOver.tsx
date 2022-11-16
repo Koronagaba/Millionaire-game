@@ -3,9 +3,9 @@ import { useAppSelector } from "../../../app/hooks/hooks";
 import { easyData } from "../../../data/data";
 import { setGameOver } from "../../../features/gameOverSlice";
 import {
-  setAnswersAfterPublicHelp,
-  setDisablePublicHelpLifebous,
-  setDisableThirtySecondLifebous,
+  clearProbabilityAnswers,
+  toggleDisablePublicHelpLifebous,
+  toggleDisableThirtySecondLifebous,
   setTwoIdsWrongAnswers,
 } from "../../../features/lifebousSlice";
 import {
@@ -25,10 +25,10 @@ const GameOver = () => {
     dispatch(drawQuestion(easyDataCopy));
     dispatch(setGameOver(false));
     dispatch(setQuestionNumber(1));
-    dispatch(setDisableThirtySecondLifebous(false));
+    dispatch(toggleDisableThirtySecondLifebous(false));
     dispatch(setTwoIdsWrongAnswers({ ids: [], questionId: undefined }));
-    dispatch(setDisablePublicHelpLifebous(false));
-    dispatch(setAnswersAfterPublicHelp([]));
+    dispatch(toggleDisablePublicHelpLifebous(false));
+    dispatch(clearProbabilityAnswers());
   };
 
   return (
