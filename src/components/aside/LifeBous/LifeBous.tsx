@@ -134,6 +134,7 @@ const Lifebous = () => {
         src={public_white_transparent}
         alt="public help lifebous"
       />
+      <h1></h1>
       <img
         className={classNames("img_lifebous", {
           lifebousDisabled: twoIdsWrongAnswers.questionId,
