@@ -1,4 +1,3 @@
-import React from "react";
 import { useAppSelector } from "../../../app/hooks/hooks";
 import './PercentageBars.css'
 
@@ -7,10 +6,15 @@ const PercentageBars = () => {
     (state) => state.lifebous.percentAnswersAfterPublicHelp
   );
 
+  const siedem = 7
   const percentageBars = percentAnswersAfterPublicHelp.map((answer) => (
-    <div key={answer.id}>
-      <div>{answer.answerTheAudience}</div>
-      <div>{answer.id}</div>
+    
+    <div className="percentageBars_single"  key={answer.id}>
+      <div className="percentValue">{answer.answerTheAudience} %</div>
+      <div className='bar' 
+      style={{height: answer.answerTheAudience *1.3}}
+       ></div>
+      <div className="answer_id">{answer.id}</div>
     </div>
   ));
 

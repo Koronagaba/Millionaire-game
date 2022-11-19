@@ -1,5 +1,27 @@
+:root {
+  --bar-height: 70px;
+}
+
 .percentageBars {
+  margin: 10px auto 0 auto;
   display: flex;
+  justify-content: space-between;
   border: solid 4px #fff;
   border-radius: 5px;
+  min-height: 140px;
+  min-width: 40%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6) 30%, rgb(0, 0, 0) 90%);
+}
+.percentageBars_single {
+  width: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.percentageBars_single .bar {
+  margin-top: auto;
+  background-color: darkcyan;
+}
+.percentageBars_single .answer_id {
+  margin: 0 auto;
 }/*# sourceMappingURL=PercentageBars.css.map */
