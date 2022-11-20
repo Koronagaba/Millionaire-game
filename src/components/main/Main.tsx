@@ -10,8 +10,8 @@ import PercentageBars from "./percentageBars/PercentageBars";
 
 const Main = () => {
   const gameOver = useAppSelector((state) => state.gameOver.gameOver);
-  const disablePublicHelpLifebous = useAppSelector(
-    (state) => state.lifebous.disablePublicHelpLifebous
+  const probabilityAnswers = useAppSelector(
+    (state) => state.lifebous.probabilityAnswers
   );
 
   return (
@@ -23,7 +23,7 @@ const Main = () => {
       ) : (
         <div className="quiz">
           <Timer />
-          {disablePublicHelpLifebous && <PercentageBars />}
+          {probabilityAnswers.length !== 0 && <PercentageBars />}
           <div>
             <Question />
             <Answers />
