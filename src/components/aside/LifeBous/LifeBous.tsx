@@ -91,8 +91,6 @@ const Lifebous = () => {
     dispatch(addAnswersWithCalculatedPercents(answersWithCalculatedPercents));
   }, [probabilityAnswers, oneHundredPercentinAmount, dispatch]);
 
-  console.log(percentAnswersAfterPublicHelp);
-
   ////////////////////////////////////
   const handleFiftyFifty = () => {
     if (twoIdsWrongAnswers.questionId || !currentQuestion) return;
