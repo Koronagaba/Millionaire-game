@@ -28,7 +28,7 @@ const Lifebous = () => {
     probabilityAnswers,
     percentAnswersAfterPublicHelp,
   } = useAppSelector((state) => state.lifebous);
-  const { currentQuestion } = useAppSelector((state) => state.questions);
+  const { currentQuestion, selectedAnswer } = useAppSelector((state) => state.questions);
   const { gameOver } = useAppSelector((state) => state.gameOver);
   const dispatch = useDispatch();
 
@@ -42,7 +42,7 @@ const Lifebous = () => {
   const threeIdsWrongAnswers = showWrongAnswersIds();
 
   const handlePublicHelp = () => {
-    if (disablePublicHelpLifebous || gameOver) return;
+    if (disablePublicHelpLifebous || gameOver || selectedAnswer) return;
     if (twoIdsWrongAnswers.questionId === currentQuestion?.id) {
       // With fiftyFifty lifebous
     } else {
@@ -94,7 +94,7 @@ const Lifebous = () => {
 
   ////////////////////////////////////
   const handleFiftyFifty = () => {
-    if (twoIdsWrongAnswers.questionId || !currentQuestion || gameOver) return;
+    if (twoIdsWrongAnswers.questionId || !currentQuestion || gameOver || selectedAnswer) return;
     if (!threeIdsWrongAnswers) return;
 
     const random = Math.floor(Math.random() * threeIdsWrongAnswers.length);
@@ -117,7 +117,7 @@ const Lifebous = () => {
   };
 /////////////////////////////////////
   const handleExtraTime = () => {
-    if (disableThirtySecLifebous || gameOver) return;
+    if (disableThirtySecLifebous || gameOver || selectedAnswer) return;
     dispatch(setExtraTime(30));
     dispatch(toggleDisableThirtySecondLifebous(true));
   };
