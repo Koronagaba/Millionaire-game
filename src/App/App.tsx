@@ -1,7 +1,7 @@
 import React from "react";
-import Aside from "./components/aside/Aside";
-import Main from "./components/main/Main";
-import "./styles/App.css";
+import Aside from "../components/aside/Aside";
+import Main from "../components/main/Main";
+import "./App.css";
 
 function App() {
   return (

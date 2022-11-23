@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../app/store";
-import { easyData } from "../../data/data";
-import { drawQuestion } from "../../features/questionsSlice";
+import { RootState } from "../../../store";
+import { easyData } from "../../../data/data";
+import { drawQuestion } from "../../../features/questionsSlice";
+import './Question.css'
 
 export const easyDataCopy = [...easyData]
 

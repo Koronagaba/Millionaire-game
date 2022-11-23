@@ -4,7 +4,7 @@ import public_white_transparent from "../../../assets/public-white-transparent.s
 import thirtySec_white_transparent from "../../../assets/30sec-white-transparent.svg";
 import { useDispatch } from "react-redux";
 import { setExtraTime } from "../../../features/timerSlice";
-import { useAppSelector } from "../../../app/hooks/hooks";
+import { useAppSelector } from "../../../hooks/hooks";
 import {
   addProbabilityAnswers,
   addAnswersWithCalculatedPercents,

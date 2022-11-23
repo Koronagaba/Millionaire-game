@@ -1,0 +1,19 @@
+:root{
+    --main-bg: linear-gradient(18deg, #013185 30%,  #011c4d 70%);
+}
+
+.question {
+    padding: 10px;
+    background: var(--main-bg);
+    clip-path: polygon(
+    0 10%,
+    10% 0,
+    90% 0,
+    100% 5%,
+    100% 95%,
+    90% 100%,
+    4% 100%,
+    0% 90%,
+    0% 10%
+  )
+  }

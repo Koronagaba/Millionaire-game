@@ -1,4 +1,37 @@
-.gameOver {
-    /* height: 80%; */
-    margin: auto
+.wrapper {
+  height: 100vh;
+  background-color: #ccc;
 }
+
+.container {
+  max-width: 700px;
+  width: 80%;
+  min-height: 500px;
+}
+
+.center {
+  margin: auto;
+}
+
+.gameOver {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.gameOver .prize {
+  margin-top: 20px;
+}
+.gameOver .btn {
+  padding: 10px 0;
+  background: linear-gradient(18deg, #013185 30%, #011c4d 70%);
+  color: #fff;
+  border: none;
+  transition: transform 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}/*# sourceMappingURL=GameOver.css.map */

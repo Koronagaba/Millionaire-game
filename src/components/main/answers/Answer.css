@@ -1,0 +1,79 @@
+.answers {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+.answers .answer {
+  position: relative;
+  min-width: 35%;
+  padding: 5px;
+  font-size: 1em;
+  color: #fff;
+  margin: 2px 10px;
+  border: none;
+  transition: transform 0.1s;
+  background: linear-gradient(18deg, #013185 30%, #011c4d 70%);
+}
+.answers .answer:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}
+.answers .correct {
+  -webkit-animation: correct 4s forwards;
+          animation: correct 4s forwards;
+}
+.answers .wrong {
+  -webkit-animation: wrong 4s forwards;
+          animation: wrong 4s forwards;
+}
+.answers .disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+@-webkit-keyframes wrong {
+  0%, 35%, 43%, 56% {
+    background: #b69033;
+  }
+  40%, 53%, 66% {
+    background: aliceblue;
+  }
+  80%, 100% {
+    background: rgb(137, 4, 4);
+  }
+}
+
+@keyframes wrong {
+  0%, 35%, 43%, 56% {
+    background: #b69033;
+  }
+  40%, 53%, 66% {
+    background: aliceblue;
+  }
+  80%, 100% {
+    background: rgb(137, 4, 4);
+  }
+}
+@-webkit-keyframes correct {
+  0%, 35%, 43%, 56% {
+    background: #b69033;
+  }
+  40%, 53%, 66% {
+    background: aliceblue;
+  }
+  80%, 100% {
+    background: green;
+  }
+}
+@keyframes correct {
+  0%, 35%, 43%, 56% {
+    background: #b69033;
+  }
+  40%, 53%, 66% {
+    background: aliceblue;
+  }
+  80%, 100% {
+    background: green;
+  }
+}/*# sourceMappingURL=Answer.css.map */

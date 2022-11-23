@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useCalculateAward } from "../../app/hooks/useCalculateAward";
-import { RootState } from "../../app/store";
-import { setGameOver } from "../../features/gameOverSlice";
-import { setExtraTime, setStopTimer } from "../../features/timerSlice";
-import "../../styles/main/Timer.css";
+import { useCalculateAward } from "../../../hooks/useCalculateAward";
+import { RootState } from "../../../store";
+import { setGameOver } from "../../../features/gameOverSlice";
+import { setExtraTime, setStopTimer } from "../../../features/timerSlice";
+import "./Timer.css";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 const Timer = () => {
@@ -43,8 +43,8 @@ const Timer = () => {
       <CountdownCircleTimer
         key={key}
         isPlaying={!stopTimer}
-        duration={100 + extraTime}
-        colors={["#004777", "#F7B801", "#A30000"]}
+        duration={200 + extraTime}
+        colors={["#F7B801", "#F7B801", "#A30000"]}
         colorsTime={[10, 7, 0]}
         onComplete={() => ({ delay: 1 })}
         size={80}

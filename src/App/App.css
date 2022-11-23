@@ -1,0 +1,14 @@
+.wrapper {
+  height: 100vh;
+  background-color: #ccc;
+}
+
+.container {
+  max-width: 700px;
+  width: 80%;
+  min-height: 500px;
+}
+
+.center {
+  margin: auto;
+}/*# sourceMappingURL=App.css.map */

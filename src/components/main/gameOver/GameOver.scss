@@ -1,0 +1,24 @@
+@use "../../../App/App";
+
+.gameOver {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: 0 auto;
+    .prize {
+        margin-top: 20px
+    }
+    .btn{
+        padding: 10px 0;
+        background:  App.$main-bg;
+        color: #fff;
+        border: none;
+        transition: transform .2s ;
+    }
+}
+
+.btn:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}

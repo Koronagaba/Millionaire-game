@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { pyramid } from "../../data/data";
-import { showCurrentAward } from "../../features/gameOverSlice";
+import { pyramid } from "../data/data";
+import { showCurrentAward } from "../features/gameOverSlice";
 import { RootState } from "../store";
 
 export const useCalculateAward = () => {

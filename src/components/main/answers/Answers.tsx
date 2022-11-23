@@ -1,31 +1,32 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../app/store";
+import { RootState } from "../../../store";
 import {
   easyData,
   mediumData,
   quiteDifficultData,
   difficultData,
   pyramid,
-} from "../../data/data";
+} from "../../../data/data";
 import {
   chooseAnswer,
   drawQuestion,
   nextQuestion,
-} from "../../features/questionsSlice";
-import { setGameOver, showCurrentAward } from "../../features/gameOverSlice";
-import { AnswerType } from "../../types/types";
-import "../../styles/main/Answer.css";
-import { setStopTimer } from "../../features/timerSlice";
-import { useCalculateAward } from "../../app/hooks/useCalculateAward";
-import { easyDataCopy } from "./Question";
-import { useAppSelector } from "../../app/hooks/hooks";
-import classNames from "classnames";
+} from "../../../features/questionsSlice";
+import { setGameOver, showCurrentAward } from "../../../features/gameOverSlice";
+import { AnswerType } from "../../../types/types";
+
+import { setStopTimer } from "../../../features/timerSlice";
+import { useCalculateAward } from "../../../hooks/useCalculateAward";
+import { easyDataCopy } from "../Question/Question";
+import { useAppSelector } from "../../../hooks/hooks";
 import {
   clearProbabilityAnswers,
   resetTwoIdsInTheGame,
   toggleDisablePublicHelpLifebous,
-} from "../../features/lifebousSlice";
+} from "../../../features/lifebousSlice";
+import classNames from "classnames";
+import "./Answer.css";
 
 type RemovedWrongAnswerIdsType = [] | [number, number];
 const Answers = () => {

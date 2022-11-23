@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { useAppSelector } from "../../../app/hooks/hooks";
+import { useAppSelector } from "../../../hooks/hooks";
 import { easyData } from "../../../data/data";
 import { setGameOver } from "../../../features/gameOverSlice";
 import {
@@ -33,9 +33,11 @@ const GameOver = () => {
 
   return (
     <div className="gameOver">
-      <h1>GameOver</h1>
-      <h2>Your prize: {award}</h2>
-      <button onClick={onPlayAgain}>Play Again</button>
+      <div>
+        <h1>GameOver</h1>
+        <h2 className="prize">Your prize: {award}</h2>
+      </div>
+      <button className="btn" onClick={onPlayAgain}>Play Again</button>
     </div>
   );
 };

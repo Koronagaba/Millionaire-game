@@ -1,4 +1,4 @@
-import { useAppSelector } from "../../../app/hooks/hooks";
+import { useAppSelector } from "../../../hooks/hooks";
 import "./PercentageBars.css";
 
 const PercentageBars = () => {

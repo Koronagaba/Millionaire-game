@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../../app/store";
-import { pyramid } from "../../data/data";
+import { RootState } from "../../../store";
+import { pyramid } from "../../../data/data";
 
-import "../../styles/aside/Pyramid.css";
+import "./Pyramid.css";
 
 const Pyramid = () => {
   const questionNumber = useSelector(

@@ -1,12 +1,12 @@
-import React from "react";
-import Answers from "./Answers";
+import Answers from "./answers/Answers";
 import Header from "./header/Header";
-import Question from "./Question";
-import "../../styles/main/Main.css";
-import Timer from "./Timer";
-import { useAppSelector } from "../../app/hooks/hooks";
+import Question from "./Question/Question";
+import "./Main.css";
+import Timer from "./Timer/Timer";
+import { useAppSelector } from "../../hooks/hooks";
 import GameOver from "./gameOver/GameOver";
 import PercentageBars from "./percentageBars/PercentageBars";
+import classNames from "classnames";
 
 const Main = () => {
   const gameOver = useAppSelector((state) => state.gameOver.gameOver);
@@ -15,7 +15,9 @@ const Main = () => {
   );
 
   return (
-    <div className="main">
+    <div className={classNames('main', {
+      darkened: gameOver
+    })} >
       <Header />
 
       {gameOver ? (
