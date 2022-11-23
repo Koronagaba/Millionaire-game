@@ -1,0 +1,18 @@
+@use "../../../scss/variables";
+
+.aside {
+  background: variables.$main-bg;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+  .dim {
+    filter: brightness(35%);
+  }
+
+.stretch {
+  display: flex;
+}

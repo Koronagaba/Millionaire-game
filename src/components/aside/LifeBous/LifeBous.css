@@ -1,20 +1,23 @@
 .lifebous {
-    display: flex;
-    justify-content: space-around;
-    margin: auto 0;
+  display: flex;
+  justify-content: space-around;
+  margin: auto 0;
 }
-
-.img_lifebous {
-    transition: transform .1s ease-in
+.lifebous .img_lifebous {
+  transition: transform 0.1s ease-in;
+}
+.lifebous .notAllowed:hover {
+  cursor: not-allowed;
+  transform: none;
 }
 
 .img_lifebous:hover {
-    transform: scale(1.05);
-    cursor: pointer
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 .img_lifebous.lifebousDisabled {
-    filter: invert(1);
-    cursor: not-allowed;
-    transform: none;
-}
+  filter: invert(1);
+  cursor: not-allowed;
+  transform: none;
+}/*# sourceMappingURL=LifeBous.css.map */

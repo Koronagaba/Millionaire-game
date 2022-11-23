@@ -15,11 +15,12 @@ const Main = () => {
   );
 
   return (
-    <div className={classNames('main', {
-      darkened: gameOver
-    })} >
+    <div
+      className={classNames("main", {
+        darkened: gameOver,
+      })}
+    >
       <Header />
-
       {gameOver ? (
         <GameOver />
       ) : (

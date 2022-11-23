@@ -1,0 +1,15 @@
+.aside {
+  background: linear-gradient(18deg, #013185 30%, #011c4d 70%);
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dim {
+  filter: brightness(35%);
+}
+
+.stretch {
+  display: flex;
+}/*# sourceMappingURL=Aside.css.map */

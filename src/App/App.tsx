@@ -1,5 +1,5 @@
 import React from "react";
-import Aside from "../components/aside/Aside";
+import Aside from "../components/aside/Aside/Aside";
 import Main from "../components/main/Main";
 import "./App.css";
 

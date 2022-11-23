@@ -29,6 +29,7 @@ const Lifebous = () => {
     percentAnswersAfterPublicHelp,
   } = useAppSelector((state) => state.lifebous);
   const { currentQuestion } = useAppSelector((state) => state.questions);
+  const { gameOver } = useAppSelector((state) => state.gameOver);
   const dispatch = useDispatch();
 
   const showWrongAnswersIds = () => {
@@ -41,7 +42,7 @@ const Lifebous = () => {
   const threeIdsWrongAnswers = showWrongAnswersIds();
 
   const handlePublicHelp = () => {
-    if (disablePublicHelpLifebous) return;
+    if (disablePublicHelpLifebous || gameOver) return;
     if (twoIdsWrongAnswers.questionId === currentQuestion?.id) {
       // With fiftyFifty lifebous
     } else {
@@ -93,7 +94,7 @@ const Lifebous = () => {
 
   ////////////////////////////////////
   const handleFiftyFifty = () => {
-    if (twoIdsWrongAnswers.questionId || !currentQuestion) return;
+    if (twoIdsWrongAnswers.questionId || !currentQuestion || gameOver) return;
     if (!threeIdsWrongAnswers) return;
 
     const random = Math.floor(Math.random() * threeIdsWrongAnswers.length);
@@ -114,12 +115,11 @@ const Lifebous = () => {
 
     dispatch(setTwoIdsInTheGame(twoIdsInTheGame));
   };
-
+/////////////////////////////////////
   const handleExtraTime = () => {
-    if (!disableThirtySecLifebous) {
-      dispatch(setExtraTime(30));
-      dispatch(toggleDisableThirtySecondLifebous(true));
-    }
+    if (disableThirtySecLifebous || gameOver) return;
+    dispatch(setExtraTime(30));
+    dispatch(toggleDisableThirtySecondLifebous(true));
   };
 
   return (
@@ -127,6 +127,7 @@ const Lifebous = () => {
       <img
         className={classNames("img_lifebous", {
           lifebousDisabled: disablePublicHelpLifebous,
+          notAllowed: gameOver,
         })}
         onClick={handlePublicHelp}
         src={public_white_transparent}
@@ -136,6 +137,7 @@ const Lifebous = () => {
       <img
         className={classNames("img_lifebous", {
           lifebousDisabled: twoIdsWrongAnswers.questionId,
+          notAllowed: gameOver,
         })}
         onClick={handleFiftyFifty}
         src={fiftyfifty_white_transparent}
@@ -144,6 +146,7 @@ const Lifebous = () => {
       <img
         className={classNames("img_lifebous", {
           lifebousDisabled: disableThirtySecLifebous,
+          notAllowed: gameOver,
         })}
         onClick={handleExtraTime}
         src={thirtySec_white_transparent}
