@@ -4,8 +4,8 @@ import { RootState } from "../../../store";
 import { easyData } from "../../../data/data";
 import { drawQuestion } from "../../../features/questionsSlice";
 import './Question.css'
-
-export const easyDataCopy = [...easyData]
+import { easyDataCopy } from "../gameOver/GameOver";
+// export const easyDataCopy = [...easyData]
 
 const Question = () => {
   const dispatch = useDispatch();
@@ -21,6 +21,7 @@ const Question = () => {
   // Initial draw a question
   useEffect(() => {
     dispatch(drawQuestion(easyDataCopy));
+    console.log(easyDataCopy);
     
   }, []);
 

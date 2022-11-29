@@ -15,6 +15,7 @@ import {
 } from "../../../features/lifebousSlice";
 import classNames from "classnames";
 import "./LifeBous.css";
+import Timer from "../../main/Timer/Timer";
 
 const Lifebous = () => {
   const [oneHundredPercentinAmount, setOneHundredPercent] = useState(0);
@@ -133,7 +134,6 @@ const Lifebous = () => {
         src={public_white_transparent}
         alt="public help lifebous"
       />
-      <h1></h1>
       <img
         className={classNames("img_lifebous", {
           lifebousDisabled: twoIdsWrongAnswers.questionId,

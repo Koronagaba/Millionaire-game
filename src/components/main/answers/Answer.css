@@ -76,4 +76,13 @@
   80%, 100% {
     background: green;
   }
+}
+@media (max-width: 900px) {
+  .answers {
+    flex-direction: column;
+  }
+  .answers .answer {
+    font-size: 0.8em;
+    margin: 2px 0;
+  }
 }/*# sourceMappingURL=Answer.css.map */

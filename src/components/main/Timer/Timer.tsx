@@ -47,8 +47,8 @@ const Timer = () => {
         colors={["#F7B801", "#F7B801", "#A30000"]}
         colorsTime={[10, 7, 0]}
         onComplete={() => ({ delay: 1 })}
-        size={80}
-        strokeWidth={8}
+        size={70}
+        strokeWidth={7}
         // trailStrokeWidth={2}
         strokeLinecap="square"
       >

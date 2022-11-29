@@ -13,11 +13,11 @@ const easyData: SingleData[] = [
   },
   {
     id: 2,
-    question: "Second Question",
+    question: "Second Question Second Question Second Question Second Question Second Question",
     answers: [
       { id: 1, answer: "first answer", isCorrect: false },
-      { id: 2, answer: "second answer", isCorrect: false },
-      { id: 3, answer: "third answer", isCorrect: false },
+      { id: 2, answer: "second answer second answer second answer", isCorrect: false },
+      { id: 3, answer: "third answer third answer third answer third answer third answer", isCorrect: false },
       { id: 4, answer: "Tfourth answer", isCorrect: true },
     ],
   },

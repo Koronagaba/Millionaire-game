@@ -1,19 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { easyData } from "../data/data";
 import { AnswerType, SingleData } from "../types/types";
 
 interface QuestionState {
   questionNumber: number;
   currentQuestion: SingleData | null;
   selectedAnswer: AnswerType | null;
-  easyDataCopy: SingleData[]
 } 
 
 const initialState: QuestionState = {
   questionNumber: 1,
   currentQuestion : null,
   selectedAnswer: null,
-  easyDataCopy: [...easyData]
 };
 
 const questionsSlice = createSlice({

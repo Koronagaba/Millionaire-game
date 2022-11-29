@@ -1,0 +1,29 @@
+.asride {
+  background: rgb(7, 7, 37);
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.dim {
+  filter: brightness(35%);
+}
+
+.stretch {
+  display: flex;
+}
+
+@media (max-width: 700px) {
+  .asride {
+    display: none;
+  }
+  .showMobileAside {
+    position: absolute;
+    top: 0;
+    right: 23px;
+    display: flex;
+    justify-content: center;
+    min-width: 180px;
+    height: 100%;
+  }
+}

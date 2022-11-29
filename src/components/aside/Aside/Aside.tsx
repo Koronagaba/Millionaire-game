@@ -5,14 +5,19 @@ import classNames from "classnames";
 import { useAppSelector } from "../../../hooks/hooks";
 
 const Aside = () => {
-  const {gameOver} = useAppSelector(state => state.gameOver)
+  const { gameOver } = useAppSelector((state) => state.gameOver);
+
   return (
-    <div className={classNames("aside", {
-      dim: gameOver
-    })}>
-      <LifeBous />
-      <Pyramid />
-    </div>
+    <>
+      <div
+        className={classNames("aside", {
+          dim: gameOver,
+        })}
+      >
+        <LifeBous />
+        <Pyramid />
+      </div>
+    </>
   );
 };
 

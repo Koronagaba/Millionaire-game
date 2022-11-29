@@ -18,17 +18,15 @@ import { AnswerType } from "../../../types/types";
 
 import { setStopTimer } from "../../../features/timerSlice";
 import { useCalculateAward } from "../../../hooks/useCalculateAward";
-import { easyDataCopy } from "../Question/Question";
+import { easyDataCopy } from "../gameOver/GameOver";
 import { useAppSelector } from "../../../hooks/hooks";
 import {
   clearProbabilityAnswers,
   resetTwoIdsInTheGame,
-  toggleDisablePublicHelpLifebous,
 } from "../../../features/lifebousSlice";
 import classNames from "classnames";
 import "./Answer.css";
 
-type RemovedWrongAnswerIdsType = [] | [number, number];
 const Answers = () => {
   const {
     currentQuestion,
@@ -36,11 +34,9 @@ const Answers = () => {
     selectedAnswer,
     // easyDataCopy
   } = useSelector((state: RootState) => state.questions);
-  const { twoIdsWrongAnswers, twoIdsInTheGame } = useAppSelector(
+  const { twoIdsWrongAnswers } = useAppSelector(
     (state) => state.lifebous
   );
-  const [removedWrongAnswerIds, setRemovedWrongAnswerIds] =
-    useState<RemovedWrongAnswerIdsType>([]);
 
   const dispatch = useDispatch();
   const calculateAward = useCalculateAward();
@@ -58,6 +54,8 @@ const Answers = () => {
     dispatch(nextQuestion());
     dispatch(resetTwoIdsInTheGame());
     dispatch(clearProbabilityAnswers());
+    console.log(easyDataCopy);
+    
   };
   const selectAnswer = (answer: AnswerType) => {
     if (selectedAnswer) return; //Protection against multiple selection of answers

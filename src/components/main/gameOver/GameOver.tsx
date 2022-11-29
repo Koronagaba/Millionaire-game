@@ -22,7 +22,8 @@ const GameOver = () => {
   const { award } = useAppSelector((state) => state.gameOver);
 
   const onPlayAgain = () => {
-    dispatch(drawQuestion(easyDataCopy));
+
+    dispatch(drawQuestion(easyData));
     dispatch(setGameOver(false));
     dispatch(setQuestionNumber(1));
     dispatch(toggleDisableThirtySecondLifebous(false));

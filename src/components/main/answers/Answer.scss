@@ -75,3 +75,15 @@
     background: green;
   }
 }
+
+
+@media (max-width: 900px){
+  .answers{
+    flex-direction: column;
+    .answer{
+      font-size: .8em;
+      margin: 2px 0
+    }
+  }
+
+}
