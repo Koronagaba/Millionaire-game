@@ -18,7 +18,7 @@ import { AnswerType } from "../../../types/types";
 
 import { setStopTimer } from "../../../features/timerSlice";
 import { useCalculateAward } from "../../../hooks/useCalculateAward";
-import { easyDataCopy } from "../gameOver/GameOver";
+import { easyDataCopy } from "../GameOver/GameOver";
 import { useAppSelector } from "../../../hooks/hooks";
 import {
   clearProbabilityAnswers,

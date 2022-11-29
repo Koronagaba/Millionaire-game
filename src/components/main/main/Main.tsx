@@ -1,14 +1,14 @@
-import Answers from "../answers/Answers";
-import Header from "../header/Header";
-import Question from "../question/Question";
+import Answers from "../Answers/Answers";
+import Header from "../Header/Header";
+import Question from "../Question/Question";
 import "./Main.css";
-import Timer from "../timer/Timer";
+import Timer from "../Timer/Timer";
 import { useAppSelector } from "../../../hooks/hooks";
-import GameOver from "../gameOver/GameOver";
-import PercentageBars from "../percentageBars/PercentageBars";
+import GameOver from "../GameOver/GameOver";
+import PercentageBars from "../PercentageBars/PercentageBars";
 import classNames from "classnames";
-import Lifebous from "../../aside/lifeBous/LifeBous";
-import MobileAside from "../mobileAside/MobileAside";
+import Lifebous from "../../aside/LifeBous/LifeBous";
+import MobileAside from "../MobileAside/MobileAside";
 
 interface PropsDropDownAside {
   expandAside: boolean;

@@ -1,7 +1,7 @@
-import Pyramid from "../../aside/pyramid/Pyramid";
+import Pyramid from "../../aside/Pyramid/Pyramid";
 import classNames from "classnames";
 import { useAppSelector } from "../../../hooks/hooks";
-import DropDownAside from "../../aside/dropDownAside/DropDownAside";
+import DropDownAside from "../../aside/DropDownAside/DropDownAside";
 import "./MobileAside.css";
 
 interface PropsDropDownAside {

@@ -1,7 +1,7 @@
 import React from "react";
 import {useEffect, useState} from "react";
-import Aside from "../components/aside/aside/Aside";
-import Main from "../components/main/main/Main";
+import Aside from "../components/aside/Aside/Aside";
+import Main from "../components/main/Main/Main";
 import { setIsMobileFalse, setIsMobileTrue } from "../features/responsiveSlice";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import "./App.css";

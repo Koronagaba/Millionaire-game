@@ -1,6 +1,6 @@
-import Pyramid from "../pyramid/Pyramid";
+import Pyramid from "../Pyramid/Pyramid";
 import "./Aside.css";
-import LifeBous from "../lifeBous/LifeBous";
+import LifeBous from "../LifeBous/LifeBous";
 import classNames from "classnames";
 import { useAppSelector } from "../../../hooks/hooks";
 
