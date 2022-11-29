@@ -15,8 +15,7 @@
   border: none;
   transition: transform 0.2s;
 }
-
-.btn:hover {
+.gameOver .btn:hover {
   cursor: pointer;
   transform: scale(1.02);
 }/*# sourceMappingURL=GameOver.css.map */

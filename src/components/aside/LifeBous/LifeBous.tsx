@@ -15,7 +15,7 @@ import {
 } from "../../../features/lifebousSlice";
 import classNames from "classnames";
 import "./LifeBous.css";
-import Timer from "../../main/Timer/Timer";
+import Timer from "../../main/timer/Timer";
 
 const Lifebous = () => {
   const [oneHundredPercentinAmount, setOneHundredPercent] = useState(0);

@@ -1,6 +1,10 @@
+@use "../../../scss/mixins" as *;
+@use "../../../scss/variables" as *;
+
 .question {
   padding: 5px;
-  background: linear-gradient(18deg, #013185 30%, #011c4d 70%);
+  background: $main-bg;
+
   /* clip-path: polygon(
     0 10%,
     10% 0,
@@ -12,12 +16,11 @@
     0% 90%,
     0% 10%
   ) */
-}
-@media (max-width: 700px) {
-  .question {
+
+  @include mq() {
     font-size: 0.6em;
     min-height: 70px;
     display: flex;
     align-items: center;
   }
-}/*# sourceMappingURL=Question.css.map */
+}

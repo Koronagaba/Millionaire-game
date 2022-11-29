@@ -2,23 +2,23 @@
 @use "../../../scss/mixins";
 
 .gameOver {
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    margin: 0 auto;
-    .prize {
-        margin-top: 20px
-    }
-    .btn{
-        padding: 10px 0;
-        background:  variables.$main-bg;
-        color: #fff;
-        border: none;
-        transition: transform .2s ;
-    }
-}
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  margin: 0 auto;
+  .prize {
+    margin-top: 20px;
+  }
+  .btn {
+    padding: 10px 0;
+    background: variables.$main-bg;
+    color: #fff;
+    border: none;
+    transition: transform 0.2s;
 
-.btn:hover{
-@include mixins.hoverOver()
+    &:hover {
+      @include mixins.hoverOver();
+    }
+  }
 }

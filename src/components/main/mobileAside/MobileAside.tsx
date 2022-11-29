@@ -1,7 +1,7 @@
-import Pyramid from "../../aside/Pyramid/Pyramid";
+import Pyramid from "../../aside/pyramid/Pyramid";
 import classNames from "classnames";
 import { useAppSelector } from "../../../hooks/hooks";
-import DropDownAside from "../../aside/DropDownAside/DropDownAside";
+import DropDownAside from "../../aside/dropDownAside/DropDownAside";
 import "./MobileAside.css";
 
 interface PropsDropDownAside {
@@ -20,7 +20,7 @@ const MobileAside = ({expandAside, setExpandAside }: PropsDropDownAside) => {
           setExpandAside={setExpandAside}
         />
         <div
-          className={classNames("asride", {
+          className={classNames("mobileAside", {
             dim: gameOver,
             showMobileAside: expandAside
           })}

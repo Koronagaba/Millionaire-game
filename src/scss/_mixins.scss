@@ -3,3 +3,8 @@
     transform: scale(1.02);
   }
   
+@mixin mq($size: 700px) {
+  @media (max-width: $size){
+    @content
+  }
+}

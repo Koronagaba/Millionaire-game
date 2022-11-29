@@ -10,6 +10,14 @@
   cursor: not-allowed;
   transform: none;
 }
+@media (max-width: 700px) {
+  .lifebous {
+    justify-content: center;
+  }
+  .lifebous .img_lifebous + .img_lifebous {
+    margin-left: 10%;
+  }
+}
 
 .img_lifebous:hover {
   transform: scale(1.05);

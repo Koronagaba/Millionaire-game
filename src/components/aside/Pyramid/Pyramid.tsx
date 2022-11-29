@@ -13,14 +13,13 @@ const Pyramid = () => {
     <div className="pyramid">
       {pyramid.map(({ id, quantity, currency, safeHaven }) => (
         <div
-          className={`single_pyramid row space ${safeHaven} ${
+          className={`single_pyramid ${safeHaven} ${
             questionNumber === id ? "activePyramid" : " "
           } `}
           key={id}
         >
           <p>{id}</p>
           <p>
-            {" "}
             {quantity} {currency}
           </p>
         </div>
