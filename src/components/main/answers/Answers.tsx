@@ -34,9 +34,7 @@ const Answers = () => {
     selectedAnswer,
     // easyDataCopy
   } = useSelector((state: RootState) => state.questions);
-  const { twoIdsWrongAnswers } = useAppSelector(
-    (state) => state.lifebous
-  );
+  const { twoIdsWrongAnswers } = useAppSelector((state) => state.lifebous);
 
   const dispatch = useDispatch();
   const calculateAward = useCalculateAward();
@@ -54,8 +52,6 @@ const Answers = () => {
     dispatch(nextQuestion());
     dispatch(resetTwoIdsInTheGame());
     dispatch(clearProbabilityAnswers());
-    console.log(easyDataCopy);
-    
   };
   const selectAnswer = (answer: AnswerType) => {
     if (selectedAnswer) return; //Protection against multiple selection of answers

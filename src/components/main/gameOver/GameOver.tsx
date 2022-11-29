@@ -22,7 +22,6 @@ const GameOver = () => {
   const { award } = useAppSelector((state) => state.gameOver);
 
   const onPlayAgain = () => {
-
     dispatch(drawQuestion(easyData));
     dispatch(setGameOver(false));
     dispatch(setQuestionNumber(1));
@@ -38,7 +37,9 @@ const GameOver = () => {
         <h1>GameOver</h1>
         <h2 className="prize">Your prize: {award}</h2>
       </div>
-      <button className="btn" onClick={onPlayAgain}>Play Again</button>
+      <button className="btn" onClick={onPlayAgain}>
+        Play Again
+      </button>
     </div>
   );
 };

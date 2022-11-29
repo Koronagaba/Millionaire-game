@@ -2,10 +2,14 @@
   height: 100vh;
   background-color: #ccc;
 }
-
-.app_container {
+.wrapper .app_container {
   display: flex;
   margin: 0 auto;
   max-width: 700px;
   min-height: 500px;
+}
+@media (max-width: 700px) {
+  .wrapper .app_container {
+    height: 100%;
+  }
 }/*# sourceMappingURL=App.css.map */

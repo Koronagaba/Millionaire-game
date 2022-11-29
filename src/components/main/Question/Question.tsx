@@ -21,8 +21,6 @@ const Question = () => {
   // Initial draw a question
   useEffect(() => {
     dispatch(drawQuestion(easyDataCopy));
-    console.log(easyDataCopy);
-    
   }, []);
 
   return (

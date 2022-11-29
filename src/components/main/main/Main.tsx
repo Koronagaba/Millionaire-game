@@ -22,8 +22,6 @@ const Main = ({ expandAside, setExpandAside }: PropsDropDownAside) => {
   );
   const isMobile = useAppSelector((state) => state.responsive.isMobile);
 
-  console.log(isMobile);
-
   return (
     <>
       <div className="main_container">
@@ -33,30 +31,32 @@ const Main = ({ expandAside, setExpandAside }: PropsDropDownAside) => {
           })}
         >
           <Header />
-
-          {/* Only for mobile */}
-          {isMobile && (
-            <div>
-              <Lifebous />
-              <Timer />
-            </div>
-          )}
-
           {gameOver ? (
             <GameOver />
           ) : (
-            <div className="quiz">
-              {!isMobile ? <Timer /> : <div></div>}
-              {probabilityAnswers.length !== 0 && <PercentageBars />}
-              <div>
-                <Question />
-                <Answers />
+            <>
+              {isMobile && (
+                <div>
+                  <Lifebous />
+                  <Timer />
+                </div>
+              )}
+              <div className="quiz">
+                {!isMobile ? <Timer /> : <div></div>}
+                {probabilityAnswers.length !== 0 && <PercentageBars />}
+                <div>
+                  <Question />
+                  <Answers />
+                </div>
               </div>
-            </div>
+            </>
           )}
         </div>
         {isMobile && (
-          <MobileAside expandAside={expandAside} setExpandAside={setExpandAside} />
+          <MobileAside
+            expandAside={expandAside}
+            setExpandAside={setExpandAside}
+          />
         )}
       </div>
     </>
