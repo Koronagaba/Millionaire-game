@@ -4,7 +4,7 @@ import { RootState } from "../../../store";
 import { easyData } from "../../../data/data";
 import { drawQuestion } from "../../../features/questionsSlice";
 import './Question.css'
-import { easyDataCopy } from "../GameOver/GameOver";
+import { easyDataCopy } from "../gameOver/GameOver";
 // export const easyDataCopy = [...easyData]
 
 const Question = () => {
