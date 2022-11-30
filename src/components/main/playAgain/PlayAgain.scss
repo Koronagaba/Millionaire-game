@@ -1,0 +1,18 @@
+@use "../../../scss/variables";
+@use "../../../scss/mixins";
+
+
+    .btn {
+        padding: 10px 0;
+        background: variables.$main-bg;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        transition: transform 0.2s;
+      
+        &:hover {
+          @include mixins.hoverOver();
+        }
+      }
+
+

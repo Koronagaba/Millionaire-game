@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import "./App.css";
 
 function App() {
-const [expandAside, setExpandAside] = useState(false);
+
 const dispatch = useAppDispatch()
 const {isMobile} = useAppSelector(state => state.responsive)
 
@@ -15,6 +15,7 @@ const {isMobile} = useAppSelector(state => state.responsive)
     if (window.innerWidth < 700) {
 dispatch(setIsMobileTrue())
     } else dispatch(setIsMobileFalse())
+    
     window.addEventListener("resize", () => {
       if (window.innerWidth < 700) {
         dispatch(setIsMobileTrue())
@@ -26,8 +27,7 @@ dispatch(setIsMobileTrue())
   return (
     <div className="wrapper">
       <div className="app_container">
-          <Main  expandAside={expandAside}
-          setExpandAside={setExpandAside}/>
+          <Main />
           {!isMobile && <Aside />}
           
       </div>

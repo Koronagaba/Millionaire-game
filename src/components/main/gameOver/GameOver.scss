@@ -1,24 +1,10 @@
-@use "../../../scss/variables";
-@use "../../../scss/mixins";
-
 .gameOver {
-  height: 100%;
   display: flex;
-  justify-content: space-around;
   flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
   margin: 0 auto;
   .prize {
     margin-top: 20px;
-  }
-  .btn {
-    padding: 10px 0;
-    background: variables.$main-bg;
-    color: #fff;
-    border: none;
-    transition: transform 0.2s;
-
-    &:hover {
-      @include mixins.hoverOver();
-    }
   }
 }

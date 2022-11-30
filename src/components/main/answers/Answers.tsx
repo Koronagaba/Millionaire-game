@@ -24,6 +24,7 @@ import {
   clearProbabilityAnswers,
   resetTwoIdsInTheGame,
 } from "../../../features/lifebousSlice";
+import { youAreMillionaire } from "../../../features/millionaireSlice";
 import classNames from "classnames";
 import "./Answer.css";
 
@@ -35,6 +36,7 @@ const Answers = () => {
     // easyDataCopy
   } = useSelector((state: RootState) => state.questions);
   const { twoIdsWrongAnswers } = useAppSelector((state) => state.lifebous);
+  const { award } = useAppSelector((state) => state.gameOver);
 
   const dispatch = useDispatch();
   const calculateAward = useCalculateAward();
@@ -53,17 +55,20 @@ const Answers = () => {
     dispatch(resetTwoIdsInTheGame());
     dispatch(clearProbabilityAnswers());
   };
+
   const selectAnswer = (answer: AnswerType) => {
     if (selectedAnswer) return; //Protection against multiple selection of answers
+    calculateAward();
 
     dispatch(chooseAnswer(answer));
     // stop timer
     dispatch(setStopTimer(true));
-
     setTimeout(() => {
       if (answer.isCorrect) {
         if (questionNumber === 12) {
           dispatch(showCurrentAward(pyramid[11].quantity));
+          dispatch(youAreMillionaire(true));
+          dispatch(chooseAnswer(null));
           // You are Milionaire!!!!
         } else {
           onNextQuest();
@@ -72,10 +77,18 @@ const Answers = () => {
       } else {
         dispatch(setGameOver(true));
         dispatch(chooseAnswer(null));
-        calculateAward();
       }
     }, 50);
   };
+
+  // Storing Score in localStorage
+  useEffect(() => {
+    const localScore = localStorage.getItem("score") ?? "0";
+    const localScoreAsNumber = parseInt(localScore);
+    if (award >= localScoreAsNumber) {
+      localStorage.setItem("score", award.toString());
+    }
+  }, [award, selectedAnswer]);
 
   return (
     <div className="answers">

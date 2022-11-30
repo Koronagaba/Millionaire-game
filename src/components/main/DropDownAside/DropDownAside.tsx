@@ -5,7 +5,9 @@ interface PropsDropDownAside {
   setExpandAside: (arg1: boolean) => void;
 }
 
+
 const DropDownAside = ({ expandAside, setExpandAside }: PropsDropDownAside) => {
+
   const toggleDropDown = () => {
     setExpandAside(!expandAside);
   };

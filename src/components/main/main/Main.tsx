@@ -9,17 +9,14 @@ import PercentageBars from "../percentageBars/PercentageBars";
 import classNames from "classnames";
 import Lifebous from "../../aside/LifeBous/LifeBous";
 import MobileAside from "../mobileAside/MobileAside";
+import YouAreMillionaire from "../youAreMillionaire/YouAreMillionaire";
 
-interface PropsDropDownAside {
-  expandAside: boolean;
-  setExpandAside: (arg1: boolean) => void;
-}
-
-const Main = ({ expandAside, setExpandAside }: PropsDropDownAside) => {
+const Main = () => {
   const gameOver = useAppSelector((state) => state.gameOver.gameOver);
   const probabilityAnswers = useAppSelector(
     (state) => state.lifebous.probabilityAnswers
   );
+  const { youAreMillionaire } = useAppSelector((state) => state.millionaire);
   const isMobile = useAppSelector((state) => state.responsive.isMobile);
 
   return (
@@ -31,33 +28,34 @@ const Main = ({ expandAside, setExpandAside }: PropsDropDownAside) => {
           })}
         >
           <Header />
-          {gameOver ? (
-            <GameOver />
+          {youAreMillionaire ? (
+            <YouAreMillionaire />
           ) : (
             <>
-              {isMobile && (
-                <div>
-                  <Lifebous />
-                  <Timer />
-                </div>
+              {gameOver ? (
+                <GameOver />
+              ) : (
+                <>
+                  {isMobile && (
+                    <div>
+                      <Lifebous />
+                      <Timer />
+                    </div>
+                  )}
+                  <div className="quiz">
+                    {!isMobile ? <Timer /> : <div></div>}
+                    {probabilityAnswers.length !== 0 && <PercentageBars />}
+                    <div>
+                      <Question />
+                      <Answers />
+                    </div>
+                  </div>
+                </>
               )}
-              <div className="quiz">
-                {!isMobile ? <Timer /> : <div></div>}
-                {probabilityAnswers.length !== 0 && <PercentageBars />}
-                <div>
-                  <Question />
-                  <Answers />
-                </div>
-              </div>
             </>
           )}
         </div>
-        {isMobile && (
-          <MobileAside
-            expandAside={expandAside}
-            setExpandAside={setExpandAside}
-          />
-        )}
+        {isMobile && <MobileAside />}
       </div>
     </>
   );

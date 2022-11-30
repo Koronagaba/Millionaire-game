@@ -1,10 +1,7 @@
-.gameOver {
+.millionaire {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
   margin: 0 auto;
-}
-.gameOver .prize {
-  margin-top: 20px;
-}/*# sourceMappingURL=GameOver.css.map */
+}/*# sourceMappingURL=YouAreMillionaire.css.map */
