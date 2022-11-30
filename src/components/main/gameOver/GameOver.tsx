@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../../hooks/hooks";
 import { easyData } from "../../../data/data";
@@ -30,6 +31,7 @@ const GameOver = () => {
     dispatch(toggleDisablePublicHelpLifebous(false));
     dispatch(clearProbabilityAnswers());
   };
+
 
   return (
     <div className="gameOver">

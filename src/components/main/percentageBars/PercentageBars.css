@@ -7,7 +7,6 @@
   border-radius: 5px;
   min-height: 140px;
   min-width: 40%;
-  background: linear-gradient(rgba(0, 0, 0, 0.6) 30%, rgb(0, 0, 0) 90%);
 }
 .percentageBars_single {
   width: 35px;
@@ -23,4 +22,7 @@
 }
 .percentageBars_single .answer_id {
   margin: 0 auto;
+}
+.percentageBars_single + .percentageBars_single {
+  margin-left: 12px;
 }/*# sourceMappingURL=PercentageBars.css.map */

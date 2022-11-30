@@ -1,3 +1,5 @@
 .header {
-    height: 10%
-}
+  display: flex;
+  justify-content: space-around;
+  height: 10%;
+}/*# sourceMappingURL=Header.css.map */

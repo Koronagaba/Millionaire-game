@@ -23,25 +23,4 @@
   background-color: #b69033;
   box-shadow: 0 0 8px 4px white;
   border-radius: 4px;
-}
-.pyramid .activePyramidbefore {
-  content: "";
-  position: absolute;
-  width: 15.6px;
-  height: 15.6px;
-  left: -7.2px;
-  top: 5px;
-  transform: rotate(45deg);
-  /* background-color: #f8ca3f; */
-  background-color: #b69033;
-}
-.pyramid .activePyramidafter {
-  content: "";
-  position: absolute;
-  width: 15.6px;
-  height: 15.6px;
-  right: -7.2px;
-  top: 5px;
-  transform: rotate(45deg);
-  background-color: #b69033;
 }/*# sourceMappingURL=Pyramid.css.map */
