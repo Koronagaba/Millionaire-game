@@ -27,6 +27,10 @@ import {
 import { youAreMillionaire } from "../../../features/millionaireSlice";
 import classNames from "classnames";
 import "./Answer.css";
+import useSound from "use-sound";
+import synth_melody from "../../../assets/sounds/synth_melody.mp3";
+import applause from "../../../assets/sounds/applause.mp3";
+import applause_9s from "../../../assets/sounds/applause_9s.mp3";
 
 const Answers = () => {
   const {
@@ -40,6 +44,10 @@ const Answers = () => {
 
   const dispatch = useDispatch();
   const calculateAward = useCalculateAward();
+
+  const [playApplause] = useSound(applause);
+  const [playApplause9s] = useSound(applause_9s);
+  const [playSynth, { stop: stopSynth }] = useSound(synth_melody);
 
   const onNextQuest = () => {
     if (questionNumber <= 3) {
@@ -66,13 +74,16 @@ const Answers = () => {
     setTimeout(() => {
       if (answer.isCorrect) {
         if (questionNumber === 12) {
+          // You are Milionaire!!!!
           dispatch(showCurrentAward(pyramid[11].quantity));
           dispatch(youAreMillionaire(true));
           dispatch(chooseAnswer(null));
-          // You are Milionaire!!!!
+          playSynth();
+          playApplause9s();
         } else {
           onNextQuest();
           dispatch(chooseAnswer(null));
+          playApplause();
         }
       } else {
         dispatch(setGameOver(true));

@@ -1,6 +1,5 @@
 import PlayAgain from "../playAgain/PlayAgain";
-
-import './YouAreMillionaire.css'
+import "./YouAreMillionaire.css";
 
 const YouAreMillionaire = () => {
   return (
