@@ -27,10 +27,13 @@ import {
 import { youAreMillionaire } from "../../../features/millionaireSlice";
 import classNames from "classnames";
 import "./Answer.css";
+
 import useSound from "use-sound";
 import synth_melody from "../../../assets/sounds/synth_melody.mp3";
-import applause from "../../../assets/sounds/applause.mp3";
 import applause_9s from "../../../assets/sounds/applause_9s.mp3";
+import good_king from "../../../assets/sounds/good_king.mp3";
+import correct from "../../../assets/sounds/correct.mp3";
+import wrong from "../../../assets/sounds/wrong.mp3";
 
 const Answers = () => {
   const {
@@ -45,7 +48,9 @@ const Answers = () => {
   const dispatch = useDispatch();
   const calculateAward = useCalculateAward();
 
-  const [playApplause] = useSound(applause);
+  const [playCorrect] = useSound(correct);
+  const [playWrong] = useSound(wrong);
+  const [playGood_king] = useSound(good_king);
   const [playApplause9s] = useSound(applause_9s);
   const [playSynth, { stop: stopSynth }] = useSound(synth_melody);
 
@@ -81,15 +86,25 @@ const Answers = () => {
           playSynth();
           playApplause9s();
         } else {
-          onNextQuest();
-          dispatch(chooseAnswer(null));
-          playApplause();
+          playCorrect();
+          setTimeout(() => {
+            onNextQuest();
+            dispatch(chooseAnswer(null));
+          }, 1400);
         }
       } else {
-        dispatch(setGameOver(true));
-        dispatch(chooseAnswer(null));
+        playWrong();
+        setTimeout(() => {
+          dispatch(setGameOver(true));
+          dispatch(chooseAnswer(null));
+        }, 1200);
+        if (questionNumber > 8 && questionNumber <= 12) {
+          setTimeout(() => {
+            playGood_king();
+          }, 2900);
+        }
       }
-    }, 50);
+    }, 2500);
   };
 
   // Storing Score in localStorage
