@@ -2,4 +2,19 @@
   display: flex;
   justify-content: space-around;
   height: 10%;
+}
+.header .sound_btn {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  background-color: #aaa;
+}
+.header .sound_btn:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}
+.header .noSound {
+  background-color: rgba(255, 0, 0, 0.667);
+  border-radius: 50%;
 }/*# sourceMappingURL=Header.css.map */

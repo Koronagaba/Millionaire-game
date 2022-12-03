@@ -5,21 +5,11 @@ import { clearProbabilityAnswers, setTwoIdsWrongAnswers, toggleDisablePublicHelp
 import { youAreMillionaire } from "../../../features/millionaireSlice";
 import { drawQuestion, setQuestionNumber } from "../../../features/questionsSlice";
 
-import synth_melody from '../../../assets/sounds/synth_melody.mp3'
-
 import './PlayAgain.css'
-import useSound from "use-sound";
-
-
-
-
-
 
 
 const PlayAgain = () => {
     const dispatch = useDispatch();
-    const [play, {stop}] = useSound(synth_melody)
-
 
     const onPlayAgain = () => {
         dispatch(drawQuestion(easyData));

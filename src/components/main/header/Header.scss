@@ -1,7 +1,21 @@
+@use "../../../scss/mixins" as *;
 .header {
-    display: flex;
-    justify-content: space-around;
-    height: 10%;
+  display: flex;
+  justify-content: space-around;
+  height: 10%;
+  .sound_btn {
+    width: 35px;
+    height: 35px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    background-color: #aaa;
 
+    &:hover {
+      @include hoverOver();
+    }
+  }
+  .noSound {
+    background-color: rgba(255, 0, 0, 0.667);
+    border-radius: 50%;
+  }
 }
-
