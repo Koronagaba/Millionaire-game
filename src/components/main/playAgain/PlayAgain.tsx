@@ -7,7 +7,6 @@ import { drawQuestion, setQuestionNumber } from "../../../features/questionsSlic
 
 import './PlayAgain.css'
 
-
 const PlayAgain = () => {
     const dispatch = useDispatch();
 

@@ -28,6 +28,9 @@ const Main = () => {
           })}
         >
           <Header />
+
+        
+
           {youAreMillionaire ? (
             <YouAreMillionaire />
           ) : (
