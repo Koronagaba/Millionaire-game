@@ -4,4 +4,9 @@
   justify-content: space-around;
   height: 100%;
   margin: 0 auto;
+}
+.millionaire .btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }/*# sourceMappingURL=YouAreMillionaire.css.map */

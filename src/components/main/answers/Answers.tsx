@@ -142,7 +142,8 @@ const Answers = () => {
         if (questionNumber === 12) {
           youAreMillionaireFn();
         } else {
-          correctAnswer();
+          // correctAnswer();
+          youAreMillionaireFn();
         }
       } else {
         wrongAnswer();

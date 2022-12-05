@@ -15,8 +15,8 @@ const PlayAgain = () => {
         dispatch(setGameOver(false));
         dispatch(setQuestionNumber(1));
         dispatch(toggleDisableThirtySecondLifebous(false));
-        dispatch(setTwoIdsWrongAnswers({ ids: [], questionId: undefined }));
         dispatch(toggleDisablePublicHelpLifebous(false));
+        dispatch(setTwoIdsWrongAnswers({ ids: [], questionId: undefined }));
         dispatch(clearProbabilityAnswers());
         dispatch(youAreMillionaire(false))
       };

@@ -4,6 +4,7 @@ import "./YouAreMillionaire.css";
 import synth_melody from "../../../assets/sounds/synth_melody.mp3";
 import applause_9s from "../../../assets/sounds/applause_9s.mp3";
 import { useAppSelector } from "../../../hooks/hooks";
+import QuitGame from "../QuitGame";
 
 const YouAreMillionaire = () => {
   const { allMuted } = useAppSelector((state) => state.sound);
@@ -35,7 +36,10 @@ const YouAreMillionaire = () => {
         <h1>You are Millionaire</h1>
         <p>here's your million dollar check</p>
       </div>
+      <div className="btns">
       <PlayAgain />
+      <QuitGame />
+      </div>
     </div>
   );
 };

@@ -1,1 +1,1 @@
-{"version":3,"sources":["GameOver.scss","GameOver.css"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,sBAAA;EACA,6BAAA;EACA,YAAA;EACA,cAAA;ACCF;ADAE;EACE,gBAAA;ACEJ","file":"GameOver.css"}
+{"version":3,"sources":["GameOver.scss","GameOver.css"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,sBAAA;EACA,6BAAA;EACA,YAAA;ACCF;ADCE;EACC,aAAA;EACA,sBAAA;EACA,mBAAA;ACCH;ADCE;EACE,gBAAA;ACCJ;ADCE;EACE,aAAA;EACA,sBAAA;EACA,SAAA;ACCJ","file":"GameOver.css"}
