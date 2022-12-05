@@ -10,6 +10,7 @@ import classNames from "classnames";
 import Lifebous from "../../aside/LifeBous/LifeBous";
 import MobileAside from "../mobileAside/MobileAside";
 import YouAreMillionaire from "../youAreMillionaire/YouAreMillionaire";
+import StartView from "../startView/StartView";
 
 const Main = () => {
   const gameOver = useAppSelector((state) => state.gameOver.gameOver);
@@ -18,6 +19,7 @@ const Main = () => {
   );
   const { youAreMillionaire } = useAppSelector((state) => state.millionaire);
   const isMobile = useAppSelector((state) => state.responsive.isMobile);
+  const { startGame } = useAppSelector((state) => state.startView);
 
   return (
     <>
@@ -29,30 +31,34 @@ const Main = () => {
         >
           <Header />
 
-        
-
-          {youAreMillionaire ? (
-            <YouAreMillionaire />
+          {!startGame ? (
+            <StartView />
           ) : (
             <>
-              {gameOver ? (
-                <GameOver />
+              {youAreMillionaire ? (
+                <YouAreMillionaire />
               ) : (
                 <>
-                  {isMobile && (
-                    <div>
-                      <Lifebous />
-                      <Timer />
-                    </div>
+                  {gameOver ? (
+                    <GameOver />
+                  ) : (
+                    <>
+                      {isMobile && (
+                        <div>
+                          <Lifebous />
+                          <Timer />
+                        </div>
+                      )}
+                      <div className="quiz">
+                        {!isMobile ? <Timer /> : <div></div>}
+                        {probabilityAnswers.length !== 0 && <PercentageBars />}
+                        <div>
+                          <Question />
+                          <Answers />
+                        </div>
+                      </div>
+                    </>
                   )}
-                  <div className="quiz">
-                    {!isMobile ? <Timer /> : <div></div>}
-                    {probabilityAnswers.length !== 0 && <PercentageBars />}
-                    <div>
-                      <Question />
-                      <Answers />
-                    </div>
-                  </div>
                 </>
               )}
             </>

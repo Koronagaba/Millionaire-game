@@ -1,0 +1,18 @@
+.startView {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: auto 0;
+  .welcome {
+    display: flex;
+    justify-content: space-around;  
+}
+  .enterName {
+    display: flex;
+    justify-content: space-around;
+
+    input{
+        outline: none;
+    }
+  }
+}

@@ -52,9 +52,9 @@ const Answers = () => {
   const gameAudioRef = useRef<HTMLAudioElement>(null);
   const goodKingAudioRef = useRef<HTMLAudioElement>(null);
 
-  // useEffect(() => {
-  //   gameAudioFn();
-  // }, []);
+  useEffect(() => {
+    gameAudioFn();
+  }, []);
 
   const correctAudioFn = (atr: "play" | "pause") => {
     if (correctAudioRef.current) {
