@@ -8,6 +8,7 @@ import QuitGame from "../QuitGame";
 
 const YouAreMillionaire = () => {
   const { allMuted } = useAppSelector((state) => state.sound);
+  const {userName} = useAppSelector(state => state.userName)
 
   const synthAudioRef = useRef<HTMLAudioElement>(null);
   const applauseAudioRef = useRef<HTMLAudioElement>(null);
@@ -33,6 +34,7 @@ const YouAreMillionaire = () => {
       <audio ref={synthAudioRef} src={synth_melody} muted={allMuted} />
       <audio ref={applauseAudioRef} muted={allMuted} src={applause_9s} />
       <div>
+        <h1>{userName} {userName ? '!' : ''} </h1>
         <h1>You are Millionaire</h1>
         <p>here's your million dollar check</p>
       </div>

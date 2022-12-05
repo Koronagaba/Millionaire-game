@@ -102,14 +102,20 @@ const Answers = () => {
 
   const wrongAnswer = () => {
     wrongAudiFn();
-    setTimeout(() => {
-      dispatch(setGameOver(true));
-      dispatch(chooseAnswer(null));
-    }, 5000);
-    if (questionNumber > 8 && questionNumber <= 12) {
+
+    if (questionNumber > 2 && questionNumber <= 12) {
+      setTimeout(() => {
+        dispatch(setGameOver(true));
+        dispatch(chooseAnswer(null));
+      }, 5000);
       setTimeout(() => {
         good_kingAudioFn();
       }, 2700);
+    } else {
+      setTimeout(() => {
+        dispatch(setGameOver(true));
+        dispatch(chooseAnswer(null));
+      }, 3700);
     }
   };
 
@@ -141,9 +147,8 @@ const Answers = () => {
       if (answer.isCorrect) {
         if (questionNumber === 12) {
           youAreMillionaireFn();
-        } else {
-          // correctAnswer();
-          youAreMillionaireFn();
+        } else {  
+          correctAnswer();
         }
       } else {
         wrongAnswer();
