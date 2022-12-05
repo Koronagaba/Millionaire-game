@@ -6,6 +6,9 @@ import lifebousSlice from "./features/lifebousSlice";
 import responsiveSlice from './features/responsiveSlice'
 import millionaireSlice from "./features/millionaireSlice";
 import soundSlice from "./features/soundSlice";
+import startViewSlice from "./features/startViewSlice";
+import userNameSlice from "./features/userNameSlice";
+
 
 export const store = configureStore({
   reducer: {
@@ -15,7 +18,9 @@ export const store = configureStore({
     lifebous: lifebousSlice,
     responsive: responsiveSlice,
     millionaire: millionaireSlice,
-    sound: soundSlice
+    sound: soundSlice,
+    startView: startViewSlice,
+    userName: userNameSlice
   },
 });
 
