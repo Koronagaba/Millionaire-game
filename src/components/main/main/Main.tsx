@@ -22,51 +22,48 @@ const Main = () => {
   const { startGame } = useAppSelector((state) => state.startView);
 
   return (
-    <>
-      <div className="main_container">
-        <div
-          className={classNames("main", {
-            darkened: gameOver,
-          })}
-        >
-          <Header />
-
-          {!startGame ? (
-            <StartView />
-          ) : (
-            <>
-              {youAreMillionaire ? (
-                <YouAreMillionaire />
-              ) : (
-                <>
-                  {gameOver ? (
-                    <GameOver />
-                  ) : (
-                    <>
-                      {isMobile && (
-                        <div>
-                          <Lifebous />
-                          <Timer />
-                        </div>
-                      )}
-                      <div className="quiz">
-                        {!isMobile ? <Timer /> : <div></div>}
-                        {probabilityAnswers.length !== 0 && <PercentageBars />}
-                        <div>
-                          <Question />
-                          <Answers />
-                        </div>
+    <div className="main_container">
+      <div
+        className={classNames("main", {
+          darkened: gameOver,
+        })}
+      >
+        <Header />
+        {!startGame ? (
+          <StartView />
+        ) : (
+          <>
+            {youAreMillionaire ? (
+              <YouAreMillionaire />
+            ) : (
+              <>
+                {gameOver ? (
+                  <GameOver />
+                ) : (
+                  <>
+                    {isMobile && (
+                      <div>
+                        <Lifebous />
+                        <Timer />
                       </div>
-                    </>
-                  )}
-                </>
-              )}
-            </>
-          )}
-        </div>
-        {isMobile && <MobileAside />}
+                    )}
+                    <div className="quiz">
+                      {!isMobile ? <Timer /> : <div></div>}
+                      {probabilityAnswers.length !== 0 && <PercentageBars />}
+                      <div>
+                        <Question />
+                        <Answers />
+                      </div>
+                    </div>
+                  </>
+                )}
+              </>
+            )}
+          </>
+        )}
       </div>
-    </>
+      {isMobile && <MobileAside />}
+    </div>
   );
 };
 

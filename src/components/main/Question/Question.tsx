@@ -1,22 +1,16 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../store";
-import { easyData } from "../../../data/data";
 import { drawQuestion } from "../../../features/questionsSlice";
-import './Question.css'
+import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
 import { easyDataCopy } from "../gameOver/GameOver";
-// export const easyDataCopy = [...easyData]
+
+import "./Question.css";
 
 const Question = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const { questionNumber, currentQuestion, 
-    // easyDataCopy
-   } = useSelector(
-    (state: RootState) => state.questions
+  const { questionNumber, currentQuestion } = useAppSelector(
+    (state) => state.questions
   );
-
-
 
   // Initial draw a question
   useEffect(() => {
@@ -24,11 +18,11 @@ const Question = () => {
   }, []);
 
   return (
-      <div className="question">
-        <h1>
-          {questionNumber}. {currentQuestion?.question}
-        </h1>
-      </div>
+    <div className="question">
+      <h1>
+        {questionNumber}. {currentQuestion?.question}
+      </h1>
+    </div>
   );
 };
 

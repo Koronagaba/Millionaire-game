@@ -3,7 +3,7 @@ import "./PercentageBars.css";
 
 const PercentageBars = () => {
   const percentAnswersAfterPublicHelp = useAppSelector(
-    (state) => state.lifebous.percentAnswersAfterPublicHelp
+    (state) => state.lifebous.answersWithCalculatedPercents
   );
 
   const percentageBars = percentAnswersAfterPublicHelp.map((answer) => (

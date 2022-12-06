@@ -1,8 +1,5 @@
-import { useEffect, useState, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../store";
+import { useEffect, useRef } from "react";
 import {
-  easyData,
   mediumData,
   quiteDifficultData,
   difficultData,
@@ -16,22 +13,19 @@ import {
 } from "../../../features/questionsSlice";
 import { setGameOver, showCurrentAward } from "../../../features/gameOverSlice";
 import { setStopTimer } from "../../../features/timerSlice";
-import {
-  clearProbabilityAnswers,
-  resetTwoIdsInTheGame,
-} from "../../../features/lifebousSlice";
+import { clearProbabilityAnswers } from "../../../features/lifebousSlice";
 import { youAreMillionaire } from "../../../features/millionaireSlice";
 import { useCalculateAward } from "../../../hooks/useCalculateAward";
 import { easyDataCopy } from "../gameOver/GameOver";
-import { useAppSelector } from "../../../hooks/hooks";
-
-import classNames from "classnames";
-import "./Answer.css";
+import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
 
 import startGame from "../../../assets/sounds/startGame.mp3";
 import good_king from "../../../assets/sounds/good_king.mp3";
 import correct from "../../../assets/sounds/correct.mp3";
 import wrong from "../../../assets/sounds/wrong.mp3";
+
+import classNames from "classnames";
+import "./Answer.css";
 
 const Answers = () => {
   const {
@@ -39,12 +33,12 @@ const Answers = () => {
     questionNumber,
     selectedAnswer,
     // easyDataCopy
-  } = useSelector((state: RootState) => state.questions);
+  } = useAppSelector((state) => state.questions);
   const { twoIdsWrongAnswers } = useAppSelector((state) => state.lifebous);
   const { award } = useAppSelector((state) => state.gameOver);
   const { allMuted } = useAppSelector((state) => state.sound);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const calculateAward = useCalculateAward();
 
   const correctAudioRef = useRef<HTMLAudioElement>(null);
@@ -96,13 +90,11 @@ const Answers = () => {
       dispatch(drawQuestion(difficultData));
     }
     dispatch(nextQuestion());
-    dispatch(resetTwoIdsInTheGame());
     dispatch(clearProbabilityAnswers());
   };
 
   const wrongAnswer = () => {
     wrongAudiFn();
-
     if (questionNumber > 2 && questionNumber <= 12) {
       setTimeout(() => {
         dispatch(setGameOver(true));
@@ -147,7 +139,7 @@ const Answers = () => {
       if (answer.isCorrect) {
         if (questionNumber === 12) {
           youAreMillionaireFn();
-        } else {  
+        } else {
           correctAnswer();
         }
       } else {
@@ -177,7 +169,7 @@ const Answers = () => {
           const selected = selectedAnswer === answer;
           const disabled =
             twoIdsWrongAnswers?.questionId === currentQuestion.id &&
-            twoIdsWrongAnswers.ids.includes(answer.id);
+            twoIdsWrongAnswers.wrongAnswersIds.includes(answer.id);
           return (
             <button
               className={classNames("answer", {

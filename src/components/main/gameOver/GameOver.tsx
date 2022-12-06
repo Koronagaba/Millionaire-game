@@ -1,10 +1,10 @@
-import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../../hooks/hooks";
 import { easyData } from "../../../data/data";
 
-import "./GameOver.css";
 import PlayAgain from "../playAgain/PlayAgain";
 import QuitGame from "../QuitGame";
+
+import "./GameOver.css";
 
 export const easyDataCopy = [...easyData];
 

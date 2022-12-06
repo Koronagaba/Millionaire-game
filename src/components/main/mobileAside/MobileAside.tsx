@@ -1,9 +1,11 @@
 import { useState } from "react";
-import Pyramid from "../../aside/Pyramid/Pyramid";
-import classNames from "classnames";
 import { useAppSelector } from "../../../hooks/hooks";
 import DropDownAside from "../DropDownAside/DropDownAside";
+
+import Pyramid from "../../aside/Pyramid/Pyramid";
+
 import "./MobileAside.css";
+import classNames from "classnames";
 
 const MobileAside = () => {
   const [expandAside, setExpandAside] = useState(false);

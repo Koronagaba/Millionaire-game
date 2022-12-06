@@ -4,7 +4,7 @@ import { useAppDispatch } from "../../hooks/hooks";
 
 const QuitGame = () => {
   const dispatch = useAppDispatch();
-
+  
   const quitGame = () => {
     dispatch(enterUserName(""));
     dispatch(stopTheGame());

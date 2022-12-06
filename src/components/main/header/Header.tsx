@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useAppDispatch } from "../../../hooks/hooks";
+import { turnOffVolume, turnOnVolume } from "../../../features/soundSlice";
+
 import "./Header.css";
 import classNames from "classnames";
-import { turnOffVolume, turnOnVolume } from "../../../features/soundSlice";
 
 const Header = () => {
   const [withSound, setWithSound] = useState(true);
@@ -16,6 +17,7 @@ const Header = () => {
       dispatch(turnOnVolume());
     }
   };
+
   return (
     <div className="header">
       <button

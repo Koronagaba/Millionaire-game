@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface TwoIdsWrongAnswersInterface {
-  ids: number[];
+  wrongAnswersIds: number[];
   questionId?: number;
 }
 
@@ -10,7 +10,7 @@ interface PorbabilityAnswers {
   probabilityAmount: number;
 }
 
-interface AnswersAfterPublicHelp {
+interface AnswersWithCalculatedPercents {
   id?: number;
   answerTheAudience: number;
 }
@@ -18,19 +18,17 @@ interface AnswersAfterPublicHelp {
 interface LifebousState {
   disableThirtySecLifebous: boolean;
   twoIdsWrongAnswers: TwoIdsWrongAnswersInterface;
-  twoIdsInTheGame: number[];
   disablePublicHelpLifebous: boolean;
   probabilityAnswers: PorbabilityAnswers[];
-  percentAnswersAfterPublicHelp: AnswersAfterPublicHelp[];
+  answersWithCalculatedPercents: AnswersWithCalculatedPercents[];
 }
 
 const initialState: LifebousState = {
   disableThirtySecLifebous: false,
-  twoIdsWrongAnswers: { ids: [] },
-  twoIdsInTheGame: [],
+  twoIdsWrongAnswers: { wrongAnswersIds: [] },
   disablePublicHelpLifebous: false,
   probabilityAnswers: [],
-  percentAnswersAfterPublicHelp: [],
+  answersWithCalculatedPercents: [],
 };
 
 const lifebousSlice = createSlice({
@@ -49,12 +47,6 @@ const lifebousSlice = createSlice({
     ) {
       state.twoIdsWrongAnswers = payload;
     },
-    setTwoIdsInTheGame(state, { payload }) {
-      state.twoIdsInTheGame = payload;
-    },
-    resetTwoIdsInTheGame(state) {
-      state.twoIdsInTheGame = [];
-    },
     toggleDisablePublicHelpLifebous(state, { payload }: { payload: boolean }) {
       state.disablePublicHelpLifebous = payload;
     },
@@ -66,9 +58,9 @@ const lifebousSlice = createSlice({
     },
     addAnswersWithCalculatedPercents(
       state,
-      { payload }: { payload: AnswersAfterPublicHelp[] }
+      { payload }: { payload: AnswersWithCalculatedPercents[] }
     ) {
-      state.percentAnswersAfterPublicHelp = payload;
+      state.answersWithCalculatedPercents = payload;
     },
   },
 });
@@ -76,8 +68,6 @@ const lifebousSlice = createSlice({
 export const {
   toggleDisableThirtySecondLifebous,
   setTwoIdsWrongAnswers,
-  setTwoIdsInTheGame,
-  resetTwoIdsInTheGame,
   toggleDisablePublicHelpLifebous,
   addProbabilityAnswers,
   clearProbabilityAnswers,

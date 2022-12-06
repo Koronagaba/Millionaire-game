@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import {  useAppDispatch, useAppSelector } from "../../../hooks/hooks";
 import { useCalculateAward } from "../../../hooks/useCalculateAward";
-import { RootState } from "../../../store";
 import { setGameOver } from "../../../features/gameOverSlice";
 import { setExtraTime, setStopTimer } from "../../../features/timerSlice";
-import "./Timer.css";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+
+import "./Timer.css";
+
 
 const Timer = () => {
   const [key, setKey] = useState(0);
-  const { questionNumber } = useSelector((state: RootState) => state.questions);
-  const { stopTimer, extraTime } = useSelector(
-    (state: RootState) => state.timer
-  );
-  const dispatch = useDispatch();
+  const { questionNumber } = useAppSelector(state=> state.questions);
+  const { stopTimer, extraTime } = useAppSelector(state => state.timer);
+  const dispatch = useAppDispatch();
 
   const calculateAward = useCalculateAward();
 
@@ -32,9 +31,8 @@ const Timer = () => {
       dispatch(setStopTimer(true));
       // Show award
       calculateAward();
-      return <div>Too lale...</div>;
-    }
 
+    }
     return <div>{remainingTime}</div>;
   };
 
@@ -43,13 +41,12 @@ const Timer = () => {
       <CountdownCircleTimer
         key={key}
         isPlaying={!stopTimer}
-        duration={200 + extraTime}
+        duration={10 + extraTime}
         colors={["#F7B801", "#F7B801", "#A30000"]}
         colorsTime={[10, 7, 0]}
         onComplete={() => ({ delay: 1 })}
         size={70}
         strokeWidth={7}
-        // trailStrokeWidth={2}
         strokeLinecap="square"
       >
         {renderTime}
