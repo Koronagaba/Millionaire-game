@@ -11,11 +11,11 @@
   border-radius: 50%;
   background-color: #aaa;
 }
-.header .sound_btn:hover {
-  cursor: pointer;
-  transform: scale(1.02);
+.header .volume {
+  filter: invert(1);
+  transition: transform 0.06s;
 }
-.header .noSound {
-  background-color: rgba(255, 0, 0, 0.667);
-  border-radius: 50%;
+.header .volume:hover {
+  cursor: pointer;
+  transform: scale(1.06);
 }/*# sourceMappingURL=Header.css.map */

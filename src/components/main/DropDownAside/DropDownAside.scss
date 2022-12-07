@@ -1,11 +1,8 @@
 @use "../../../scss/variables" as *;
 .drop_down_container {
   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
   height: 100%;
   width: 40px;
-  // background: pink;
   background: $main-bg;
   margin: auto;
 

@@ -8,13 +8,15 @@
     border: 2px solid #000;
     border-radius: 50%;
     background-color: #aaa;
+  }
+
+  .volume {
+    filter: invert(1);
+    transition: transform 0.06s;
 
     &:hover {
-      @include hoverOver();
+      cursor: pointer;
+      transform: scale(1.06);
     }
-  }
-  .noSound {
-    background-color: rgba(255, 0, 0, 0.667);
-    border-radius: 50%;
   }
 }

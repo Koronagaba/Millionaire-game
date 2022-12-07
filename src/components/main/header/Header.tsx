@@ -3,29 +3,29 @@ import { useAppDispatch } from "../../../hooks/hooks";
 import { turnOffVolume, turnOnVolume } from "../../../features/soundSlice";
 
 import "./Header.css";
-import classNames from "classnames";
+import volume_on from "../../../assets/icons/volume_on.svg";
+import volume_off from "../../../assets/icons/volume_off.svg";
 
 const Header = () => {
-  const [withSound, setWithSound] = useState(true);
+  const [muted, setMuted] = useState(false);
   const dispatch = useAppDispatch();
 
   const handleSound = () => {
-    setWithSound(!withSound);
-    if (withSound) {
-      dispatch(turnOffVolume());
-    } else {
+    setMuted(!muted);
+    if (muted) {
       dispatch(turnOnVolume());
+    } else {
+      dispatch(turnOffVolume());
     }
   };
 
   return (
     <div className="header">
-      <button
-        className={classNames("sound_btn", {
-          noSound: !withSound,
-        })}
-        onClick={handleSound}
-      ></button>
+      {muted ? (
+        <img className="volume" src={volume_off} onClick={handleSound} />
+      ) : (
+        <img className="volume" src={volume_on} onClick={handleSound} />
+      )}
       <p>Millionaire</p>
       <p>Best Score: {localStorage.getItem("score")}</p>
     </div>
