@@ -1,23 +1,23 @@
-.mobileAside {
-  background: rgb(7, 7, 37);
-}
-
 .dim {
   filter: brightness(35%);
 }
 
 @media (max-width: 700px) {
   .mobileAside {
+    background: rgba(7, 7, 37, 0.95);
     display: none;
   }
   .showMobileAside {
     position: absolute;
     top: 0;
-    right: 23px;
+    right: 34px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     min-width: 180px;
     height: 100%;
+  }
+  .showMobileAside:hover {
+    cursor: pointer;
   }
 }/*# sourceMappingURL=MobileAside.css.map */

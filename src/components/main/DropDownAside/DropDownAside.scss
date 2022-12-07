@@ -1,4 +1,34 @@
+@use "../../../scss/variables" as *;
 .drop_down_container {
-width: 25px;
-background: green;
+  display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  height: 100%;
+  width: 40px;
+  // background: pink;
+  background: $main-bg;
+  margin: auto;
+
+  &:hover {
+    cursor: pointer;
+  }
+  .img_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .chevron {
+    position: relative;
+    left: 4px;
+    width: 30px;
+    height: 30px;
+    filter: invert(1);
+  }
+  .chevron_second {
+    position: absolute;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    filter: invert(1);
+  }
 }

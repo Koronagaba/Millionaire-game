@@ -22,6 +22,7 @@ const MobileAside = () => {
           dim: gameOver,
           showMobileAside: expandAside,
         })}
+        onClick={()=>setExpandAside(!expandAside)}
       >
         <Pyramid />
       </div>

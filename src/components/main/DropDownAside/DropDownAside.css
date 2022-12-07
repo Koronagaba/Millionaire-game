@@ -1,4 +1,29 @@
 .drop_down_container {
-  width: 25px;
-  background: green;
+  display: flex;
+  height: 100%;
+  width: 40px;
+  background: linear-gradient(18deg, #013185 30%, #011c4d 70%);
+  margin: auto;
+}
+.drop_down_container:hover {
+  cursor: pointer;
+}
+.drop_down_container .img_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.drop_down_container .chevron {
+  position: relative;
+  left: 4px;
+  width: 30px;
+  height: 30px;
+  filter: invert(1);
+}
+.drop_down_container .chevron_second {
+  position: absolute;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  filter: invert(1);
 }/*# sourceMappingURL=DropDownAside.css.map */

@@ -8,7 +8,7 @@
     width: 100%;
     @include setFlex(column);
     background: linear-gradient(to top, rgba(0, 0, 0, 0) 50%, #01102b 100%),
-      url("../../../assets/bg_millionaire.jpg");
+      url("../../../assets/icons/bg_millionaire.jpg");
     background-position: center;
     background-size: cover;
     color: #fff;
@@ -22,7 +22,7 @@
 
   .darkened {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 50%, #01102b 100%),
-      url("../../../assets/bg_millionaire.jpg");
+      url("../../../assets/icons/bg_millionaire.jpg");
     background-position: center;
     background-size: cover;
   }

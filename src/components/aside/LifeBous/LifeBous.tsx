@@ -11,9 +11,9 @@ import {
   setTwoIdsWrongAnswers,
 } from "../../../features/lifebousSlice";
 
-import fiftyfifty_white_transparent from "../../../assets/fiftyfifty-white-transparent.svg";
-import public_white_transparent from "../../../assets/public-white-transparent.svg";
-import thirtySec_white_transparent from "../../../assets/30sec-white-transparent.svg";
+import fiftyfifty_white_transparent from "../../../assets/icons/fiftyfifty-white-transparent.svg";
+import public_white_transparent from "../../../assets/icons/public-white-transparent.svg";
+import thirtySec_white_transparent from "../../../assets/icons/30sec-white-transparent.svg";
 
 import "./LifeBous.css";
 import classNames from "classnames";

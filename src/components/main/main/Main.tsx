@@ -1,16 +1,19 @@
 import Answers from "../answers/Answers";
 import Header from "../header/Header";
 import Question from "../Question/Question";
-import "./Main.css";
+
 import Timer from "../Timer/Timer";
 import { useAppSelector } from "../../../hooks/hooks";
 import GameOver from "../gameOver/GameOver";
 import PercentageBars from "../percentageBars/PercentageBars";
-import classNames from "classnames";
+
 import Lifebous from "../../aside/LifeBous/LifeBous";
 import MobileAside from "../mobileAside/MobileAside";
 import YouAreMillionaire from "../youAreMillionaire/YouAreMillionaire";
 import StartView from "../startView/StartView";
+
+import "./Main.css";
+import classNames from "classnames";
 
 const Main = () => {
   const gameOver = useAppSelector((state) => state.gameOver.gameOver);
@@ -62,7 +65,7 @@ const Main = () => {
           </>
         )}
       </div>
-      {isMobile && <MobileAside />}
+      {isMobile && startGame && <MobileAside />}
     </div>
   );
 };
