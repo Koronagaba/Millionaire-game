@@ -1,10 +1,12 @@
-import { stopTheGame } from "../../features/startViewSlice";
-import { enterUserName } from "../../features/userNameSlice";
-import { useAppDispatch } from "../../hooks/hooks";
+import { stopTheGame } from "../../../features/startViewSlice";
+import { enterUserName } from "../../../features/userNameSlice";
+import { useAppDispatch } from "../../../hooks/hooks";
+
+import "./QuitGame.css";
 
 const QuitGame = () => {
   const dispatch = useAppDispatch();
-  
+
   const quitGame = () => {
     dispatch(enterUserName(""));
     dispatch(stopTheGame());

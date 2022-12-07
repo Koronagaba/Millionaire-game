@@ -1,1 +1,1 @@
-{"version":3,"sources":["Aside.scss","../../../scss/_variables.scss","Aside.css"],"names":[],"mappings":"AAEA;EACE,4DCHQ;EDIR,UAAA;EACA,aAAA;EACA,sBAAA;EACA,8BAAA;AEDF;;AFIA;EACE,uBAAA;AEDF;;AFIA;EACE,aAAA;AEDF","file":"Aside.css"}
+{"version":3,"sources":["Aside.scss","../../../scss/_mixins.scss","../../../scss/_variables.scss","Aside.css"],"names":[],"mappings":"AAGA;ECWE,aAAA;EACA,sBDXiB;ECYjB,6BAHqD;EDRrD,4DELQ;EFMR,UAAA;AGAF;;AHGA;EACE,uBAAA;AGAF;;AHGA;EACE,aAAA;AGAF","file":"Aside.css"}

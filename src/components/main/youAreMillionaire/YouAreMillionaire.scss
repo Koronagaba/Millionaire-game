@@ -1,12 +1,7 @@
+@use "../../../scss/mixins" as *;
+
 .millionaire {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100%;
-    margin: 0 auto;
-    .btns {
-        display: flex;
-        flex-direction: column;
-        gap: 10px
-    }
+  @include setFlex(column);
+  height: 100%;
+  margin: 0 auto;
 }

@@ -7,12 +7,19 @@
 
   .app_container {
     display: flex;
-    margin: auto ;
+    margin: auto;
     max-width: 700px;
     min-height: 500px;
 
     @include mq() {
       height: 100%;
+    }
+
+    .btn {
+      @include btn();
+    }
+    .btns {
+      @include btns();
     }
   }
 }

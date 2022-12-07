@@ -1,13 +1,14 @@
 .main_container {
-  position: relative;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   width: 70%;
 }
 .main_container .main {
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   background: linear-gradient(to top, rgba(0, 0, 0, 0) 50%, #01102b 100%), url("../../../assets/bg_millionaire.jpg");
   background-position: center;
   background-size: cover;
@@ -18,7 +19,7 @@
   height: 85%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .main_container .darkened {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 50%, #01102b 100%), url("../../../assets/bg_millionaire.jpg");

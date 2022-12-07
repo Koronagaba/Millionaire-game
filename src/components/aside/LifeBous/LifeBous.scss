@@ -1,8 +1,7 @@
 @use "../../../scss/mixins" as *;
 
 .lifebous {
-  display: flex;
-  justify-content: space-around;
+  @include setFlex();
   margin: auto 0;
   .img_lifebous {
     transition: transform 0.1s ease-in;

@@ -32,3 +32,9 @@ function App() {
 }
 
 export default App;
+
+
+// @mixin hoverOver {
+//   cursor: pointer;
+//   transform: scale(1.02);
+// };

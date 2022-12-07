@@ -1,17 +1,6 @@
 .question {
   padding: 5px;
   background: linear-gradient(18deg, #013185 30%, #011c4d 70%);
-  /* clip-path: polygon(
-    0 10%,
-    10% 0,
-    90% 0,
-    100% 5%,
-    100% 95%,
-    90% 100%,
-    4% 100%,
-    0% 90%,
-    0% 10%
-  ) */
 }
 @media (max-width: 700px) {
   .question {

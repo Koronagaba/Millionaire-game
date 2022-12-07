@@ -5,18 +5,6 @@
   padding: 5px;
   background: $main-bg;
 
-  /* clip-path: polygon(
-    0 10%,
-    10% 0,
-    90% 0,
-    100% 5%,
-    100% 95%,
-    90% 100%,
-    4% 100%,
-    0% 90%,
-    0% 10%
-  ) */
-
   @include mq() {
     font-size: 0.6em;
     min-height: 70px;

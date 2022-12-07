@@ -1,10 +1,38 @@
+@use "./variables";
+
 @mixin hoverOver {
-    cursor: pointer;
-    transform: scale(1.02);
-  }
-  
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
 @mixin mq($size: 700px) {
-  @media (max-width: $size){
-    @content
+  @media (max-width: $size) {
+    @content;
   }
+}
+
+@mixin setFlex($flex-direction: row, $justify-content: space-around) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+}
+
+@mixin btn {
+  min-height: 35px;
+  padding: 2px;
+  background: variables.$main-bg;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: transform 0.2s;
+
+  &:hover {
+    @include hoverOver();
+  }
+}
+
+@mixin btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

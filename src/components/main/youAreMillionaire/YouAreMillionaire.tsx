@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { useAppSelector } from "../../../hooks/hooks";
 
 import PlayAgain from "../playAgain/PlayAgain";
-import QuitGame from "../QuitGame";
+import QuitGame from "../quitGame/QuitGame";
 
 import synth_melody from "../../../assets/sounds/synth_melody.mp3";
 import applause_9s from "../../../assets/sounds/applause_9s.mp3";

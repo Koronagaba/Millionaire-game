@@ -1,1 +1,1 @@
-{"version":3,"sources":["Question.scss","../../../scss/_variables.scss","Question.css","../../../scss/_mixins.scss"],"names":[],"mappings":"AAGA;EACE,YAAA;EACA,4DCLQ;EDOR;;;;;;;;;;KAAA;AEOF;ACRE;EHHF;IAiBI,gBAAA;IACA,gBAAA;IACA,aAAA;IACA,mBAAA;EEFF;AACF","file":"Question.css"}
+{"version":3,"sources":["Question.scss","../../../scss/_variables.scss","Question.css","../../../scss/_mixins.scss"],"names":[],"mappings":"AAGA;EACE,YAAA;EACA,4DCLQ;ACGV;ACKE;EHLF;IAKI,gBAAA;IACA,gBAAA;IACA,aAAA;IACA,mBAAA;EEDF;AACF","file":"Question.css"}

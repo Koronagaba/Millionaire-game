@@ -1,20 +1,14 @@
+@use "../../../scss/mixins" as *;
+
 .gameOver {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  @include setFlex(column);
   height: 100%;
-  
-  &_header{
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+
+  &_header {
+    @include setFlex(column);
+    align-items: center;
   }
   .prize {
     margin-top: 20px;
-  }
-  .btns{
-    display: flex;
-    flex-direction: column;
-    gap: 10px
   }
 }

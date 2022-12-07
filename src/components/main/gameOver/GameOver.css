@@ -7,13 +7,9 @@
 .gameOver_header {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
 }
 .gameOver .prize {
   margin-top: 20px;
-}
-.gameOver .btns {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }/*# sourceMappingURL=GameOver.css.map */

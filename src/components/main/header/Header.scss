@@ -1,7 +1,6 @@
 @use "../../../scss/mixins" as *;
 .header {
-  display: flex;
-  justify-content: space-around;
+  @include setFlex();
   height: 10%;
   .sound_btn {
     width: 35px;

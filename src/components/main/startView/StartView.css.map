@@ -1,1 +1,1 @@
-{"version":3,"sources":["StartView.scss","StartView.css"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,sBAAA;EACA,SAAA;EACA,cAAA;ACCF;ADAE;EACE,aAAA;EACA,6BAAA;ACEJ;ADAE;EACE,aAAA;EACA,6BAAA;ACEJ;ADAI;EACI,aAAA;ACER","file":"StartView.css"}
+{"version":3,"sources":["StartView.scss","../../../scss/_mixins.scss","StartView.css"],"names":[],"mappings":"AAEA;ECYE,aAAA;EACA,sBDZiB;ECajB,6BAHqD;EDTrD,SAAA;EACA,cAAA;AECF;AFAE;ECQA,aAAA;EACA,mBAF8B;EAG9B,6BAHqD;ACFvD;AFFE;ECKA,aAAA;EACA,mBAF8B;EAG9B,6BAHqD;EDFnD,mBAAA;AEMJ;AFJI;EACE,aAAA;AEMN","file":"StartView.css"}

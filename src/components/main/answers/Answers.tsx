@@ -25,7 +25,7 @@ import correct from "../../../assets/sounds/correct.mp3";
 import wrong from "../../../assets/sounds/wrong.mp3";
 
 import classNames from "classnames";
-import "./Answer.css";
+import "./Answers.css";
 
 const Answers = () => {
   const {
@@ -172,7 +172,7 @@ const Answers = () => {
             twoIdsWrongAnswers.wrongAnswersIds.includes(answer.id);
           return (
             <button
-              className={classNames("answer", {
+              className={classNames("answer btn", {
                 checked: selected,
                 [answer.isCorrect ? "correct" : "wrong"]: selected,
                 disabled,
