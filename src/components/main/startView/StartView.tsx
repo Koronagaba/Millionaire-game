@@ -2,7 +2,16 @@ import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
 import { startTheGame } from "../../../features/startViewSlice";
 import { enterUserName } from "../../../features/userNameSlice";
 import { setGameOver } from "../../../features/gameOverSlice";
-import { setQuestionNumber } from "../../../features/questionsSlice";
+import {
+  drawEasyQuestion,
+  drawId,
+  restoreInitialDifficultData,
+  restoreInitialEasyData,
+  restoreInitialMediumData,
+  restoreInitialQuiteDifficultData,
+  setCurrendQuestion,
+  setQuestionNumber,
+} from "../../../features/questionsSlice";
 import {
   clearProbabilityAnswers,
   setTwoIdsWrongAnswers,
@@ -16,8 +25,17 @@ import "./StartView.css";
 const StartView = () => {
   const dispatch = useAppDispatch();
   const { userName } = useAppSelector((state) => state.userName);
+  const { easyDataCopy } = useAppSelector((state) => state.questions);
 
   const startGame = () => {
+    dispatch(restoreInitialEasyData());
+    dispatch(restoreInitialMediumData());
+    dispatch(restoreInitialQuiteDifficultData());
+    dispatch(restoreInitialDifficultData());
+    dispatch(drawId(easyDataCopy.data));
+    dispatch(setCurrendQuestion(easyDataCopy.data));
+    dispatch(drawEasyQuestion());
+
     dispatch(startTheGame());
     dispatch(setGameOver(false));
     dispatch(setQuestionNumber(1));

@@ -1,22 +1,22 @@
 import { useEffect, useRef } from "react";
+import { pyramid } from "../../../data/data";
+import { AnswerType, SingleData } from "../../../types/types";
 import {
-  mediumData,
-  quiteDifficultData,
-  difficultData,
-  pyramid,
-} from "../../../data/data";
-import { AnswerType } from "../../../types/types";
-import {
+  // addIdToUsedIds,
   chooseAnswer,
-  drawQuestion,
+  drawDifficultQuestion,
+  drawEasyQuestion,
+  drawId,
+  drawMediumQuestion,
+  drawQuiteDifficultQuestion,
   nextQuestion,
+  setCurrendQuestion,
 } from "../../../features/questionsSlice";
 import { setGameOver, showCurrentAward } from "../../../features/gameOverSlice";
 import { setStopTimer } from "../../../features/timerSlice";
 import { clearProbabilityAnswers } from "../../../features/lifebousSlice";
 import { youAreMillionaire } from "../../../features/millionaireSlice";
 import { useCalculateAward } from "../../../hooks/useCalculateAward";
-import { easyDataCopy } from "../gameOver/GameOver";
 import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
 
 import startGame from "../../../assets/sounds/startGame.mp3";
@@ -32,7 +32,10 @@ const Answers = () => {
     currentQuestion,
     questionNumber,
     selectedAnswer,
-    // easyDataCopy
+    easyDataCopy,
+    mediumDataCopy,
+    quiteDifficultDataCopy,
+    difficultDataCopy,
   } = useAppSelector((state) => state.questions);
   const { twoIdsWrongAnswers } = useAppSelector((state) => state.lifebous);
   const { award } = useAppSelector((state) => state.gameOver);
@@ -79,21 +82,36 @@ const Answers = () => {
     }
   };
 
+  useEffect(() => {
+    dispatch(drawId(easyDataCopy.data));
+    dispatch(setCurrendQuestion(easyDataCopy.data));
+    // dispatch(addIdToUsedIds());
+    dispatch(drawEasyQuestion());
+  }, [dispatch]);
+
+  const handleQuestion = (data: SingleData[], drawFunction: any) => {
+    dispatch(drawId(data));
+    dispatch(setCurrendQuestion(data));
+    dispatch(drawFunction);
+  };
+
   const onNextQuest = () => {
-    if (questionNumber <= 3) {
-      dispatch(drawQuestion(easyDataCopy));
-    } else if (questionNumber > 3 && questionNumber <= 6) {
-      dispatch(drawQuestion(mediumData));
-    } else if (questionNumber > 6 && questionNumber <= 9) {
-      dispatch(drawQuestion(quiteDifficultData));
-    } else if (questionNumber > 9 && questionNumber <= 12) {
-      dispatch(drawQuestion(difficultData));
+    if (questionNumber <= 2) {
+      handleQuestion(easyDataCopy.data, drawEasyQuestion());
+    } else if (questionNumber > 2 && questionNumber <= 5) {
+      handleQuestion(mediumDataCopy.data, drawMediumQuestion());
+    } else if (questionNumber > 5 && questionNumber <= 8) {
+      handleQuestion(quiteDifficultDataCopy.data, drawQuiteDifficultQuestion());
+    } else if (questionNumber > 8 && questionNumber <= 12) {
+      handleQuestion(difficultDataCopy.data, drawDifficultQuestion());
     }
     dispatch(nextQuestion());
     dispatch(clearProbabilityAnswers());
   };
 
   const wrongAnswer = () => {
+    console.log(questionNumber);
+    
     wrongAudiFn();
     if (questionNumber > 2 && questionNumber <= 12) {
       setTimeout(() => {
@@ -145,7 +163,7 @@ const Answers = () => {
       } else {
         wrongAnswer();
       }
-    }, 2500);
+    }, 25);
   };
 
   // Storing Score in localStorage

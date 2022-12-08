@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import { easyData } from "../../../data/data";
 import { setGameOver } from "../../../features/gameOverSlice";
 import {
   clearProbabilityAnswers,
@@ -9,17 +8,34 @@ import {
 } from "../../../features/lifebousSlice";
 import { youAreMillionaire } from "../../../features/millionaireSlice";
 import {
-  drawQuestion,
+  drawEasyQuestion,
+  // addIdToUsedIds,
+  drawId,
+  restoreInitialDifficultData,
+  restoreInitialEasyData,
+  restoreInitialMediumData,
+  restoreInitialQuiteDifficultData,
+  setCurrendQuestion,
   setQuestionNumber,
 } from "../../../features/questionsSlice";
+import { useAppSelector } from "../../../hooks/hooks";
 
 import "./PlayAgain.css";
 
 const PlayAgain = () => {
   const dispatch = useDispatch();
+  const { easyDataCopy } = useAppSelector((state) => state.questions);
 
   const onPlayAgain = () => {
-    dispatch(drawQuestion(easyData));
+    dispatch(restoreInitialEasyData())
+    dispatch(restoreInitialMediumData())
+    dispatch(restoreInitialQuiteDifficultData())
+    dispatch(restoreInitialDifficultData())
+    dispatch(drawId(easyDataCopy.data));
+    dispatch(setCurrendQuestion(easyDataCopy.data));
+    dispatch(drawEasyQuestion());
+    // dispatch(addIdToUsedIds());
+   
     dispatch(setGameOver(false));
     dispatch(setQuestionNumber(1));
     dispatch(toggleDisableThirtySecondLifebous(false));

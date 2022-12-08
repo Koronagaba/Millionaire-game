@@ -1,12 +1,10 @@
 import { useAppSelector } from "../../../hooks/hooks";
-import { easyData } from "../../../data/data";
 
 import PlayAgain from "../playAgain/PlayAgain";
 import QuitGame from "../quitGame/QuitGame";
 
 import "./GameOver.css";
 
-export const easyDataCopy = [...easyData];
 
 const GameOver = () => {
   const { award } = useAppSelector((state) => state.gameOver);

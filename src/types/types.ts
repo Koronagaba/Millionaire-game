@@ -13,6 +13,6 @@ export type AnswerType = {
 export type Pyramid = {
   id: number;
   quantity: number;
-  currency: "zł";
+  currency: "$";
   safeHaven: "safeHaven" | "";
 };

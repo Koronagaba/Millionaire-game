@@ -413,19 +413,19 @@ const difficultData: SingleData[] = [
   },
 ];
 
-const pyramid: Pyramid[] = [
-  { id: 1, quantity: 500, currency: "zł", safeHaven: "" },
-  { id: 2, quantity: 1000, currency: "zł", safeHaven: "safeHaven" },
-  { id: 3, quantity: 2000, currency: "zł", safeHaven: "" },
-  { id: 4, quantity: 5000, currency: "zł", safeHaven: "" },
-  { id: 5, quantity: 10000, currency: "zł", safeHaven: "" },
-  { id: 6, quantity: 20000, currency: "zł", safeHaven: "" },
-  { id: 7, quantity: 40000, currency: "zł", safeHaven: "safeHaven" },
-  { id: 8, quantity: 75000, currency: "zł", safeHaven: "" },
-  { id: 9, quantity: 125000, currency: "zł", safeHaven: "" },
-  { id: 10, quantity: 250000, currency: "zł", safeHaven: "" },
-  { id: 11, quantity: 500000, currency: "zł", safeHaven: "" },
-  { id: 12, quantity: 1000000, currency: "zł", safeHaven: "safeHaven" },
+export const pyramid: Pyramid[] = [
+  { id: 1, quantity: 500, currency: "$", safeHaven: "" },
+  { id: 2, quantity: 1000, currency: "$", safeHaven: "safeHaven" },
+  { id: 3, quantity: 2000, currency: "$", safeHaven: "" },
+  { id: 4, quantity: 5000, currency: "$", safeHaven: "" },
+  { id: 5, quantity: 10000, currency: "$", safeHaven: "" },
+  { id: 6, quantity: 20000, currency: "$", safeHaven: "" },
+  { id: 7, quantity: 40000, currency: "$", safeHaven: "safeHaven" },
+  { id: 8, quantity: 75000, currency: "$", safeHaven: "" },
+  { id: 9, quantity: 125000, currency: "$", safeHaven: "" },
+  { id: 10, quantity: 250000, currency: "$", safeHaven: "" },
+  { id: 11, quantity: 500000, currency: "$", safeHaven: "" },
+  { id: 12, quantity: 1000000, currency: "$", safeHaven: "safeHaven" },
 ];
 
-export { easyData, mediumData, quiteDifficultData, difficultData, pyramid };
+export { easyData, mediumData, quiteDifficultData, difficultData };
