@@ -1,12 +1,11 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../../../store";
 import { pyramid } from "../../../data/data";
+import { useAppSelector } from "../../../hooks/hooks";
 
 import "./Pyramid.css";
 
 const Pyramid = () => {
-  const questionNumber = useSelector(
-    (state: RootState) => state.questions.questionNumber
+  const questionNumber = useAppSelector(
+    (state) => state.questions.questionNumber
   );
 
   return (
@@ -20,7 +19,7 @@ const Pyramid = () => {
         >
           <p>{id}</p>
           <p>
-            {quantity} {currency}
+            {quantity.toLocaleString()} {currency}
           </p>
         </div>
       ))}
