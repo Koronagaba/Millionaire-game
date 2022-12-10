@@ -12,7 +12,7 @@
   .showMobileAside {
     position: absolute;
     top: 0;
-    right: 36px;
+    right: 32px;
     @include setFlex(column);
     min-width: 200px;
     height: 100%;

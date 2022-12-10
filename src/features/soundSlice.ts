@@ -5,7 +5,7 @@ interface InitialSoundState {
 }
 
 const initialState: InitialSoundState = {
-  allMuted: false,
+  allMuted: true,
 };
 
 const soundSlice = createSlice({
