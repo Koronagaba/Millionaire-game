@@ -22,9 +22,9 @@ const Header = () => {
   return (
     <div className="header">
       {muted ? (
-        <img className="volume" src={volume_off} onClick={handleSound} />
+        <img className="volume" src={volume_off} onClick={handleSound} alt="Volume off" />
       ) : (
-        <img className="volume" src={volume_on} onClick={handleSound} />
+        <img className="volume" src={volume_on} onClick={handleSound} alt="Volume on"  />
       )}
       {/* <p>Millionaire</p> */}
       

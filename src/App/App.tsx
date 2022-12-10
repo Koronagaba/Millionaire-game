@@ -19,7 +19,7 @@ function App() {
         dispatch(setIsMobileTrue());
       } else dispatch(setIsMobileFalse());
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="wrapper">

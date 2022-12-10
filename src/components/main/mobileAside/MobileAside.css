@@ -15,7 +15,7 @@
     flex-direction: column;
     justify-content: space-around;
     min-width: 200px;
-    height: 100%;
+    height: 100vh;
   }
   .showMobileAside:hover {
     cursor: pointer;

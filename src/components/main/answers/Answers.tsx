@@ -87,7 +87,7 @@ const Answers = () => {
     dispatch(setCurrendQuestion(easyDataCopy.data));
     // dispatch(addIdToUsedIds());
     dispatch(drawEasyQuestion());
-  }, [dispatch]);
+  }, [dispatch, easyDataCopy.data]);
 
   const handleQuestion = (data: SingleData[], drawFunction: any) => {
     dispatch(drawId(data));

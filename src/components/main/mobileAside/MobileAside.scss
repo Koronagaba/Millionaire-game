@@ -15,7 +15,7 @@
     right: 30px;
     @include setFlex(column);
     min-width: 200px;
-    height: 100%;
+    height: 100vh;
     &:hover {
       cursor: pointer;
     }

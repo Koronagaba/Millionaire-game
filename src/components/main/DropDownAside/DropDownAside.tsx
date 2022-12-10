@@ -17,14 +17,30 @@ const DropDownAside = ({ expandAside, setExpandAside }: PropsDropDownAside) => {
       {expandAside ? (
         <>
           <div className="img_wrapper">
-            <img className="chevron" src={chevron_right}></img>
-            <img className="chevron_second" src={chevron_right} />
+            <img
+              className="chevron"
+              src={chevron_right}
+              alt="Double right arrow to expand the menu"
+            ></img>
+            <img
+              className="chevron_second"
+              src={chevron_right}
+              alt="Double right arrow to expand the menu"
+            />
           </div>
         </>
       ) : (
         <div className="img_wrapper">
-          <img className="chevron" src={chevron_left}></img>
-          <img className="chevron_second" src={chevron_left} />
+          <img
+            className="chevron"
+            src={chevron_left}
+            alt="Double left arrow to expand the menu"
+          ></img>
+          <img
+            className="chevron_second"
+            src={chevron_left}
+            alt="Double left arrow to expand the menu"
+          />
         </div>
       )}
     </div>
