@@ -10,7 +10,7 @@
   .showMobileAside {
     position: absolute;
     top: 0;
-    right: 32px;
+    right: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

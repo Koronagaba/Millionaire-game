@@ -1,9 +1,6 @@
 .drop_down_container {
   display: flex;
-  height: 100%;
-  width: 40px;
-  background: linear-gradient(18deg, #013185 30%, #011c4d 70%);
-  margin: auto;
+  width: 36px;
 }
 .drop_down_container:hover {
   cursor: pointer;
@@ -14,8 +11,6 @@
   justify-content: center;
 }
 .drop_down_container .chevron {
-  position: relative;
-  left: 4px;
   width: 30px;
   height: 30px;
   filter: invert(1);

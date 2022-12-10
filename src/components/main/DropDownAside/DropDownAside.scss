@@ -1,10 +1,7 @@
-@use "../../../scss/variables" as *;
+
 .drop_down_container {
   display: flex;
-  height: 100%;
-  width: 40px;
-  background: $main-bg;
-  margin: auto;
+  width: 36px;
 
   &:hover {
     cursor: pointer;
@@ -15,8 +12,6 @@
     justify-content: center;
   }
   .chevron {
-    position: relative;
-    left: 4px;
     width: 30px;
     height: 30px;
     filter: invert(1);
