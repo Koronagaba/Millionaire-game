@@ -1,6 +1,7 @@
 .wrapper {
   height: 100vh;
   background: linear-gradient(18deg, #013185 30%, #011c4d 70%);
+  overflow: hidden;
 }
 .wrapper .app_container {
   display: flex;

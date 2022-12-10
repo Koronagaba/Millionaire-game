@@ -61,8 +61,15 @@ const StartView = () => {
           onChange={(e) =>
             dispatch(enterUserName(e.target.value.toUpperCase()))
           }
+          maxLength={12}
         />
+        {userName.length >= 12 ? (
+          <p className="maxLength_error">
+            'Username must have maximum 12 signs'
+          </p>
+        ) : null}
       </label>
+
       <button className="btn" onClick={startGame}>
         Start Game
       </button>

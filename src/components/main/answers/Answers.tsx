@@ -110,8 +110,6 @@ const Answers = () => {
   };
 
   const wrongAnswer = () => {
-    console.log(questionNumber);
-    
     wrongAudiFn();
     if (questionNumber > 2 && questionNumber <= 12) {
       setTimeout(() => {

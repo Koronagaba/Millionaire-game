@@ -6,13 +6,24 @@
   margin: auto 0;
   .welcome {
     @include setFlex();
+    flex-wrap: wrap;
   }
   .enterName {
     @include setFlex();
     align-items: center;
+    position: relative;
 
     input {
       outline: none;
+    }
+    .maxLength_error {
+      position: absolute;
+      top: 35px;
+      color: red;
+      font-size: 12px;
+      background-color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
     }
   }
 }

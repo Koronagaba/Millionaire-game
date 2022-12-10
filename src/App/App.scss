@@ -4,6 +4,7 @@
 .wrapper {
   height: 100vh;
   background: $main_bg;
+  overflow: hidden;
 
   .app_container {
     display: flex;

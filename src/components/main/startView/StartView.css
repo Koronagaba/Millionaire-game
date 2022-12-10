@@ -9,13 +9,24 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 .startView .enterName {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  position: relative;
 }
 .startView .enterName input {
   outline: none;
+}
+.startView .enterName .maxLength_error {
+  position: absolute;
+  top: 35px;
+  color: red;
+  font-size: 12px;
+  background-color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
 }/*# sourceMappingURL=StartView.css.map */
