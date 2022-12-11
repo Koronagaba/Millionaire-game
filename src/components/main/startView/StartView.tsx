@@ -21,6 +21,7 @@ import {
 import { youAreMillionaire } from "../../../features/millionaireSlice";
 
 import "./StartView.css";
+import React from "react";
 
 const StartView = () => {
   const dispatch = useAppDispatch();
@@ -48,6 +49,12 @@ const StartView = () => {
     );
   };
 
+  const max = 11;
+
+  const handleOnKey = (e: any) => {
+    e.target.value = e.target.value.substring(0, max);
+  };
+
   return (
     <div className="startView">
       <h1 className="welcome">
@@ -61,13 +68,8 @@ const StartView = () => {
           onChange={(e) =>
             dispatch(enterUserName(e.target.value.toUpperCase()))
           }
-          maxLength={12}
+          onKeyUp={handleOnKey}
         />
-        {userName.length >= 12 ? (
-          <p className="maxLength_error">
-            'Username must have maximum 12 signs'
-          </p>
-        ) : null}
       </label>
 
       <button className="btn" onClick={startGame}>
