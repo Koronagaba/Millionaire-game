@@ -95,12 +95,15 @@ const Answers = () => {
     dispatch(drawFunction);
   };
 
+  console.log(easyDataCopy);
+  
+
   const onNextQuest = () => {
-    if (questionNumber <= 2) {
+    if (questionNumber <= 3) {
       handleQuestion(easyDataCopy.data, drawEasyQuestion());
-    } else if (questionNumber > 2 && questionNumber <= 5) {
+    } else if (questionNumber > 3 && questionNumber <= 6) {
       handleQuestion(mediumDataCopy.data, drawMediumQuestion());
-    } else if (questionNumber > 5 && questionNumber <= 8) {
+    } else if (questionNumber > 6 && questionNumber <= 9) {
       handleQuestion(quiteDifficultDataCopy.data, drawQuiteDifficultQuestion());
     } else if (questionNumber > 8 && questionNumber <= 12) {
       handleQuestion(difficultDataCopy.data, drawDifficultQuestion());
@@ -161,7 +164,7 @@ const Answers = () => {
       } else {
         wrongAnswer();
       }
-    }, 25);
+    }, 2500);
   };
 
   // Storing Score in localStorage
