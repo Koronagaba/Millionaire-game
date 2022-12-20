@@ -1,12 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface GameOverState {
-  gameOver: boolean;
   award: number;
 }
 
 const initialState: GameOverState = {
-  gameOver: false,
   award: 0,
 };
 
@@ -14,14 +12,12 @@ const gameOverSlice = createSlice({
   name: "gameOver",
   initialState,
   reducers: {
-    setGameOver(state, {payload}) {
-      state.gameOver = payload;
-    },
     showCurrentAward(state, { payload }) {
       state.award = payload;
     },
   },
 });
 
-export const { setGameOver, showCurrentAward } = gameOverSlice.actions;
+export const {
+  showCurrentAward } = gameOverSlice.actions;
 export default gameOverSlice.reducer;

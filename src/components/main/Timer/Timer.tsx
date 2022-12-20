@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import {  useAppDispatch, useAppSelector } from "../../../hooks/hooks";
 import { useCalculateAward } from "../../../hooks/useCalculateAward";
-import { setGameOver } from "../../../features/gameOverSlice";
 import { setExtraTime, setStopTimer } from "../../../features/timerSlice";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 import "./Timer.css";
+import { setGameOver } from "../../../features/questionsSlice";
 
 
 const Timer = () => {
@@ -27,7 +27,7 @@ const Timer = () => {
 
   const renderTime = ({ remainingTime }: any) => {
     if (remainingTime === 0) {
-      dispatch(setGameOver(true));
+      dispatch(setGameOver());
       dispatch(setStopTimer(true));
       // Show award
       calculateAward();

@@ -7,7 +7,7 @@ import "./Aside.css";
 import classNames from "classnames";
 
 const Aside = () => {
-  const { gameOver } = useAppSelector((state) => state.gameOver);
+  const { gameOver } = useAppSelector((state) => state.questions);
 
   return (
     <>

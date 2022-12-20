@@ -4,11 +4,9 @@ import { useDispatch } from "react-redux";
 import { setExtraTime } from "../../../features/timerSlice";
 import { useAppSelector } from "../../../hooks/hooks";
 import {
-  addProbabilityAnswers,
+  // addProbabilityAnswers,
   addAnswersWithCalculatedPercents,
-  toggleDisablePublicHelpLifebous,
-  toggleDisableThirtySecondLifebous,
-  setTwoIdsWrongAnswers,
+  // setTwoIdsWrongAnswers,
 } from "../../../features/lifebousSlice";
 
 import fiftyfifty_white_transparent from "../../../assets/icons/fiftyfifty-white-transparent.svg";
@@ -17,21 +15,28 @@ import thirtySec_white_transparent from "../../../assets/icons/30sec-white-trans
 
 import "./LifeBous.css";
 import classNames from "classnames";
+import { addProbabilityAnswers, setDisablePublicHelpLifebous, setDisableThirtySecondLifebous, setTwoIdsWrongAnswers } from "../../../features/questionsSlice";
 
 const Lifebous = () => {
   const [sumProbabilityAnswers, setSumProbabilityAnswers] = useState(0);
   const dispatch = useDispatch();
 
   const {
-    disableThirtySecLifebous,
-    twoIdsWrongAnswers,
-    disablePublicHelpLifebous,
-    probabilityAnswers,
+    // disableThirtySecLifebous,
+    // twoIdsWrongAnswers,
+    // disablePublicHelpLifebous,
+    // probabilityAnswers,
   } = useAppSelector((state) => state.lifebous);
-  const { currentQuestion, selectedAnswer } = useAppSelector(
-    (state) => state.questions
-  );
-  const { gameOver } = useAppSelector((state) => state.gameOver);
+  const {
+    currentQuestion,
+    selectedAnswer,
+    probabilityAnswers,
+    disableThirtySecLifebous,
+    disablePublicHelpLifebous,
+    twoIdsWrongAnswers
+    
+  } = useAppSelector((state) => state.questions);
+  const { gameOver } = useAppSelector((state) => state.questions);
 
   const showWrongAnswersIds = () => {
     const threeWrongAnswersIds = currentQuestion?.answers
@@ -72,7 +77,7 @@ const Lifebous = () => {
           );
         }
       });
-      dispatch(toggleDisablePublicHelpLifebous(true));
+      dispatch(setDisablePublicHelpLifebous());
     }
   };
 
@@ -120,7 +125,7 @@ const Lifebous = () => {
   const handleExtraTime = () => {
     if (disableThirtySecLifebous || gameOver || selectedAnswer) return;
     dispatch(setExtraTime(30));
-    dispatch(toggleDisableThirtySecondLifebous(true));
+    dispatch(setDisableThirtySecondLifebous());
   };
 
   return (

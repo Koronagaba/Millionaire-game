@@ -16,18 +16,10 @@ interface AnswersWithCalculatedPercents {
 }
 
 interface LifebousState {
-  disableThirtySecLifebous: boolean;
-  twoIdsWrongAnswers: TwoIdsWrongAnswersInterface;
-  disablePublicHelpLifebous: boolean;
-  probabilityAnswers: PorbabilityAnswers[];
   answersWithCalculatedPercents: AnswersWithCalculatedPercents[];
 }
 
 const initialState: LifebousState = {
-  disableThirtySecLifebous: false,
-  twoIdsWrongAnswers: { wrongAnswersIds: [] },
-  disablePublicHelpLifebous: false,
-  probabilityAnswers: [],
   answersWithCalculatedPercents: [],
 };
 
@@ -35,27 +27,6 @@ const lifebousSlice = createSlice({
   name: "lifebous",
   initialState,
   reducers: {
-    toggleDisableThirtySecondLifebous(
-      state,
-      { payload }: { payload: boolean }
-    ) {
-      state.disableThirtySecLifebous = payload;
-    },
-    setTwoIdsWrongAnswers(
-      state,
-      { payload }: { payload: TwoIdsWrongAnswersInterface }
-    ) {
-      state.twoIdsWrongAnswers = payload;
-    },
-    toggleDisablePublicHelpLifebous(state, { payload }: { payload: boolean }) {
-      state.disablePublicHelpLifebous = payload;
-    },
-    addProbabilityAnswers(state, { payload }) {
-      state.probabilityAnswers.push(payload);
-    },
-    clearProbabilityAnswers(state) {
-      state.probabilityAnswers = [];
-    },
     addAnswersWithCalculatedPercents(
       state,
       { payload }: { payload: AnswersWithCalculatedPercents[] }
@@ -66,11 +37,6 @@ const lifebousSlice = createSlice({
 });
 
 export const {
-  toggleDisableThirtySecondLifebous,
-  setTwoIdsWrongAnswers,
-  toggleDisablePublicHelpLifebous,
-  addProbabilityAnswers,
-  clearProbabilityAnswers,
   addAnswersWithCalculatedPercents,
 } = lifebousSlice.actions;
 export default lifebousSlice.reducer;

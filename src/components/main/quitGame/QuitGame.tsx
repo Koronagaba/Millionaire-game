@@ -1,4 +1,4 @@
-import { stopTheGame } from "../../../features/startViewSlice";
+import { stopTheGame } from "../../../features/questionsSlice";
 import { enterUserName } from "../../../features/userNameSlice";
 import { useAppDispatch } from "../../../hooks/hooks";
 

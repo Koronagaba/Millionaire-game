@@ -16,13 +16,13 @@ import "./Main.css";
 import classNames from "classnames";
 
 const Main = () => {
-  const gameOver = useAppSelector((state) => state.gameOver.gameOver);
-  const probabilityAnswers = useAppSelector(
-    (state) => state.lifebous.probabilityAnswers
+  // const gameOver = useAppSelector((state) => state.questions.gameOver);
+  const { gameOver, probabilityAnswers, youAreMillionaire, startGame } = useAppSelector(
+    (state) => state.questions
   );
-  const { youAreMillionaire } = useAppSelector((state) => state.millionaire);
+  // const { youAreMillionaire } = useAppSelector((state) => state.millionaire);
   const isMobile = useAppSelector((state) => state.responsive.isMobile);
-  const { startGame } = useAppSelector((state) => state.startView);
+  // const { startGame } = useAppSelector((state) => state.startView);
 
   return (
     <div className="main_container">

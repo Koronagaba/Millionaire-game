@@ -1,21 +1,14 @@
 import { useEffect, useRef } from "react";
 import { pyramid } from "../../../data/data";
-import { AnswerType, SingleData } from "../../../types/types";
+import { AnswerType } from "../../../types/types";
 import {
-  // addIdToUsedIds,
   chooseAnswer,
-  drawDifficultQuestion,
-  drawEasyQuestion,
-  drawId,
-  drawMediumQuestion,
-  drawQuiteDifficultQuestion,
-  nextQuestion,
-  setCurrendQuestion,
+  handleNextQuestion,
+  setGameOver,
+  youAreMillionaire,
 } from "../../../features/questionsSlice";
-import { setGameOver, showCurrentAward } from "../../../features/gameOverSlice";
+import { showCurrentAward } from "../../../features/gameOverSlice";
 import { setStopTimer } from "../../../features/timerSlice";
-import { clearProbabilityAnswers } from "../../../features/lifebousSlice";
-import { youAreMillionaire } from "../../../features/millionaireSlice";
 import { useCalculateAward } from "../../../hooks/useCalculateAward";
 import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
 
@@ -33,11 +26,9 @@ const Answers = () => {
     questionNumber,
     selectedAnswer,
     easyDataCopy,
-    mediumDataCopy,
-    quiteDifficultDataCopy,
-    difficultDataCopy,
+    twoIdsWrongAnswers,
   } = useAppSelector((state) => state.questions);
-  const { twoIdsWrongAnswers } = useAppSelector((state) => state.lifebous);
+  // const { twoIdsWrongAnswers } = useAppSelector((state) => state.lifebous);
   const { award } = useAppSelector((state) => state.gameOver);
   const { allMuted } = useAppSelector((state) => state.sound);
 
@@ -82,41 +73,15 @@ const Answers = () => {
     }
   };
 
-  useEffect(() => {
-    dispatch(drawId(easyDataCopy.data));
-    dispatch(setCurrendQuestion(easyDataCopy.data));
-    // dispatch(addIdToUsedIds());
-    dispatch(drawEasyQuestion());
-  }, [dispatch, easyDataCopy.data]);
-
-  const handleQuestion = (data: SingleData[], drawFunction: any) => {
-    dispatch(drawId(data));
-    dispatch(setCurrendQuestion(data));
-    dispatch(drawFunction);
-  };
-
-  console.log(easyDataCopy);
-  
-
   const onNextQuest = () => {
-    if (questionNumber <= 3) {
-      handleQuestion(easyDataCopy.data, drawEasyQuestion());
-    } else if (questionNumber > 3 && questionNumber <= 6) {
-      handleQuestion(mediumDataCopy.data, drawMediumQuestion());
-    } else if (questionNumber > 6 && questionNumber <= 9) {
-      handleQuestion(quiteDifficultDataCopy.data, drawQuiteDifficultQuestion());
-    } else if (questionNumber > 8 && questionNumber <= 12) {
-      handleQuestion(difficultDataCopy.data, drawDifficultQuestion());
-    }
-    dispatch(nextQuestion());
-    dispatch(clearProbabilityAnswers());
+    dispatch(handleNextQuestion());
   };
 
   const wrongAnswer = () => {
     wrongAudiFn();
     if (questionNumber > 2 && questionNumber <= 12) {
       setTimeout(() => {
-        dispatch(setGameOver(true));
+        dispatch(setGameOver());
         dispatch(chooseAnswer(null));
       }, 5000);
       setTimeout(() => {
@@ -124,7 +89,7 @@ const Answers = () => {
       }, 2700);
     } else {
       setTimeout(() => {
-        dispatch(setGameOver(true));
+        dispatch(setGameOver());
         dispatch(chooseAnswer(null));
       }, 3700);
     }
@@ -164,7 +129,7 @@ const Answers = () => {
       } else {
         wrongAnswer();
       }
-    }, 2500);
+    }, 25);
   };
 
   // Storing Score in localStorage

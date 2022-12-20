@@ -9,7 +9,7 @@ import classNames from "classnames";
 
 const MobileAside = () => {
   const [expandAside, setExpandAside] = useState(false);
-  const { gameOver } = useAppSelector((state) => state.gameOver);
+  const { gameOver } = useAppSelector((state) => state.questions);
 
   return (
     <>
