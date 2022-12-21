@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import {
   difficultData,
   easyData,
@@ -79,21 +79,18 @@ const questionsSlice = createSlice({
         state.randomIndex = Math.floor(
           Math.random() * state.easyDataCopy.data.length
         );
-        if (!state.randomIndex) return;
         state.currentQuestion = state.easyDataCopy.data[state.randomIndex];
         state.easyDataCopy.data.splice(state.randomIndex, 1);
       } else if (state.questionNumber >= 3 && state.questionNumber < 6) {
         state.randomIndex = Math.floor(
           Math.random() * state.mediumDataCopy.data.length
         );
-        if (!state.randomIndex) return;
         state.currentQuestion = state.mediumDataCopy.data[state.randomIndex];
         state.mediumDataCopy.data.splice(state.randomIndex, 1);
       } else if (state.questionNumber >= 6 && state.questionNumber < 9) {
         state.randomIndex = Math.floor(
           Math.random() * state.quiteDifficultDataCopy.data.length
         );
-        if (!state.randomIndex) return;
         state.currentQuestion =
           state.quiteDifficultDataCopy.data[state.randomIndex];
         state.quiteDifficultDataCopy.data.splice(state.randomIndex, 1);
@@ -101,7 +98,6 @@ const questionsSlice = createSlice({
         state.randomIndex = Math.floor(
           Math.random() * state.difficultDataCopy.data.length
         );
-        if (!state.randomIndex) return;
         state.currentQuestion = state.difficultDataCopy.data[state.randomIndex];
         state.difficultDataCopy.data.splice(state.randomIndex, 1);
       }
@@ -129,6 +125,11 @@ const questionsSlice = createSlice({
       if (!state.randomIndex) return;
       state.currentQuestion = payload[state.randomIndex];
       state.easyDataCopy.data.splice(state.randomIndex, 1);
+
+      // state.easyDataCopy.usedIds.push(state.easyDataCopy.data[state.randomIndex].id);
+      // state.availableQuestions = state.easyDataCopy.data.filter(
+      //   (item) => !state.easyDataCopy.usedIds.includes(item.id)
+      // );
     },
 
     stopTheGame(state) {

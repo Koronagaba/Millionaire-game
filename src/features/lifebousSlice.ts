@@ -1,15 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface TwoIdsWrongAnswersInterface {
-  wrongAnswersIds: number[];
-  questionId?: number;
-}
-
-interface PorbabilityAnswers {
-  id?: number;
-  probabilityAmount: number;
-}
-
 interface AnswersWithCalculatedPercents {
   id?: number;
   answerTheAudience: number;

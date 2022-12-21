@@ -25,10 +25,8 @@ const Answers = () => {
     currentQuestion,
     questionNumber,
     selectedAnswer,
-    easyDataCopy,
     twoIdsWrongAnswers,
   } = useAppSelector((state) => state.questions);
-  // const { twoIdsWrongAnswers } = useAppSelector((state) => state.lifebous);
   const { award } = useAppSelector((state) => state.gameOver);
   const { allMuted } = useAppSelector((state) => state.sound);
 
