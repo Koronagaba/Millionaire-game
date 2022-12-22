@@ -127,7 +127,7 @@ const Answers = () => {
       } else {
         wrongAnswer();
       }
-    }, 25);
+    }, 2500);
   };
 
   // Storing Score in localStorage

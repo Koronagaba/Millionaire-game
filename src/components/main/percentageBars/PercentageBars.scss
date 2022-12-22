@@ -1,4 +1,4 @@
-@use '../../../scss/mixins' as *;
+@use "../../../scss/mixins" as *;
 
 .percentageBars {
   @include setFlex();
@@ -8,9 +8,10 @@
   border-radius: 5px;
   min-height: 140px;
   min-width: 40%;
-  
+
   &_single {
     width: 35px;
+
     @include setFlex(column);
     .bar {
       margin-top: auto;
@@ -22,8 +23,10 @@
       margin: 0 auto;
     }
   }
-
+  .disabled {
+    opacity: 0;
+  }
   &_single + &_single {
     margin-left: 12px;
-  } 
+  }
 }

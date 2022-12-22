@@ -3,11 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setExtraTime } from "../../../features/timerSlice";
 import { useAppSelector } from "../../../hooks/hooks";
-import {
-  // addProbabilityAnswers,
-  addAnswersWithCalculatedPercents,
-  // setTwoIdsWrongAnswers,
-} from "../../../features/lifebousSlice";
+import { addAnswersWithCalculatedPercents } from "../../../features/lifebousSlice";
 
 import fiftyfifty_white_transparent from "../../../assets/icons/fiftyfifty-white-transparent.svg";
 import public_white_transparent from "../../../assets/icons/public-white-transparent.svg";
@@ -15,26 +11,25 @@ import thirtySec_white_transparent from "../../../assets/icons/30sec-white-trans
 
 import "./LifeBous.css";
 import classNames from "classnames";
-import { addProbabilityAnswers, setDisablePublicHelpLifebous, setDisableThirtySecondLifebous, setTwoIdsWrongAnswers } from "../../../features/questionsSlice";
+import {
+  addProbabilityAnswers,
+  setDisablePublicHelpLifebous,
+  setDisableThirtySecondLifebous,
+  setTwoIdsWrongAnswers,
+} from "../../../features/questionsSlice";
 
 const Lifebous = () => {
   const [sumProbabilityAnswers, setSumProbabilityAnswers] = useState(0);
   const dispatch = useDispatch();
 
-  const {
-    // disableThirtySecLifebous,
-    // twoIdsWrongAnswers,
-    // disablePublicHelpLifebous,
-    // probabilityAnswers,
-  } = useAppSelector((state) => state.lifebous);
+  const {} = useAppSelector((state) => state.lifebous);
   const {
     currentQuestion,
     selectedAnswer,
     probabilityAnswers,
     disableThirtySecLifebous,
     disablePublicHelpLifebous,
-    twoIdsWrongAnswers
-    
+    twoIdsWrongAnswers,
   } = useAppSelector((state) => state.questions);
   const { gameOver } = useAppSelector((state) => state.questions);
 
@@ -48,10 +43,9 @@ const Lifebous = () => {
 
   ////////////////
   const handlePublicHelp = () => {
+    console.log(twoIdsWrongAnswers);
     if (disablePublicHelpLifebous || gameOver || selectedAnswer) return;
-    if (twoIdsWrongAnswers.questionId === currentQuestion?.id) {
-      // With fiftyFifty lifebous
-    } else {
+      
       currentQuestion?.answers.map((answer) => {
         //Probability answers
         if (answer.isCorrect) {
@@ -78,7 +72,6 @@ const Lifebous = () => {
         }
       });
       dispatch(setDisablePublicHelpLifebous());
-    }
   };
 
   useEffect(() => {

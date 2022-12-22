@@ -24,6 +24,9 @@
 .percentageBars_single .answer_id {
   margin: 0 auto;
 }
+.percentageBars .disabled {
+  opacity: 0;
+}
 .percentageBars_single + .percentageBars_single {
   margin-left: 12px;
 }/*# sourceMappingURL=PercentageBars.css.map */
