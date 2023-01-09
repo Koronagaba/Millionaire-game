@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setExtraTime } from "../../../features/timerSlice";
 import { useAppSelector } from "../../../hooks/hooks";
-import { addAnswersWithCalculatedPercents } from "../../../features/lifebousSlice";
+import { addAnswersWithCalculatedPercents } from "../../../features/lifebuoysSlice";
 
 import fiftyfifty_white_transparent from "../../../assets/icons/fiftyfifty-white-transparent.svg";
 import public_white_transparent from "../../../assets/icons/public-white-transparent.svg";
@@ -18,11 +18,11 @@ import {
   setTwoIdsWrongAnswers,
 } from "../../../features/questionsSlice";
 
-const Lifebous = () => {
+const Lifebuoys = () => {
   const [sumProbabilityAnswers, setSumProbabilityAnswers] = useState(0);
   const dispatch = useDispatch();
 
-  const {} = useAppSelector((state) => state.lifebous);
+  const {} = useAppSelector((state) => state.lifebuoys);
   const {
     currentQuestion,
     selectedAnswer,
@@ -154,4 +154,4 @@ const Lifebous = () => {
   );
 };
 
-export default Lifebous;
+export default Lifebuoys;

@@ -5,15 +5,15 @@ interface AnswersWithCalculatedPercents {
   answerTheAudience: number;
 }
 
-interface LifebousState {
+interface LifebuoysState {
   answersWithCalculatedPercents: AnswersWithCalculatedPercents[];
 }
 
-const initialState: LifebousState = {
+const initialState: LifebuoysState = {
   answersWithCalculatedPercents: [],
 };
 
-const lifebousSlice = createSlice({
+const lifebuoysSlice = createSlice({
   name: "lifebous",
   initialState,
   reducers: {
@@ -28,5 +28,5 @@ const lifebousSlice = createSlice({
 
 export const {
   addAnswersWithCalculatedPercents,
-} = lifebousSlice.actions;
-export default lifebousSlice.reducer;
+} = lifebuoysSlice.actions;
+export default lifebuoysSlice.reducer;

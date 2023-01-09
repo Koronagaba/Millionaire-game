@@ -1,7 +1,7 @@
 import { useAppSelector } from "../../../hooks/hooks";
 
 import Pyramid from "../Pyramid/Pyramid";
-import LifeBous from "../LifeBous/LifeBous";
+import LifeBuoys from "../LifeBous/LifeBuoys";
 
 import "./Aside.css";
 import classNames from "classnames";
@@ -16,7 +16,7 @@ const Aside = () => {
           dim: gameOver,
         })}
       >
-        <LifeBous />
+        <LifeBuoys />
         <Pyramid />
       </div>
     </>

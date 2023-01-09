@@ -7,7 +7,7 @@ import { useAppSelector } from "../../../hooks/hooks";
 import GameOver from "../gameOver/GameOver";
 import PercentageBars from "../percentageBars/PercentageBars";
 
-import Lifebous from "../../aside/LifeBous/LifeBous";
+import Lifebuoys from "../../aside/LifeBous/LifeBuoys";
 import MobileAside from "../mobileAside/MobileAside";
 import YouAreMillionaire from "../youAreMillionaire/YouAreMillionaire";
 import StartView from "../startView/StartView";
@@ -46,7 +46,7 @@ const Main = () => {
                   <>
                     {isMobile && (
                       <div>
-                        <Lifebous />
+                        <Lifebuoys />
                         <Timer />
                       </div>
                     )}

@@ -4,7 +4,7 @@ import "./PercentageBars.css";
 
 const PercentageBars = () => {
   const { answersWithCalculatedPercents } = useAppSelector(
-    (state) => state.lifebous
+    (state) => state.lifebuoys
   );
 
   const { twoIdsWrongAnswers, currentQuestion } = useAppSelector(
