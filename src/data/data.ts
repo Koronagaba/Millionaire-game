@@ -5,7 +5,7 @@ const easyData: SingleData[] = [
     id: 1,
     question: "który miesiąc ma 28 dni?",
     answers: [
-      { id: 1, answer: "styczeń", isCorrect: false},
+      { id: 1, answer: "styczeń", isCorrect: false },
       { id: 2, answer: "luty", isCorrect: true },
       { id: 3, answer: "luty w roku przestępnym", isCorrect: false },
       { id: 4, answer: "marzec", isCorrect: false },
@@ -43,12 +43,12 @@ const easyData: SingleData[] = [
   },
   {
     id: 5,
-    question: "Prezydent z dupą na brodzie to:",
+    question: "Pumba z 'Króla Lwa' jest:",
     answers: [
-      { id: 1, answer: "Anrdzej Duda", isCorrect: true },
-      { id: 2, answer: "Bronisław Komorowski", isCorrect: false },
-      { id: 3, answer: "Lech Wałęsa", isCorrect: false },
-      { id: 4, answer: "Aleksander Kwaśniewski", isCorrect: false },
+      { id: 1, answer: "Guźcem", isCorrect: true },
+      { id: 2, answer: "Torem", isCorrect: false },
+      { id: 3, answer: "Bykiem", isCorrect: false },
+      { id: 4, answer: "Mamutem", isCorrect: false },
     ],
   },
   {
@@ -176,7 +176,8 @@ const mediumData: SingleData[] = [
   },
   {
     id: 18,
-    question: "Łzy jakiego zwierzęcia są jedynym znanym antidotum na jad bazyliszka?",
+    question:
+      "Łzy jakiego zwierzęcia są jedynym znanym antidotum na jad bazyliszka?",
     answers: [
       { id: 1, answer: "Demiguise", isCorrect: false },
       { id: 2, answer: "Hipogryf ", isCorrect: false },
@@ -186,7 +187,8 @@ const mediumData: SingleData[] = [
   },
   {
     id: 19,
-    question: "Ilu zawodników hokeja na lodzie z jednej drużyny może jednocześnie przebywać na lodowisku?",
+    question:
+      "Ilu zawodników hokeja na lodzie z jednej drużyny może jednocześnie przebywać na lodowisku?",
     answers: [
       { id: 1, answer: "Nie więcej niż sześciu", isCorrect: true },
       { id: 2, answer: "Od ośmiu do dziewięciu", isCorrect: false },
@@ -196,7 +198,8 @@ const mediumData: SingleData[] = [
   },
   {
     id: 20,
-    question: "Ilu skoczków narciarskich reprezentuje dany kraj podczas konkursu drużynowego",
+    question:
+      "Ilu skoczków narciarskich reprezentuje dany kraj podczas konkursu drużynowego",
     answers: [
       { id: 1, answer: "Trzech", isCorrect: false },
       { id: 2, answer: "Czterech", isCorrect: true },
@@ -214,7 +217,11 @@ const quiteDifficultData: SingleData[] = [
       { id: 1, answer: "Choroba zakaźna", isCorrect: false },
       { id: 2, answer: "Dział geometrii", isCorrect: true },
       { id: 3, answer: "Jednostka medyczna", isCorrect: false },
-      { id: 4, answer: "Dział nauk o projektowaniu przestrzeni", isCorrect: false },
+      {
+        id: 4,
+        answer: "Dział nauk o projektowaniu przestrzeni",
+        isCorrect: false,
+      },
     ],
   },
   {
@@ -242,7 +249,11 @@ const quiteDifficultData: SingleData[] = [
     question: "Gdzie obowiązuje ruch lewostronny?",
     answers: [
       { id: 1, answer: "W Stanach zjednoczonych", isCorrect: false },
-      { id: 2, answer: "W Turcji, Szwecji i Korei Północnej", isCorrect: false },
+      {
+        id: 2,
+        answer: "W Turcji, Szwecji i Korei Północnej",
+        isCorrect: false,
+      },
       { id: 3, answer: "Na Islandii i na Majorce", isCorrect: false },
       { id: 4, answer: "W Indiach i na Malcie", isCorrect: true },
     ],
@@ -259,7 +270,8 @@ const quiteDifficultData: SingleData[] = [
   },
   {
     id: 26,
-    question: "W którym filmie z 1993 roku, którego akcja toczy się podczas II wojny światowej, występują Liam Neeson i Ralph Fiennes?",
+    question:
+      "W którym filmie z 1993 roku, którego akcja toczy się podczas II wojny światowej, występują Liam Neeson i Ralph Fiennes?",
     answers: [
       { id: 1, answer: "Angielski pacjent", isCorrect: false },
       { id: 2, answer: "Pianista ", isCorrect: false },
@@ -289,7 +301,8 @@ const quiteDifficultData: SingleData[] = [
   },
   {
     id: 29,
-    question: "Kiedy ukazały się pierwsze książki z cyklu ,,Tytus, Romek i A'Tomek''??",
+    question:
+      "Kiedy ukazały się pierwsze książki z cyklu ,,Tytus, Romek i A'Tomek''??",
     answers: [
       { id: 1, answer: "W latach 60.", isCorrect: true },
       { id: 2, answer: "W latach 70.", isCorrect: false },
@@ -299,7 +312,8 @@ const quiteDifficultData: SingleData[] = [
   },
   {
     id: 30,
-    question: "W jakim mieście przez ponad 30 lat żył i pracował Mikołaj Kopernik?",
+    question:
+      "W jakim mieście przez ponad 30 lat żył i pracował Mikołaj Kopernik?",
     answers: [
       { id: 1, answer: "Frombork", isCorrect: true },
       { id: 2, answer: "Elbląg", isCorrect: false },
@@ -353,7 +367,8 @@ const difficultData: SingleData[] = [
   },
   {
     id: 35,
-    question: "Który film zdobył Oscara w 2012 roku w kategorii najlepszy film?",
+    question:
+      "Który film zdobył Oscara w 2012 roku w kategorii najlepszy film?",
     answers: [
       { id: 1, answer: "Artist", isCorrect: true },
       { id: 2, answer: "The Hurt Locker", isCorrect: false },
@@ -373,7 +388,8 @@ const difficultData: SingleData[] = [
   },
   {
     id: 37,
-    question: "Jakie jest największe miasto na świecie pod względem gęstości zaludnienia?",
+    question:
+      "Jakie jest największe miasto na świecie pod względem gęstości zaludnienia?",
     answers: [
       { id: 1, answer: "Pekin ", isCorrect: false },
       { id: 2, answer: "Nowy Jork", isCorrect: false },
@@ -407,7 +423,11 @@ const difficultData: SingleData[] = [
     answers: [
       { id: 1, answer: "W Azji Mniejszej", isCorrect: true },
       { id: 2, answer: "W Pakistanie", isCorrect: false },
-      { id: 3, answer: "Na pograniczu Hiszpanii i Portugalii", isCorrect: false },
+      {
+        id: 3,
+        answer: "Na pograniczu Hiszpanii i Portugalii",
+        isCorrect: false,
+      },
       { id: 4, answer: "W Pirenejach", isCorrect: false },
     ],
   },

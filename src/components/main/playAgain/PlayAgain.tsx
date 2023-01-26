@@ -6,10 +6,10 @@ import "./PlayAgain.css";
 
 const PlayAgain = () => {
   const dispatch = useDispatch();
-  const { easyDataCopy } = useAppSelector((state) => state.questions);
+  const { easyDataCopy, randomIndex } = useAppSelector((state) => state.questions);
 
   const onPlayAgain = () => {
-    dispatch(setInitialQuestion(easyDataCopy.data));
+    dispatch(setInitialQuestion());
   };
 
   return (

@@ -22,10 +22,12 @@ import "./Answers.css";
 
 const Answers = () => {
   const {
+    easyDataCopy,
     currentQuestion,
     questionNumber,
     selectedAnswer,
     twoIdsWrongAnswers,
+    randomIndex
   } = useAppSelector((state) => state.questions);
   const { award } = useAppSelector((state) => state.gameOver);
   const { allMuted } = useAppSelector((state) => state.sound);
@@ -110,7 +112,7 @@ const Answers = () => {
     dispatch(chooseAnswer(null));
   };
 
-  const selectAnswer = (answer: AnswerType) => {
+  const selectAnswer = (answer: AnswerType) => {    console.log('randomIndex', randomIndex);
     correctAudioFn("pause");
     if (selectedAnswer) return; //Protection against multiple selection of answers
     calculateAward();

@@ -10,11 +10,10 @@ const StartView = () => {
   const { easyDataCopy } = useAppSelector((state) => state.questions);
 
   const startGame = () => {
-    dispatch(setInitialQuestion(easyDataCopy.data));
+    dispatch(setInitialQuestion());
   };
 
   const max = 11;
-
   const handleOnKey = (e: any) => {
     e.target.value = e.target.value.substring(0, max);
   };
@@ -22,7 +21,8 @@ const StartView = () => {
   return (
     <div className="startView">
       <h1 className="welcome">
-        {userName && "Hello"} {userName}
+        {/* {userName && "Hello"}  */}
+        {userName}
       </h1>
       <label className="enterName btn">
         Enter name:

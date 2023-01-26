@@ -101,11 +101,24 @@ const questionsSlice = createSlice({
         state.currentQuestion = state.difficultDataCopy.data[state.randomIndex];
         state.difficultDataCopy.data.splice(state.randomIndex, 1);
       }
-
+      // console.log('slice random', state.randomIndex);
       state.questionNumber++;
       state.probabilityAnswers = [];
+
+
+
+      if (!state.randomIndex) return;
+
+      state.easyDataCopy.usedIds.push(state.easyDataCopy.data[state.randomIndex].id);
+      state.availableQuestions = state.easyDataCopy.data.filter(
+        (item) => !state.easyDataCopy.usedIds.includes(item.id)
+      );
+      console.log('used',state.easyDataCopy.usedIds);
+      console.log('available',state.availableQuestions);
     },
-    setInitialQuestion(state, { payload }) {
+    setInitialQuestion(state) {
+ 
+      
       state.easyDataCopy.data = easyData;
       state.mediumDataCopy.data = mediumData;
       state.quiteDifficultDataCopy.data = quiteDifficultData;
@@ -120,16 +133,23 @@ const questionsSlice = createSlice({
       state.disableThirtySecLifebous = false;
       state.disablePublicHelpLifebous = false;
       state.twoIdsWrongAnswers = { wrongAnswersIds: [], questionId: undefined };
+    
+      state.randomIndex = Math.floor(Math.random() * state.easyDataCopy.data.length);
 
-      state.randomIndex = Math.floor(Math.random() * payload.length);
-      if (!state.randomIndex) return;
-      state.currentQuestion = payload[state.randomIndex];
+      if (state.randomIndex < 0) return;
+      state.currentQuestion = state.easyDataCopy.data[state.randomIndex];
       state.easyDataCopy.data.splice(state.randomIndex, 1);
+
+
+
 
       // state.easyDataCopy.usedIds.push(state.easyDataCopy.data[state.randomIndex].id);
       // state.availableQuestions = state.easyDataCopy.data.filter(
       //   (item) => !state.easyDataCopy.usedIds.includes(item.id)
       // );
+      // console.log('used',state.easyDataCopy.usedIds);
+      // console.log('available',state.availableQuestions);
+      
     },
 
     stopTheGame(state) {

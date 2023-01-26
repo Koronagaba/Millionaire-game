@@ -6,7 +6,6 @@
   margin: auto 0;
   .welcome {
     @include setFlex();
-    flex-wrap: wrap;
   }
   .enterName {
     @include setFlex();
@@ -14,6 +13,7 @@
 
     input {
       outline: none;
+      font-size: 1.1rem;
     }
   }
 }
