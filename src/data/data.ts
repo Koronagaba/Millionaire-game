@@ -108,10 +108,10 @@ const mediumData: SingleData[] = [
     id: 11,
     question: "2 + 2 x 2 =",
     answers: [
-      { id: 1, answer: "Wiktor", isCorrect: false },
-      { id: 3, answer: "Leon", isCorrect: true },
-      { id: 2, answer: "Michał", isCorrect: false },
-      { id: 4, answer: "Walenty", isCorrect: false },
+      { id: 1, answer: "4", isCorrect: false },
+      { id: 3, answer: "6", isCorrect: true },
+      { id: 2, answer: "8", isCorrect: false },
+      { id: 4, answer: "10", isCorrect: false },
     ],
   },
   {

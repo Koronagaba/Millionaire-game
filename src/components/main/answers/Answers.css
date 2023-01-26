@@ -4,10 +4,15 @@
   padding: 20px 0;
 }
 .answers .answer {
+  display: flex;
+  align-items: center;
   position: relative;
   width: 45%;
   font-size: 1em;
   margin: 2px 10px;
+}
+.answers .answer-text {
+  margin-left: 10px;
 }
 .answers .correct {
   -webkit-animation: correct 4s forwards;

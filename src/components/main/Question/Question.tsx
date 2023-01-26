@@ -9,9 +9,7 @@ const Question = () => {
 
   return (
     <div className="question">
-      <p>
-        {questionNumber}. {currentQuestion?.question}
-      </p>
+      <p>{currentQuestion?.question}</p>
     </div>
   );
 };

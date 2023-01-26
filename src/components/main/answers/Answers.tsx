@@ -163,7 +163,8 @@ const Answers = () => {
               key={answer.id}
               onClick={() => (disabled ? undefined : selectAnswer(answer))}
             >
-              {answer.answer}
+              <p>{`${answer.id}:`} </p>{" "}
+              <p className="answer-text">{answer.answer}</p>
             </button>
           );
         })}
