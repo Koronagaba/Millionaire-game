@@ -2,11 +2,12 @@
 @use "../../../scss/variables" as *;
 
 .question {
-  padding: 5px;
+  padding: 15px;
+  font-size: 1.2rem;
   background: $main-bg;
+  border-radius: 5px;
 
   @include mq() {
-    font-size: 0.6em;
     min-height: 70px;
     display: flex;
     align-items: center;

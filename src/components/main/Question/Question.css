@@ -1,10 +1,11 @@
 .question {
-  padding: 5px;
+  padding: 15px;
+  font-size: 1.2rem;
   background: linear-gradient(18deg, #013185 30%, #011c4d 70%);
+  border-radius: 5px;
 }
 @media (max-width: 700px) {
   .question {
-    font-size: 0.6em;
     min-height: 70px;
     display: flex;
     align-items: center;

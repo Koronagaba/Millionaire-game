@@ -1,20 +1,20 @@
 import { useEffect, useRef } from "react";
 import { pyramid } from "../../../data/data";
-import { AnswerType } from "../../../types/types";
+import { showCurrentAward } from "../../../features/gameOverSlice";
 import {
   chooseAnswer,
   handleNextQuestion,
   setGameOver,
   youAreMillionaire,
 } from "../../../features/questionsSlice";
-import { showCurrentAward } from "../../../features/gameOverSlice";
 import { setStopTimer } from "../../../features/timerSlice";
-import { useCalculateAward } from "../../../hooks/useCalculateAward";
 import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
+import { useCalculateAward } from "../../../hooks/useCalculateAward";
+import { AnswerType } from "../../../types/types";
 
-import startGame from "../../../assets/sounds/startGame.mp3";
-import good_king from "../../../assets/sounds/good_king.mp3";
 import correct from "../../../assets/sounds/correct.mp3";
+import good_king from "../../../assets/sounds/good_king.mp3";
+import startGame from "../../../assets/sounds/startGame.mp3";
 import wrong from "../../../assets/sounds/wrong.mp3";
 
 import classNames from "classnames";
@@ -22,12 +22,11 @@ import "./Answers.css";
 
 const Answers = () => {
   const {
-    easyDataCopy,
     currentQuestion,
     questionNumber,
     selectedAnswer,
     twoIdsWrongAnswers,
-    randomIndex
+    randomIndex,
   } = useAppSelector((state) => state.questions);
   const { award } = useAppSelector((state) => state.gameOver);
   const { allMuted } = useAppSelector((state) => state.sound);
@@ -112,7 +111,7 @@ const Answers = () => {
     dispatch(chooseAnswer(null));
   };
 
-  const selectAnswer = (answer: AnswerType) => {    console.log('randomIndex', randomIndex);
+  const selectAnswer = (answer: AnswerType) => {
     correctAudioFn("pause");
     if (selectedAnswer) return; //Protection against multiple selection of answers
     calculateAward();

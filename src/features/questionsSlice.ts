@@ -36,7 +36,7 @@ interface QuestionState {
   disableThirtySecLifebous: boolean;
   disablePublicHelpLifebous: boolean;
   twoIdsWrongAnswers: TwoIdsWrongAnswersInterface;
-  availableQuestions: SingleData[];
+  // availableQuestions: SingleData[];
 }
 
 const initialState: QuestionState = {
@@ -67,7 +67,7 @@ const initialState: QuestionState = {
   disableThirtySecLifebous: false,
   disablePublicHelpLifebous: false,
   twoIdsWrongAnswers: { wrongAnswersIds: [] },
-  availableQuestions: [],
+  // availableQuestions: [],
 };
 
 const questionsSlice = createSlice({
@@ -101,47 +101,32 @@ const questionsSlice = createSlice({
         state.currentQuestion = state.difficultDataCopy.data[state.randomIndex];
         state.difficultDataCopy.data.splice(state.randomIndex, 1);
       }
-      // console.log('slice random', state.randomIndex);
       state.questionNumber++;
       state.probabilityAnswers = [];
-
-
-
-      if (!state.randomIndex) return;
-
-      state.easyDataCopy.usedIds.push(state.easyDataCopy.data[state.randomIndex].id);
-      state.availableQuestions = state.easyDataCopy.data.filter(
-        (item) => !state.easyDataCopy.usedIds.includes(item.id)
-      );
-      console.log('used',state.easyDataCopy.usedIds);
-      console.log('available',state.availableQuestions);
     },
     setInitialQuestion(state) {
- 
-      
+      state.startGame = true;
+      state.gameOver = false;
       state.easyDataCopy.data = easyData;
       state.mediumDataCopy.data = mediumData;
       state.quiteDifficultDataCopy.data = quiteDifficultData;
       state.difficultDataCopy.data = difficultData;
-      state.availableQuestions = [];
+      // state.availableQuestions = [];
 
-      state.startGame = true;
-      state.gameOver = false;
       state.youAreMillionaire = false;
       state.questionNumber = 1;
       state.probabilityAnswers = [];
       state.disableThirtySecLifebous = false;
       state.disablePublicHelpLifebous = false;
       state.twoIdsWrongAnswers = { wrongAnswersIds: [], questionId: undefined };
-    
-      state.randomIndex = Math.floor(Math.random() * state.easyDataCopy.data.length);
-
+      state.randomIndex = Math.floor(
+        Math.random() * state.easyDataCopy.data.length
+      );
       if (state.randomIndex < 0) return;
       state.currentQuestion = state.easyDataCopy.data[state.randomIndex];
-      state.easyDataCopy.data.splice(state.randomIndex, 1);
-
-
-
+      state.easyDataCopy.data = easyData.filter(
+        (item) => item.id !== state.randomIndex
+      );
 
       // state.easyDataCopy.usedIds.push(state.easyDataCopy.data[state.randomIndex].id);
       // state.availableQuestions = state.easyDataCopy.data.filter(
@@ -149,7 +134,6 @@ const questionsSlice = createSlice({
       // );
       // console.log('used',state.easyDataCopy.usedIds);
       // console.log('available',state.availableQuestions);
-      
     },
 
     stopTheGame(state) {

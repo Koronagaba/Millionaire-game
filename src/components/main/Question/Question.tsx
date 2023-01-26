@@ -9,9 +9,9 @@ const Question = () => {
 
   return (
     <div className="question">
-      <h1>
+      <p>
         {questionNumber}. {currentQuestion?.question}
-      </h1>
+      </p>
     </div>
   );
 };

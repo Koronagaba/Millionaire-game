@@ -43,35 +43,34 @@ const Lifebuoys = () => {
 
   ////////////////
   const handlePublicHelp = () => {
-    console.log(twoIdsWrongAnswers);
     if (disablePublicHelpLifebous || gameOver || selectedAnswer) return;
-      
-      currentQuestion?.answers.map((answer) => {
-        //Probability answers
-        if (answer.isCorrect) {
-          // Probability for true answer
-          const randomForTrueAnswer = Math.floor(
-            Math.random() * (100 - 60 + 1) + 60
-          );
 
-          dispatch(
-            addProbabilityAnswers({
-              id: answer.id,
-              probabilityAmount: randomForTrueAnswer,
-            })
-          );
-        } else {
-          //Probability for false answer
-          const randomForFalseAnswer = Math.floor(Math.random() * 80);
-          dispatch(
-            addProbabilityAnswers({
-              id: answer.id,
-              probabilityAmount: randomForFalseAnswer,
-            })
-          );
-        }
-      });
-      dispatch(setDisablePublicHelpLifebous());
+    currentQuestion?.answers.map((answer) => {
+      //Probability answers
+      if (answer.isCorrect) {
+        // Probability for true answer
+        const randomForTrueAnswer = Math.floor(
+          Math.random() * (100 - 60 + 1) + 60
+        );
+
+        dispatch(
+          addProbabilityAnswers({
+            id: answer.id,
+            probabilityAmount: randomForTrueAnswer,
+          })
+        );
+      } else {
+        //Probability for false answer
+        const randomForFalseAnswer = Math.floor(Math.random() * 80);
+        dispatch(
+          addProbabilityAnswers({
+            id: answer.id,
+            probabilityAmount: randomForFalseAnswer,
+          })
+        );
+      }
+    });
+    dispatch(setDisablePublicHelpLifebous());
   };
 
   useEffect(() => {

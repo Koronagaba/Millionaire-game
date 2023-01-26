@@ -7,7 +7,6 @@ import "./StartView.css";
 const StartView = () => {
   const dispatch = useAppDispatch();
   const { userName } = useAppSelector((state) => state.userName);
-  const { easyDataCopy } = useAppSelector((state) => state.questions);
 
   const startGame = () => {
     dispatch(setInitialQuestion());
@@ -20,10 +19,7 @@ const StartView = () => {
 
   return (
     <div className="startView">
-      <h1 className="welcome">
-        {/* {userName && "Hello"}  */}
-        {userName}
-      </h1>
+      <h1 className="welcome">{userName}</h1>
       <label className="enterName btn">
         Enter name:
         <input
