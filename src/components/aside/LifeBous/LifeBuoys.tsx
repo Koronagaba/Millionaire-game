@@ -1,22 +1,23 @@
 import { useEffect, useState } from "react";
 
 import { useDispatch } from "react-redux";
+import { addAnswersWithCalculatedPercents } from "../../../features/lifebuoysSlice";
 import { setExtraTime } from "../../../features/timerSlice";
 import { useAppSelector } from "../../../hooks/hooks";
-import { addAnswersWithCalculatedPercents } from "../../../features/lifebuoysSlice";
 
+import thirtySec_white_transparent from "../../../assets/icons/30sec-white-transparent.svg";
 import fiftyfifty_white_transparent from "../../../assets/icons/fiftyfifty-white-transparent.svg";
 import public_white_transparent from "../../../assets/icons/public-white-transparent.svg";
-import thirtySec_white_transparent from "../../../assets/icons/30sec-white-transparent.svg";
 
-import "./LifeBous.css";
 import classNames from "classnames";
+import gsap from "gsap";
 import {
   addProbabilityAnswers,
   setDisablePublicHelpLifebous,
   setDisableThirtySecondLifebous,
   setTwoIdsWrongAnswers,
 } from "../../../features/questionsSlice";
+import "./LifeBous.css";
 
 const Lifebuoys = () => {
   const [sumProbabilityAnswers, setSumProbabilityAnswers] = useState(0);
@@ -30,6 +31,7 @@ const Lifebuoys = () => {
     disableThirtySecLifebous,
     disablePublicHelpLifebous,
     twoIdsWrongAnswers,
+    initialAnimations,
   } = useAppSelector((state) => state.questions);
   const { gameOver, startGame } = useAppSelector((state) => state.questions);
 
@@ -120,10 +122,29 @@ const Lifebuoys = () => {
     dispatch(setDisableThirtySecondLifebous());
   };
 
+  // life bous animation
+  useEffect(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
+
+    if (initialAnimations) {
+      tl.set(".img_lifebous", { scale: 1, filter: "invert(1)" })
+        .to(".img_lifebous", { filter: "invert(0)", stagger: 0.4 })
+        .fromTo(
+          ".img_lifebous",
+          { scale: 1.4 },
+          { scale: 1, stagger: 0.4 },
+          "-=.8 "
+        );
+      tl.set(".img_lifebous", { clearProps: "filter,scale" });
+    }
+  }, [initialAnimations]);
+
+  console.log(initialAnimations);
+
   return (
     <div className="lifebous">
       <img
-        className={classNames("img_lifebous", {
+        className={classNames("img_lifebous a", {
           lifebousDisabled: disablePublicHelpLifebous || !startGame || gameOver,
         })}
         onClick={handlePublicHelp}
@@ -131,7 +152,7 @@ const Lifebuoys = () => {
         alt="public help lifebous"
       />
       <img
-        className={classNames("img_lifebous", {
+        className={classNames("img_lifebous b", {
           lifebousDisabled:
             twoIdsWrongAnswers.questionId || !startGame || gameOver,
         })}
@@ -140,7 +161,7 @@ const Lifebuoys = () => {
         alt="fifty-fifty lifebous"
       />
       <img
-        className={classNames("img_lifebous", {
+        className={classNames("img_lifebous c", {
           lifebousDisabled: disableThirtySecLifebous || !startGame || gameOver,
         })}
         onClick={handleExtraTime}

@@ -36,6 +36,7 @@ interface QuestionState {
   disableThirtySecLifebous: boolean;
   disablePublicHelpLifebous: boolean;
   twoIdsWrongAnswers: TwoIdsWrongAnswersInterface;
+  initialAnimations: boolean
   // availableQuestions: SingleData[];
 }
 
@@ -67,6 +68,7 @@ const initialState: QuestionState = {
   disableThirtySecLifebous: false,
   disablePublicHelpLifebous: false,
   twoIdsWrongAnswers: { wrongAnswersIds: [] },
+  initialAnimations: false
   // availableQuestions: [],
 };
 
@@ -105,6 +107,7 @@ const questionsSlice = createSlice({
       state.probabilityAnswers = [];
     },
     setInitialQuestion(state) {
+      state.initialAnimations = true
       state.startGame = true;
       state.gameOver = false;
       state.easyDataCopy.data = easyData;
@@ -141,6 +144,7 @@ const questionsSlice = createSlice({
     },
     setGameOver(state) {
       state.gameOver = true;
+      state.initialAnimations = false
     },
     youAreMillionaire(state, { payload }) {
       state.youAreMillionaire = payload;

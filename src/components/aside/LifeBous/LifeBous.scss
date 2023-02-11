@@ -4,9 +4,8 @@
   @include setFlex();
   margin: auto 0;
   .img_lifebous {
-    transition: all 0.1s ease-in, filter 1s ease-in;;
+    transition: all 0.1s ease-in, filter 0.3s ease-in;
   }
-
 
   @include mq() {
     & {

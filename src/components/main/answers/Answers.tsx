@@ -5,6 +5,7 @@ import {
   chooseAnswer,
   handleNextQuestion,
   setGameOver,
+  stopTheGame,
   youAreMillionaire,
 } from "../../../features/questionsSlice";
 import { setStopTimer } from "../../../features/timerSlice";
@@ -174,7 +175,7 @@ const Answers = () => {
               onClick={() => (disabled ? undefined : selectAnswer(answer))}
             >
               <p className="answer_letter">{`${letterInsteadNumber}:`} </p>{" "}
-              <p >{answer.answer}</p>
+              <p>{answer.answer}</p>
             </button>
           );
         })}
