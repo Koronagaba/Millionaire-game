@@ -5,7 +5,7 @@ export type SingleData = {
 };
 
 export type AnswerType = {
-  id: number;
+  id: number ;
   answer: string;
   isCorrect: boolean;
 };

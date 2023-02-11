@@ -1,26 +1,29 @@
 .answers {
   display: flex;
   flex-wrap: wrap;
-  padding: 20px 0;
+  justify-content: center;
+  gap: 9px;
+  padding: 10px 0;
+  box-sizing: border-box;
 }
 .answers .answer {
   display: flex;
   align-items: center;
-  position: relative;
-  width: 45%;
+  width: 49%;
   font-size: 1em;
-  margin: 2px 10px;
+  padding: 20px;
 }
-.answers .answer-text {
-  margin-left: 10px;
+.answers .answer .answer_letter {
+  color: #feca30;
+}
+.answers .answer p {
+  padding-left: 10px;
 }
 .answers .correct {
-  -webkit-animation: correct 4s forwards;
-          animation: correct 4s forwards;
+  animation: correct 4s forwards;
 }
 .answers .wrong {
-  -webkit-animation: wrong 4s forwards;
-          animation: wrong 4s forwards;
+  animation: wrong 4s forwards;
 }
 .answers .disabled {
   opacity: 0;
@@ -34,20 +37,7 @@
   }
   .answers .answer {
     width: 100%;
-    font-size: 0.8em;
-    margin: 3px 0;
-  }
-}
-
-@-webkit-keyframes wrong {
-  0%, 35%, 43%, 56% {
-    background: #b69033;
-  }
-  40%, 53%, 66% {
-    background: aliceblue;
-  }
-  80%, 100% {
-    background: rgb(137, 4, 4);
+    font-size: 0.9em;
   }
 }
 
@@ -60,17 +50,6 @@
   }
   80%, 100% {
     background: rgb(137, 4, 4);
-  }
-}
-@-webkit-keyframes correct {
-  0%, 35%, 43%, 56% {
-    background: #b69033;
-  }
-  40%, 53%, 66% {
-    background: aliceblue;
-  }
-  80%, 100% {
-    background: green;
   }
 }
 @keyframes correct {

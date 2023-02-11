@@ -2,8 +2,6 @@ import { stopTheGame } from "../../../features/questionsSlice";
 import { enterUserName } from "../../../features/userNameSlice";
 import { useAppDispatch } from "../../../hooks/hooks";
 
-import "./QuitGame.css";
-
 const QuitGame = () => {
   const dispatch = useAppDispatch();
 

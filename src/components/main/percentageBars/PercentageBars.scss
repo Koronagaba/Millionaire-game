@@ -1,4 +1,5 @@
 @use "../../../scss/mixins" as *;
+@use "../../../scss/variables" as *;
 
 .percentageBars {
   @include setFlex();
@@ -18,6 +19,7 @@
       background-color: #eee;
       height: 0;
       transition-duration: 2s;
+      background-color: $gold-color;
     }
     .answer_id {
       margin: 0 auto;

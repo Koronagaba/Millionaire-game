@@ -1,8 +1,6 @@
 import { useDispatch } from "react-redux";
 import { setInitialQuestion } from "../../../features/questionsSlice";
 
-import "./PlayAgain.css";
-
 const PlayAgain = () => {
   const dispatch = useDispatch();
 

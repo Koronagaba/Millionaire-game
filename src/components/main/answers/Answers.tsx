@@ -153,6 +153,16 @@ const Answers = () => {
           const disabled =
             twoIdsWrongAnswers?.questionId === currentQuestion.id &&
             twoIdsWrongAnswers.wrongAnswersIds.includes(answer.id);
+
+          const letterInsteadNumber =
+            answer.id === 1
+              ? "A"
+              : answer.id === 2
+              ? "B"
+              : answer.id === 3
+              ? "C"
+              : "D";
+
           return (
             <button
               className={classNames("answer btn", {
@@ -163,8 +173,8 @@ const Answers = () => {
               key={answer.id}
               onClick={() => (disabled ? undefined : selectAnswer(answer))}
             >
-              <p>{`${answer.id}:`} </p>{" "}
-              <p className="answer-text">{answer.answer}</p>
+              <p className="answer_letter">{`${letterInsteadNumber}:`} </p>{" "}
+              <p >{answer.answer}</p>
             </button>
           );
         })}

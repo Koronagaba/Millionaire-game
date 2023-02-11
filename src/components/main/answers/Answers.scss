@@ -4,19 +4,24 @@
 .answers {
   display: flex;
   flex-wrap: wrap;
-  padding: 20px 0;
+  justify-content: center;
+  gap: 9px;
+  padding: 10px 0;
+  box-sizing: border-box;
 
   .answer {
     display: flex;
     align-items: center;
-    position: relative;
-    width: 45%;
+    width: 49%;
     font-size: 1em;
-    margin: 2px 10px;
-  }
+    padding: 20px;
 
-  .answer-text {
-    margin-left: 10px;
+    .answer_letter {
+      color: $gold-color;
+    }
+  }
+  .answer p {
+    padding-left: 10px;
   }
   .correct {
     animation: correct 4s forwards;
@@ -38,8 +43,7 @@
       flex-direction: column;
       .answer {
         width: 100%;
-        font-size: 0.8em;
-        margin: 3px 0;
+        font-size: 0.9em;
       }
     }
   }

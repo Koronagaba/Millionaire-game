@@ -17,6 +17,15 @@ const PercentageBars = () => {
       twoIdsWrongAnswers?.questionId === currentQuestion?.id &&
       twoIdsWrongAnswers.wrongAnswersIds.includes(audienceAnswer.id);
 
+    const letterInsteadNumber =
+      audienceAnswer.id === 1
+        ? "A"
+        : audienceAnswer.id === 2
+        ? "B"
+        : audienceAnswer.id === 3
+        ? "C"
+        : "D";
+
     return (
       <div
         className={classNames("percentageBars_single", { disabled })}
@@ -27,7 +36,7 @@ const PercentageBars = () => {
           className="bar"
           style={{ height: audienceAnswer.answerTheAudience * 1.3 }}
         />
-        <div className="answer_id">{audienceAnswer.id}</div>
+        <div className="answer_id">{letterInsteadNumber}</div>
       </div>
     );
   });

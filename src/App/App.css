@@ -1,12 +1,14 @@
 .wrapper {
   height: 100vh;
   background: linear-gradient(18deg, #013185 30%, #011c4d 70%);
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .wrapper .app_container {
   display: flex;
-  margin: auto;
   max-width: 700px;
+  width: 100%;
   min-height: 500px;
 }
 @media (max-width: 700px) {

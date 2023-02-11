@@ -122,7 +122,7 @@ const questionsSlice = createSlice({
       state.randomIndex = Math.floor(
         Math.random() * state.easyDataCopy.data.length
       );
-      if (state.randomIndex < 0) return;
+
       state.currentQuestion = state.easyDataCopy.data[state.randomIndex];
       state.easyDataCopy.data = easyData.filter(
         (item) => item.id !== state.randomIndex
