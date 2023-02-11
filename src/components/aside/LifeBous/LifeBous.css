@@ -5,11 +5,7 @@
   margin: auto 0;
 }
 .lifebous .img_lifebous {
-  transition: transform 0.1s ease-in;
-}
-.lifebous .notAllowed:hover {
-  cursor: not-allowed;
-  transform: none;
+  transition: all 0.1s ease-in, filter 1s ease-in;
 }
 @media (max-width: 700px) {
   .lifebous {

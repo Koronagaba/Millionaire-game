@@ -31,7 +31,7 @@ const Lifebuoys = () => {
     disablePublicHelpLifebous,
     twoIdsWrongAnswers,
   } = useAppSelector((state) => state.questions);
-  const { gameOver } = useAppSelector((state) => state.questions);
+  const { gameOver, startGame } = useAppSelector((state) => state.questions);
 
   const showWrongAnswersIds = () => {
     const threeWrongAnswersIds = currentQuestion?.answers
@@ -124,8 +124,7 @@ const Lifebuoys = () => {
     <div className="lifebous">
       <img
         className={classNames("img_lifebous", {
-          lifebousDisabled: disablePublicHelpLifebous,
-          notAllowed: gameOver,
+          lifebousDisabled: disablePublicHelpLifebous || !startGame || gameOver,
         })}
         onClick={handlePublicHelp}
         src={public_white_transparent}
@@ -133,8 +132,8 @@ const Lifebuoys = () => {
       />
       <img
         className={classNames("img_lifebous", {
-          lifebousDisabled: twoIdsWrongAnswers.questionId,
-          notAllowed: gameOver,
+          lifebousDisabled:
+            twoIdsWrongAnswers.questionId || !startGame || gameOver,
         })}
         onClick={handleFiftyFifty}
         src={fiftyfifty_white_transparent}
@@ -142,8 +141,7 @@ const Lifebuoys = () => {
       />
       <img
         className={classNames("img_lifebous", {
-          lifebousDisabled: disableThirtySecLifebous,
-          notAllowed: gameOver,
+          lifebousDisabled: disableThirtySecLifebous || !startGame || gameOver,
         })}
         onClick={handleExtraTime}
         src={thirtySec_white_transparent}
