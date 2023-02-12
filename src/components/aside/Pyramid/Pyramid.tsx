@@ -1,19 +1,27 @@
+import { useEffect } from "react";
 import { pyramid } from "../../../data/data";
 import { useAppSelector } from "../../../hooks/hooks";
+import { pyramidGsap } from "../../../gsap/pyramidGsap";
 
 import "./Pyramid.css";
+import gsap from "gsap";
 
 const Pyramid = () => {
-  const questionNumber = useAppSelector(
-    (state) => state.questions.questionNumber
+  const { questionNumber, initialAnimations } = useAppSelector(
+    (state) => state.questions
   );
+
+  // gsap animation
+  useEffect(() => {
+    pyramidGsap(initialAnimations);
+  }, [initialAnimations]);
 
   return (
     <div className="pyramid">
       {pyramid.map(({ id, quantity, currency, safeHaven }) => (
         <div
           className={`single_pyramid ${safeHaven} ${
-            questionNumber === id ? "activePyramid" : " "
+            questionNumber === id ? "active_pyramid" : " "
           } `}
           key={id}
         >

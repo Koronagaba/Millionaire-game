@@ -10,6 +10,7 @@
   max-width: 700px;
   width: 100%;
   min-height: 500px;
+  overflow: hidden;
 }
 @media (max-width: 700px) {
   .wrapper .app_container {

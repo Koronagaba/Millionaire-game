@@ -21,6 +21,7 @@ function App() {
     });
   }, [dispatch]);
 
+  
   return (
     <div className="wrapper">
       <div className="app_container">

@@ -8,7 +8,7 @@
   height: 70%;
   font-weight: bold;
   margin-bottom: 10%;
-  
+
   .single_pyramid {
     position: relative;
     @include setFlex($justify-content: space-between);
@@ -20,7 +20,7 @@
     color: white;
   }
 
-  .activePyramid {
+  .active_pyramid {
     position: relative;
     background-color: $gold-bg;
     box-shadow: 0 0 8px 4px white;

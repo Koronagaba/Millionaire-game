@@ -23,6 +23,8 @@ const Lifebuoys = () => {
   const [sumProbabilityAnswers, setSumProbabilityAnswers] = useState(0);
   const dispatch = useDispatch();
 
+  const { isMobile } = useAppSelector((state) => state.responsive);
+
   const {} = useAppSelector((state) => state.lifebuoys);
   const {
     currentQuestion,
@@ -127,19 +129,20 @@ const Lifebuoys = () => {
     const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
 
     if (initialAnimations) {
-      tl.set(".img_lifebous", { scale: 1, filter: "invert(1)" })
-        .to(".img_lifebous", { filter: "invert(0)", stagger: 0.4 })
-        .fromTo(
-          ".img_lifebous",
-          { scale: 1.4 },
-          { scale: 1, stagger: 0.4 },
-          "-=.8 "
-        );
+      tl.set(".img_lifebous", { scale: 1, filter: "invert(1)" });
+      tl.to(".img_lifebous", {
+        filter: "invert(0)",
+        delay: 1.45,
+        stagger: 0.85,
+      }).fromTo(
+        ".img_lifebous",
+        { scale: 1.6 },
+        { duration: 0.1, scale: 1, stagger: 0.9 },
+        "-=2"
+      );
       tl.set(".img_lifebous", { clearProps: "filter,scale" });
     }
   }, [initialAnimations]);
-
-  console.log(initialAnimations);
 
   return (
     <div className="lifebous">

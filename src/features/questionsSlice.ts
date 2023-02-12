@@ -130,7 +130,6 @@ const questionsSlice = createSlice({
       state.easyDataCopy.data = easyData.filter(
         (item) => item.id !== state.randomIndex
       );
-
       // state.easyDataCopy.usedIds.push(state.easyDataCopy.data[state.randomIndex].id);
       // state.availableQuestions = state.easyDataCopy.data.filter(
       //   (item) => !state.easyDataCopy.usedIds.includes(item.id)

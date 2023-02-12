@@ -19,7 +19,7 @@
 .pyramid .safeHaven {
   color: white;
 }
-.pyramid .activePyramid {
+.pyramid .active_pyramid {
   position: relative;
   background-color: #b69033;
   box-shadow: 0 0 8px 4px white;
