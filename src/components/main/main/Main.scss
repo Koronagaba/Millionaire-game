@@ -5,6 +5,7 @@
   width: 70%;
 
   .main {
+    position: relative;
     width: 100%;
     @include setFlex(column);
     background: linear-gradient(to top, rgba(0, 0, 0, 0) 50%, #01102b 100%),

@@ -6,7 +6,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 14px;
-  padding: 10px 0;
+  padding: 25px 0 0 0;
   box-sizing: border-box;
 
   .answer {
@@ -47,6 +47,25 @@
       }
     }
   }
+}
+
+.answerFrame1 {
+  position: absolute;
+  left: -100px;
+  width: 100px;
+  height: 100px;
+  background: $main-bg;
+  // border: 2px solid pink;
+  z-index: 1000000;
+}
+.answerFrame2 {
+  position: absolute;
+  right: -100px;
+  width: 100px;
+  height: 100px;
+  z-index: 10000;
+  background-color: transparent;
+  border: 2px solid pink;
 }
 
 @keyframes wrong {

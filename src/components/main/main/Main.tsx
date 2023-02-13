@@ -17,9 +17,8 @@ import classNames from "classnames";
 
 const Main = () => {
   // const gameOver = useAppSelector((state) => state.questions.gameOver);
-  const { gameOver, probabilityAnswers, youAreMillionaire, startGame } = useAppSelector(
-    (state) => state.questions
-  );
+  const { gameOver, probabilityAnswers, youAreMillionaire, startGame } =
+    useAppSelector((state) => state.questions);
   // const { youAreMillionaire } = useAppSelector((state) => state.millionaire);
   const isMobile = useAppSelector((state) => state.responsive.isMobile);
   // const { startGame } = useAppSelector((state) => state.startView);

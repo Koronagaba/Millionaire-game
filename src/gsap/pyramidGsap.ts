@@ -23,12 +23,12 @@ export const pyramidGsap = (
       },
       {
         delay: 0.25,
-        duration: 1,
+        duration: .6,
         stagger: 0.125,
         backgroundColor: "transparent",
         boxShadow: "none",
       }
     );
   }
-  tl.set(".single_pyramid", { clearProps: "all" }, "-=.85");
+  tl.set(".single_pyramid", { clearProps: "all" }, "-=.45");
 };

@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 14px;
-  padding: 10px 0;
+  padding: 25px 0 0 0;
   box-sizing: border-box;
 }
 .answers .answer {
@@ -39,6 +39,25 @@
     width: 100%;
     font-size: 0.9em;
   }
+}
+
+.answerFrame1 {
+  position: absolute;
+  left: -100px;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(18deg, #013185 30%, #011c4d 70%);
+  z-index: 1000000;
+}
+
+.answerFrame2 {
+  position: absolute;
+  right: -100px;
+  width: 100px;
+  height: 100px;
+  z-index: 10000;
+  background-color: transparent;
+  border: 2px solid pink;
 }
 
 @keyframes wrong {

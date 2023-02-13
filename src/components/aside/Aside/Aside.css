@@ -4,6 +4,7 @@
   justify-content: space-around;
   background: linear-gradient(18deg, #013185 30%, #011c4d 70%);
   width: 30%;
+  z-index: 10;
 }
 
 .dim {

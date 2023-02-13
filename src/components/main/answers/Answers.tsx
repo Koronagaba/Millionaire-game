@@ -4,6 +4,7 @@ import { showCurrentAward } from "../../../features/gameOverSlice";
 import {
   chooseAnswer,
   handleNextQuestion,
+  setChangeQuestionAnimation,
   setGameOver,
   stopTheGame,
   youAreMillionaire,
@@ -27,7 +28,6 @@ const Answers = () => {
     questionNumber,
     selectedAnswer,
     twoIdsWrongAnswers,
-    randomIndex,
   } = useAppSelector((state) => state.questions);
   const { award } = useAppSelector((state) => state.gameOver);
   const { allMuted } = useAppSelector((state) => state.sound);
@@ -96,6 +96,8 @@ const Answers = () => {
   };
 
   const correctAnswer = () => {
+    dispatch(setChangeQuestionAnimation(true));
+
     correctAudioFn("play");
     setTimeout(() => {
       onNextQuest();
@@ -103,6 +105,7 @@ const Answers = () => {
     }, 1400);
     setTimeout(() => {
       correctAudioFn("pause");
+      dispatch(setChangeQuestionAnimation(false));
     }, 3300);
   };
 
@@ -154,7 +157,6 @@ const Answers = () => {
           const disabled =
             twoIdsWrongAnswers?.questionId === currentQuestion.id &&
             twoIdsWrongAnswers.wrongAnswersIds.includes(answer.id);
-
           const letterInsteadNumber =
             answer.id === 1
               ? "A"
@@ -166,7 +168,7 @@ const Answers = () => {
 
           return (
             <button
-              className={classNames("answer btn", {
+              className={classNames(`answer btn answer${answer.id}`, {
                 checked: selected,
                 [answer.isCorrect ? "correct" : "wrong"]: selected,
                 disabled,

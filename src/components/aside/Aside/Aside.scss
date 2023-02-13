@@ -5,6 +5,7 @@
   @include setFlex(column);
   background: $main-bg;
   width: 30%;
+  z-index: 10
 }
 
 .dim {
