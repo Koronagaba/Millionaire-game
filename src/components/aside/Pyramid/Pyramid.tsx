@@ -7,13 +7,13 @@ import "./Pyramid.css";
 import gsap from "gsap";
 
 const Pyramid = () => {
-  const { questionNumber, initialAnimations } = useAppSelector(
+  const { questionNumber, initialAnimations, startGame } = useAppSelector(
     (state) => state.questions
   );
 
   // gsap animation
   useEffect(() => {
-    pyramidGsap(initialAnimations);
+      pyramidGsap(initialAnimations, startGame);
   }, [initialAnimations]);
 
   return (

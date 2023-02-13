@@ -15,6 +15,7 @@ import {
   addProbabilityAnswers,
   setDisablePublicHelpLifebous,
   setDisableThirtySecondLifebous,
+  setInitialAnimations,
   setTwoIdsWrongAnswers,
 } from "../../../features/questionsSlice";
 import "./LifeBous.css";
@@ -128,19 +129,30 @@ const Lifebuoys = () => {
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
 
-    if (initialAnimations) {
-      tl.set(".img_lifebous", { scale: 1, filter: "invert(1)" });
-      tl.to(".img_lifebous", {
-        filter: "invert(0)",
-        delay: 1.45,
-        stagger: 0.85,
-      }).fromTo(
+    if (!isMobile && initialAnimations) {
+      tl.set(".img_lifebous", { scale: 1, filter: "invert(1)" })
+        .fromTo(
+          ".img_lifebous",
+          { scale: 2, filter: "invert(0)" },
+          { delay: 1.7, duration: 0.2, scale: 1, stagger: 0.9 }
+        )
+        .set(".img_lifebous", { clearProps: "filter,scale" });
+      dispatch(setInitialAnimations(false));
+    }
+
+    if (isMobile && initialAnimations) {
+      tl.set(".img_lifebous", { scale: 1 });
+      tl.fromTo(
         ".img_lifebous",
         { scale: 1.6 },
-        { duration: 0.1, scale: 1, stagger: 0.9 },
-        "-=2"
-      );
-      tl.set(".img_lifebous", { clearProps: "filter,scale" });
+        {
+          delay: 0.5,
+          duration: 0.4,
+          scale: 1,
+          stagger: 0.9,
+        }
+      ).set(".img_lifebous", { clearProps: "all" });
+      dispatch(setInitialAnimations(false));
     }
   }, [initialAnimations]);
 

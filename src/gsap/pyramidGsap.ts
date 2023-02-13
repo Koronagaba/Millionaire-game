@@ -1,11 +1,14 @@
 import gsap from "gsap";
 
-export const pyramidGsap = (initialAnimations: boolean) => {
+export const pyramidGsap = (initialAnimations: boolean, startGame: boolean) => {
   const tl = gsap.timeline();
-  tl.set(".single_pyramid", {
-    backgroundColor: "transparent",
-    boxShadow: "0 0 0",
-  });
+
+  if (!startGame || initialAnimations) {
+    tl.set(".single_pyramid", {
+      backgroundColor: "transparent",
+      boxShadow: "0 0 0",
+    });
+  }
 
   if (initialAnimations) {
     tl.fromTo(
@@ -21,6 +24,7 @@ export const pyramidGsap = (initialAnimations: boolean) => {
         backgroundColor: "transparent",
         boxShadow: "none",
       }
-    ).set(".single_pyramid", { clearProps: "all" }, "-=.85");
+    );
+    tl.set(".single_pyramid", { clearProps: "all" }, "-=.85");
   }
 };

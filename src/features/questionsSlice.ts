@@ -166,6 +166,9 @@ const questionsSlice = createSlice({
     chooseAnswer(state, action) {
       state.selectedAnswer = action.payload;
     },
+    setInitialAnimations(state, {payload}){
+      state.initialAnimations = payload
+    }
   },
 });
 
@@ -180,5 +183,6 @@ export const {
   setTwoIdsWrongAnswers,
   youAreMillionaire,
   stopTheGame,
+  setInitialAnimations
 } = questionsSlice.actions;
 export default questionsSlice.reducer;

@@ -5,16 +5,12 @@
   margin: auto 0;
   .img_lifebous {
     transition: all 0.1s ease-in,;
-    // filter: invert(1);
   }
 
   @include mq() {
     & {
       justify-content: center;
-
-      .img_lifebous + .img_lifebous {
-        margin-left: 10%;
-      }
+      gap: 15%
     }
   }
 }
