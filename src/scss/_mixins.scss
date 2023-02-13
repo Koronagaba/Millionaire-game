@@ -2,7 +2,7 @@
 
 @mixin hoverOver {
   cursor: pointer;
-  transform: scale(1.02);
+  background: #001337;
 }
 
 @mixin mq($size: 700px) {
@@ -24,7 +24,8 @@
   color: #fff;
   border: none;
   border-radius: 5px;
-  transition: transform 0.08s;
+  box-shadow: variables.$main-shadow;
+  // transition: background 0.08s;
 
   &:hover {
     @include hoverOver();

@@ -24,11 +24,11 @@
   color: #fff;
   border: none;
   border-radius: 5px;
-  transition: transform 0.08s;
+  box-shadow: 4px 2px 6px 5px #000f2d;
 }
 .wrapper .app_container .btn:hover {
   cursor: pointer;
-  transform: scale(1.02);
+  background: #001337;
 }
 .wrapper .app_container .btns {
   display: flex;

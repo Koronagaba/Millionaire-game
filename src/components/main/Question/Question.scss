@@ -6,6 +6,7 @@
   font-size: 1.2rem;
   background: $main-bg;
   border-radius: 5px;
+  box-shadow: $main-shadow;
 
   @include mq() {
     min-height: 70px;
