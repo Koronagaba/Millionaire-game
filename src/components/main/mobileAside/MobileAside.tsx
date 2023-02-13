@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAppSelector } from "../../../hooks/hooks";
 import DropDownAside from "../DropDownAside/DropDownAside";
 
@@ -6,10 +6,25 @@ import Pyramid from "../../aside/Pyramid/Pyramid";
 
 import "./MobileAside.css";
 import classNames from "classnames";
+import gsap from "gsap";
 
 const MobileAside = () => {
   const [expandAside, setExpandAside] = useState(false);
-  const { gameOver } = useAppSelector((state) => state.questions);
+  const { gameOver, initialAnimations } = useAppSelector(
+    (state) => state.questions
+  );
+
+  useEffect(() => {
+    if (initialAnimations) {
+      gsap.set(".mobileAside", { autoAlpha: 0 });
+    }
+
+    if (expandAside && !gameOver) {
+      gsap.to(".mobileAside", { autoAlpha: 1 });
+    } else if (!expandAside && !gameOver) {
+      gsap.to(".mobileAside", { autoAlpha: 0 });
+    }
+  }, [expandAside, gameOver]);
 
   return (
     <>
@@ -20,9 +35,8 @@ const MobileAside = () => {
       <div
         className={classNames("mobileAside", {
           dim: gameOver,
-          showMobileAside: expandAside,
         })}
-        onClick={()=>setExpandAside(!expandAside)}
+        onClick={() => setExpandAside(!expandAside)}
       >
         <Pyramid />
       </div>

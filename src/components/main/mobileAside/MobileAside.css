@@ -5,19 +5,19 @@
 @media (max-width: 700px) {
   .mobileAside {
     background: rgba(7, 7, 37, 0.92);
-    display: none;
-  }
-  .showMobileAside {
     position: absolute;
     top: 0;
     right: 30px;
+    min-width: 200px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    min-width: 200px;
-    height: 100vh;
   }
-  .showMobileAside:hover {
+  .mobileAside:hover {
     cursor: pointer;
+  }
+  .dim {
+    display: none;
   }
 }/*# sourceMappingURL=MobileAside.css.map */

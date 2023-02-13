@@ -7,17 +7,17 @@
 @include mq() {
   .mobileAside {
     background: rgba(7, 7, 37, 0.92);
-    display: none;
-  }
-  .showMobileAside {
     position: absolute;
     top: 0;
     right: 30px;
-    @include setFlex(column);
     min-width: 200px;
     height: 100vh;
+    @include setFlex(column);
     &:hover {
       cursor: pointer;
     }
+  }
+  .dim {
+    display: none;
   }
 }

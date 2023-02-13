@@ -10,10 +10,11 @@ const Pyramid = () => {
   const { questionNumber, initialAnimations, startGame } = useAppSelector(
     (state) => state.questions
   );
+  const { isMobile } = useAppSelector((state) => state.responsive);
 
   // gsap animation
   useEffect(() => {
-      pyramidGsap(initialAnimations, startGame);
+    pyramidGsap(initialAnimations, startGame, isMobile);
   }, [initialAnimations]);
 
   return (
