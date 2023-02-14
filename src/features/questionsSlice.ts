@@ -36,7 +36,7 @@ interface QuestionState {
   disableThirtySecLifebous: boolean;
   disablePublicHelpLifebous: boolean;
   twoIdsWrongAnswers: TwoIdsWrongAnswersInterface;
-  initialAnimations: boolean
+  initialAnimations: boolean;
   changeQuestionAnimation: boolean;
   wrongAnswerAnimation: boolean;
   // availableQuestions: SingleData[];
@@ -72,7 +72,7 @@ const initialState: QuestionState = {
   twoIdsWrongAnswers: { wrongAnswersIds: [] },
   initialAnimations: false,
   changeQuestionAnimation: false,
-  wrongAnswerAnimation: false
+  wrongAnswerAnimation: false,
   // availableQuestions: [],
 };
 
@@ -111,7 +111,7 @@ const questionsSlice = createSlice({
       state.probabilityAnswers = [];
     },
     setInitialQuestion(state) {
-      state.initialAnimations = true
+      state.initialAnimations = true;
       state.startGame = true;
       state.gameOver = false;
       state.easyDataCopy.data = easyData;
@@ -129,10 +129,9 @@ const questionsSlice = createSlice({
       state.randomIndex = Math.floor(
         Math.random() * state.easyDataCopy.data.length
       );
-
       state.currentQuestion = state.easyDataCopy.data[state.randomIndex];
       state.easyDataCopy.data = easyData.filter(
-        (item) => item.id !== state.randomIndex
+        (item, index) => index !== state.randomIndex
       );
       // state.easyDataCopy.usedIds.push(state.easyDataCopy.data[state.randomIndex].id);
       // state.availableQuestions = state.easyDataCopy.data.filter(
@@ -147,7 +146,7 @@ const questionsSlice = createSlice({
     },
     setGameOver(state) {
       state.gameOver = true;
-      state.initialAnimations = false
+      state.initialAnimations = false;
     },
     youAreMillionaire(state, { payload }) {
       state.youAreMillionaire = payload;
@@ -170,15 +169,15 @@ const questionsSlice = createSlice({
     chooseAnswer(state, action) {
       state.selectedAnswer = action.payload;
     },
-    setInitialAnimations(state, {payload}){
-      state.initialAnimations = payload
+    setInitialAnimations(state, { payload }) {
+      state.initialAnimations = payload;
     },
-    setChangeQuestionAnimation(state, {payload}){
-      state.changeQuestionAnimation = payload
+    setChangeQuestionAnimation(state, { payload }) {
+      state.changeQuestionAnimation = payload;
     },
-    setWrongAnswerAnimation(state, {payload}){
-      state.wrongAnswerAnimation = payload
-    }
+    setWrongAnswerAnimation(state, { payload }) {
+      state.wrongAnswerAnimation = payload;
+    },
   },
 });
 
@@ -195,6 +194,6 @@ export const {
   stopTheGame,
   setInitialAnimations,
   setChangeQuestionAnimation,
-  setWrongAnswerAnimation
+  setWrongAnswerAnimation,
 } = questionsSlice.actions;
 export default questionsSlice.reducer;
