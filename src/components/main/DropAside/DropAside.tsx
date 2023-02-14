@@ -1,26 +1,30 @@
 import gsap from "gsap";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import chevron_left from "../../../assets/icons/chevron_left.svg";
 import chevron_right from "../../../assets/icons/chevron_right.svg";
 import { useAppSelector } from "../../../hooks/hooks";
 
-import "./DropDownAside.css";
+import "./DropAside.css";
 
-interface PropsDropDownAside {
+interface PropsDropAside {
   expandAside: boolean;
   setExpandAside: (arg1: boolean) => void;
 }
 
-const DropDownAside = ({ expandAside, setExpandAside }: PropsDropDownAside) => {
+const DropAside = ({ expandAside, setExpandAside }: PropsDropAside) => {
   const { gameOver } = useAppSelector((state) => state.questions);
+  const blinkRef = useRef(null);
 
   useEffect(() => {
     if (gameOver) setExpandAside(false);
-    const tl = gsap.timeline();
-    tl.set(".blink", { scale: 1 })
-    .fromTo(".blink",{ scale: 1.4 },
-      { delay: 4, duration: 1 , ease: "power1.inOut",repeat: 2, scale: 1 }
-    );
+    if (blinkRef.current) {
+      const tl = gsap.timeline();
+      tl.set(blinkRef.current, { scale: 1 }).fromTo(
+        blinkRef.current,
+        { scale: 1.4 },
+        { delay: 4, duration: 1, ease: "power1.inOut", repeat: 2, scale: 1 }
+      );
+    }
   }, [gameOver]);
 
   const toggleDropDown = () => {
@@ -47,7 +51,7 @@ const DropDownAside = ({ expandAside, setExpandAside }: PropsDropDownAside) => {
           </div>
         </>
       ) : (
-        <div className="img_wrapper">
+        <div ref={blinkRef} className="img_wrapper">
           <img
             className="chevron blink"
             src={chevron_left}
@@ -64,4 +68,4 @@ const DropDownAside = ({ expandAside, setExpandAside }: PropsDropDownAside) => {
   );
 };
 
-export default DropDownAside;
+export default DropAside;

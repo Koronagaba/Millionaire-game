@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
-import { enterUserName } from "../../../features/userNameSlice";
+// import { enterUserName } from "../../../features/userNameSlice";
 import { setInitialQuestion } from "../../../features/questionsSlice";
 
 import "./StartView.css";
@@ -12,15 +12,15 @@ const StartView = () => {
     dispatch(setInitialQuestion());
   };
 
-  const max = 11;
-  const handleOnKey = (e: any) => {
-    e.target.value = e.target.value.substring(0, max);
-  };
+  // const max = 11;
+  // const handleOnKey = (e: any) => {
+  //   e.target.value = e.target.value.substring(0, max);
+  // };
 
   return (
     <div className="startView">
       <h1 className="welcome">{userName}</h1>
-      <label className="enterName btn">
+      {/* <label className="enterName btn">
         Enter name:
         <input
           type="text"
@@ -30,7 +30,7 @@ const StartView = () => {
           }
           onKeyUp={handleOnKey}
         />
-      </label>
+      </label> */}
 
       <button className="btn" onClick={startGame}>
         Start Game

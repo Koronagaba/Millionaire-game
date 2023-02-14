@@ -4,7 +4,6 @@ import { useAppSelector } from "../../../hooks/hooks";
 import { pyramidGsap } from "../../../animations/pyramidGsap";
 
 import "./Pyramid.css";
-import gsap from "gsap";
 
 const Pyramid = () => {
   const { questionNumber, initialAnimations, startGame } = useAppSelector(
