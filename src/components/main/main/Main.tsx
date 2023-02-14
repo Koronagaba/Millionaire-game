@@ -22,7 +22,7 @@ const Main = () => {
   // const { youAreMillionaire } = useAppSelector((state) => state.millionaire);
   const isMobile = useAppSelector((state) => state.responsive.isMobile);
   // const { startGame } = useAppSelector((state) => state.startView);
-
+  
   return (
     <div className="main_container">
       <div

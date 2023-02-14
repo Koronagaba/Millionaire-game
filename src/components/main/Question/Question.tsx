@@ -1,32 +1,21 @@
-import gsap from "gsap";
 import { useEffect } from "react";
+import { animationAfterChooseAnswer } from "../../../animations/animationAfterChooseAnswer";
 import { useAppSelector } from "../../../hooks/hooks";
 
 import "./Question.css";
 
 const Question = () => {
-  const { questionNumber, currentQuestion, changeQuestionAnimation } =
+  const { currentQuestion, changeQuestionAnimation, wrongAnswerAnimation } =
     useAppSelector((state) => state.questions);
   const { isMobile } = useAppSelector((state) => state.responsive);
 
   useEffect(() => {
-    
-    const tl = gsap.timeline({
-      defaults: { ease: "power4.inOut", duration: 1.2 },
+    animationAfterChooseAnswer({
+      wrongAnswerAnimation,
+      isMobile,
+      changeQuestionAnimation,
     });
-    const tl2 = gsap.timeline({
-      defaults: { ease: "power4.inOut", duration: 1.2 },
-    });
-    if (changeQuestionAnimation) {
-      // if(isMobile){
-
-      // }else {
-        tl.to(".question", { x: 500 }).to(".question", { x: 0 })
-          .to(".answer", { stagger: 0.1, opacity: 0, y: 150}, "-=2")
-          .to(".answer", { opacity: 1, y: 0 });
-      // }
-    }
-  }, [changeQuestionAnimation]);
+  }, [changeQuestionAnimation, wrongAnswerAnimation]);
 
   return (
     <div className="question">
@@ -36,4 +25,3 @@ const Question = () => {
 };
 
 export default Question;
- 

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { pyramid } from "../../../data/data";
 import { useAppSelector } from "../../../hooks/hooks";
-import { pyramidGsap } from "../../../gsap/pyramidGsap";
+import { pyramidGsap } from "../../../animations/pyramidGsap";
 
 import "./Pyramid.css";
 import gsap from "gsap";
@@ -14,7 +14,7 @@ const Pyramid = () => {
 
   // gsap animation
   useEffect(() => {
-    pyramidGsap(initialAnimations, startGame, isMobile);
+    pyramidGsap({initialAnimations, startGame, isMobile});
   }, [initialAnimations]);
 
   return (

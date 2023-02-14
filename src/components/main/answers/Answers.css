@@ -41,25 +41,6 @@
   }
 }
 
-.answerFrame1 {
-  position: absolute;
-  left: -100px;
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(18deg, #013185 30%, #011c4d 70%);
-  z-index: 1000000;
-}
-
-.answerFrame2 {
-  position: absolute;
-  right: -100px;
-  width: 100px;
-  height: 100px;
-  z-index: 10000;
-  background-color: transparent;
-  border: 2px solid pink;
-}
-
 @keyframes wrong {
   0%, 35%, 43%, 56% {
     background: #b69033;

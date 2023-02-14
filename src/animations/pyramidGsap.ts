@@ -1,10 +1,16 @@
 import gsap from "gsap";
 
-export const pyramidGsap = (
-  initialAnimations: boolean,
-  startGame: boolean,
-  isMobile: boolean
-) => {
+interface AnimationPyramid {
+  initialAnimations: boolean;
+  startGame: boolean;
+  isMobile: boolean;
+}
+
+export const pyramidGsap = ({
+  initialAnimations,
+  startGame,
+  isMobile,
+}: AnimationPyramid) => {
   const tl = gsap.timeline();
 
   if (!startGame || initialAnimations) {
@@ -23,7 +29,7 @@ export const pyramidGsap = (
       },
       {
         delay: 0.25,
-        duration: .6,
+        duration: 0.6,
         stagger: 0.125,
         backgroundColor: "transparent",
         boxShadow: "none",

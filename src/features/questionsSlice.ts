@@ -38,6 +38,7 @@ interface QuestionState {
   twoIdsWrongAnswers: TwoIdsWrongAnswersInterface;
   initialAnimations: boolean
   changeQuestionAnimation: boolean;
+  wrongAnswerAnimation: boolean;
   // availableQuestions: SingleData[];
 }
 
@@ -70,7 +71,8 @@ const initialState: QuestionState = {
   disablePublicHelpLifebous: false,
   twoIdsWrongAnswers: { wrongAnswersIds: [] },
   initialAnimations: false,
-  changeQuestionAnimation: false
+  changeQuestionAnimation: false,
+  wrongAnswerAnimation: false
   // availableQuestions: [],
 };
 
@@ -173,6 +175,9 @@ const questionsSlice = createSlice({
     },
     setChangeQuestionAnimation(state, {payload}){
       state.changeQuestionAnimation = payload
+    },
+    setWrongAnswerAnimation(state, {payload}){
+      state.wrongAnswerAnimation = payload
     }
   },
 });
@@ -189,6 +194,7 @@ export const {
   youAreMillionaire,
   stopTheGame,
   setInitialAnimations,
-  setChangeQuestionAnimation
+  setChangeQuestionAnimation,
+  setWrongAnswerAnimation
 } = questionsSlice.actions;
 export default questionsSlice.reducer;

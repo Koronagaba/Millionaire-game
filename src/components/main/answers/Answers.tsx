@@ -6,7 +6,7 @@ import {
   handleNextQuestion,
   setChangeQuestionAnimation,
   setGameOver,
-  stopTheGame,
+  setWrongAnswerAnimation,
   youAreMillionaire,
 } from "../../../features/questionsSlice";
 import { setStopTimer } from "../../../features/timerSlice";
@@ -78,11 +78,13 @@ const Answers = () => {
   };
 
   const wrongAnswer = () => {
+    dispatch(setWrongAnswerAnimation(true));
     wrongAudiFn();
     if (questionNumber > 2 && questionNumber <= 12) {
       setTimeout(() => {
         dispatch(setGameOver());
         dispatch(chooseAnswer(null));
+        dispatch(setWrongAnswerAnimation(false));
       }, 5000);
       setTimeout(() => {
         good_kingAudioFn();
@@ -91,6 +93,7 @@ const Answers = () => {
       setTimeout(() => {
         dispatch(setGameOver());
         dispatch(chooseAnswer(null));
+        dispatch(setWrongAnswerAnimation(false));
       }, 3700);
     }
   };
@@ -169,7 +172,7 @@ const Answers = () => {
           return (
             <button
               className={classNames(`answer btn answer${answer.id}`, {
-                checked: selected,
+                checked: selected, // only for animation
                 [answer.isCorrect ? "correct" : "wrong"]: selected,
                 disabled,
               })}
