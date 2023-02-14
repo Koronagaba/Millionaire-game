@@ -18,7 +18,6 @@
 .percentageBars_single .bar {
   margin-top: auto;
   background-color: #eee;
-  height: 0;
   transition-duration: 2s;
   background-color: #feca30;
 }

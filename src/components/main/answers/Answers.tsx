@@ -100,7 +100,6 @@ const Answers = () => {
 
   const correctAnswer = () => {
     dispatch(setChangeQuestionAnimation(true));
-
     correctAudioFn("play");
     setTimeout(() => {
       onNextQuest();

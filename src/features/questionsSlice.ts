@@ -195,5 +195,6 @@ export const {
   setInitialAnimations,
   setChangeQuestionAnimation,
   setWrongAnswerAnimation,
+  
 } = questionsSlice.actions;
 export default questionsSlice.reducer;
