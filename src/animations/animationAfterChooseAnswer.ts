@@ -48,7 +48,8 @@ export const animationAfterChooseAnswer = ({
       tl.to(".question", { x: 750 })
         .to(".question", { x: 0 })
         .to(".answer", { stagger: 0.1, opacity: 0, y: 150 }, "-=2")
-        .to(".answer", { opacity: 1, y: 0 });
+        .to(".answer", { opacity: 1, y: 0 })
+        .set(".answer", { clearProps: "opacity" });
     }
   }
 };
