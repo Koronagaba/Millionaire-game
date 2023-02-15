@@ -184,6 +184,9 @@ const questionsSlice = createSlice({
     setDisappearPercentageAnimation(state, { payload }) {
       state.disappearPercentageAnimation = payload;
     },
+    setToInitialQuestionNumber(state){
+      state.questionNumber = 1
+    }
   },
 });
 
@@ -202,5 +205,6 @@ export const {
   setInitialAnimations,
   setChangeQuestionAnimation,
   setWrongAnswerAnimation,
+  setToInitialQuestionNumber
 } = questionsSlice.actions;
 export default questionsSlice.reducer;
