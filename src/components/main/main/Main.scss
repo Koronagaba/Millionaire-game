@@ -17,7 +17,7 @@
 
     .quiz {
       height: 85%;
-      @include setFlex(column);
+      @include setFlex(column, center);
     }
   }
 

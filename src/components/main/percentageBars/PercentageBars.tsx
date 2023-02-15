@@ -13,6 +13,7 @@ const PercentageBars = () => {
     twoIdsWrongAnswers,
     currentQuestion,
     disablePublicHelpLifebous,
+    disappearPercentageAnimation,
   } = useAppSelector((state) => state.questions);
 
   const percentageBars = answersWithCalculatedPercents.map((audienceAnswer) => {
@@ -48,12 +49,15 @@ const PercentageBars = () => {
 
   useEffect(() => {
     if (percentageBars.length > 2) {
-      gsap.to(".barA", { height: audiencePercent[0] * 1.3 });
-      gsap.to(".barB", { height: audiencePercent[1] * 1.3 });
-      gsap.to(".barC", { height: audiencePercent[2] * 1.3 });
-      gsap.to(".barD", { height: audiencePercent[3] * 1.3 });
+      gsap.to(".barA", { height: audiencePercent[0] });
+      gsap.to(".barB", { height: audiencePercent[1] });
+      gsap.to(".barC", { height: audiencePercent[2] });
+      gsap.to(".barD", { height: audiencePercent[3] });
+      if (disappearPercentageAnimation) {
+        gsap.to(".percentageBars", { duration: 1, autoAlpha: 0 });
+      }
     }
-  }, [disablePublicHelpLifebous, percentageBars]);
+  }, [disablePublicHelpLifebous, percentageBars, disappearPercentageAnimation]);
 
   return <div className="percentageBars">{percentageBars}</div>;
 };

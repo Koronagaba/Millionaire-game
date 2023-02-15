@@ -39,6 +39,7 @@ interface QuestionState {
   initialAnimations: boolean;
   changeQuestionAnimation: boolean;
   wrongAnswerAnimation: boolean;
+  disappearPercentageAnimation: boolean;
   // availableQuestions: SingleData[];
 }
 
@@ -73,6 +74,7 @@ const initialState: QuestionState = {
   initialAnimations: false,
   changeQuestionAnimation: false,
   wrongAnswerAnimation: false,
+  disappearPercentageAnimation: false,
   // availableQuestions: [],
 };
 
@@ -112,6 +114,7 @@ const questionsSlice = createSlice({
     },
     setInitialQuestion(state) {
       state.initialAnimations = true;
+      state.disappearPercentageAnimation = false;
       state.startGame = true;
       state.gameOver = false;
       state.easyDataCopy.data = easyData;
@@ -178,6 +181,9 @@ const questionsSlice = createSlice({
     setWrongAnswerAnimation(state, { payload }) {
       state.wrongAnswerAnimation = payload;
     },
+    setDisappearPercentageAnimation(state, { payload }) {
+      state.disappearPercentageAnimation = payload;
+    },
   },
 });
 
@@ -189,12 +195,12 @@ export const {
   setDisableThirtySecondLifebous,
   setDisablePublicHelpLifebous,
   addProbabilityAnswers,
+  setDisappearPercentageAnimation,
   setTwoIdsWrongAnswers,
   youAreMillionaire,
   stopTheGame,
   setInitialAnimations,
   setChangeQuestionAnimation,
   setWrongAnswerAnimation,
-  
 } = questionsSlice.actions;
 export default questionsSlice.reducer;

@@ -3,7 +3,7 @@
 
 .percentageBars {
   @include setFlex();
-  margin: 10px auto 0 auto;
+  margin: auto; 
   padding: 10px;
   border: solid 3px #fff;
   border-radius: 5px;

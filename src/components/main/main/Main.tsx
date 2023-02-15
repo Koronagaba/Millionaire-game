@@ -19,7 +19,7 @@ const Main = () => {
   const { gameOver, probabilityAnswers, youAreMillionaire, startGame } =
     useAppSelector((state) => state.questions);
   const isMobile = useAppSelector((state) => state.responsive.isMobile);
-  
+
   return (
     <div className="main_container">
       <div
@@ -46,8 +46,8 @@ const Main = () => {
                         <Timer />
                       </div>
                     )}
+                    {!isMobile ? <Timer /> : <div></div>}
                     <div className="quiz">
-                      {!isMobile ? <Timer /> : <div></div>}
                       {probabilityAnswers.length !== 0 && <PercentageBars />}
                       <div>
                         <Question />

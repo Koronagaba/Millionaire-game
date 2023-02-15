@@ -4,6 +4,7 @@ import { showCurrentAward } from "../../../features/gameOverSlice";
 import {
   chooseAnswer,
   handleNextQuestion,
+  setDisappearPercentageAnimation,
   setChangeQuestionAnimation,
   setGameOver,
   setWrongAnswerAnimation,
@@ -28,6 +29,7 @@ const Answers = () => {
     questionNumber,
     selectedAnswer,
     twoIdsWrongAnswers,
+    probabilityAnswers,
   } = useAppSelector((state) => state.questions);
   const { award } = useAppSelector((state) => state.gameOver);
   const { allMuted } = useAppSelector((state) => state.sound);
@@ -80,6 +82,12 @@ const Answers = () => {
   const wrongAnswer = () => {
     dispatch(setWrongAnswerAnimation(true));
     wrongAudiFn();
+    if (probabilityAnswers.length !== 0) {
+      setTimeout(() => {
+        dispatch(setDisappearPercentageAnimation(true));
+      }, 1000);
+    }
+
     if (questionNumber > 2 && questionNumber <= 12) {
       setTimeout(() => {
         dispatch(setGameOver());
@@ -101,6 +109,12 @@ const Answers = () => {
   const correctAnswer = () => {
     dispatch(setChangeQuestionAnimation(true));
     correctAudioFn("play");
+    if (probabilityAnswers.length !== 0) {
+      setTimeout(() => {
+        dispatch(setDisappearPercentageAnimation(true));
+      }, 500);
+    }
+
     setTimeout(() => {
       onNextQuest();
       dispatch(chooseAnswer(null));
