@@ -1,16 +1,10 @@
 @use "../../../scss/mixins" as *;
 .header {
-  @include setFlex();
-  height: 10%;
-  .sound_btn {
-    width: 35px;
-    height: 35px;
-    border: 2px solid #000;
-    border-radius: 50%;
-    background-color: #aaa;
-  }
+  @include setFlex(row, space-between);
+  padding: 0 5%;
 
   .volume {
+    width: 50px;
     filter: invert(1);
     transition: transform 0.06s;
 
@@ -18,5 +12,8 @@
       cursor: pointer;
       transform: scale(1.06);
     }
+  }
+  .best_score {
+    margin: auto 0;
   }
 }

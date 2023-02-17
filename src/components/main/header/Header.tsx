@@ -22,13 +22,23 @@ const Header = () => {
   return (
     <div className="header">
       {muted ? (
-        <img className="volume" src={volume_off} onClick={handleSound} alt="Volume off" />
+        <img
+          className="volume"
+          src={volume_off}
+          onClick={handleSound}
+          alt="Volume off"
+        />
       ) : (
-        <img className="volume" src={volume_on} onClick={handleSound} alt="Volume on"  />
+        <img
+          className="volume"
+          src={volume_on}
+          onClick={handleSound}
+          alt="Volume on"
+        />
       )}
       {/* <p>Millionaire</p> */}
-      
-      <p>Best Score: {localStorage.getItem("score")}</p>
+
+      <p className="best_score">Best Score: {localStorage.getItem("score")}</p>
     </div>
   );
 };
