@@ -32,7 +32,7 @@ const DropAside = ({ expandAside, setExpandAside }: PropsDropAside) => {
   };
 
   return (
-    <div className="drop_down_container" onClick={toggleDropDown}>
+    <div className="drop_aside_container" onClick={toggleDropDown}>
       {gameOver ? (
         <></>
       ) : expandAside ? (

@@ -1,22 +1,22 @@
-.drop_down_container {
+.drop_aside_container {
   display: flex;
   width: 30px;
   padding-left: 8px;
 }
-.drop_down_container:hover {
+.drop_aside_container:hover {
   cursor: pointer;
 }
-.drop_down_container .img_wrapper {
+.drop_aside_container .img_wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.drop_down_container .chevron {
+.drop_aside_container .chevron {
   width: 30px;
   height: 30px;
   filter: invert(1);
 }
-.drop_down_container .chevron_second {
+.drop_aside_container .chevron_second {
   position: absolute;
   right: 8px;
   width: 30px;

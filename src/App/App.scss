@@ -2,6 +2,7 @@
 @use "../scss/variables" as *;
 
 .wrapper {
+  min-height: 100vh;
   background: $main_bg;
   display: flex;
   justify-content: center;
