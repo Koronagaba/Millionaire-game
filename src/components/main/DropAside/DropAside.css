@@ -1,6 +1,7 @@
 .drop_down_container {
   display: flex;
   width: 30px;
+  padding-left: 8px;
 }
 .drop_down_container:hover {
   cursor: pointer;

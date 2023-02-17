@@ -30,6 +30,11 @@
   cursor: pointer;
   background: #001337;
 }
+@media (max-width: 700px) {
+  .wrapper .app_container .btn:hover {
+    background: linear-gradient(18deg, #013185 30%, #011c4d 70%);
+  }
+}
 .wrapper .app_container .btns {
   display: flex;
   flex-direction: column;

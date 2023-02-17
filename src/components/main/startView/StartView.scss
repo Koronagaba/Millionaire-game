@@ -2,18 +2,18 @@
 
 .startView {
   @include setFlex(column);
-  gap: 30px;
+  // gap: 30px;
   margin: auto 0;
-  .welcome {
-    @include setFlex();
-  }
-  .enterName {
-    @include setFlex();
-    align-items: center;
+  // .welcome {
+  //   @include setFlex();
+  // }
+  // .enterName {
+  //   @include setFlex();
+  //   align-items: center;
 
-    input {
-      outline: none;
-      font-size: 1.1rem;
-    }
-  }
+  //   input {
+  //     outline: none;
+  //     font-size: 1.1rem;
+  //   }
+  // }
 }

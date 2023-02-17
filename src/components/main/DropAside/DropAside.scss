@@ -1,7 +1,7 @@
 .drop_down_container {
   display: flex;
   width: 30px;
-
+  padding-left: 8px;
   &:hover {
     cursor: pointer;
   }

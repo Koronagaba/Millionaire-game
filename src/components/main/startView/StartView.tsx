@@ -19,7 +19,7 @@ const StartView = () => {
 
   return (
     <div className="startView">
-      <h1 className="welcome">{userName}</h1>
+      {/* <h1 className="welcome">{userName}</h1> */}
       {/* <label className="enterName btn">
         Enter name:
         <input

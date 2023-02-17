@@ -3,6 +3,9 @@
 @mixin hoverOver {
   cursor: pointer;
   background: #001337;
+  @include mq() {
+    background: variables.$main-bg;
+  }
 }
 
 @mixin mq($size: 700px) {
