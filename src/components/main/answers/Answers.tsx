@@ -22,6 +22,7 @@ import wrong from "../../../assets/sounds/wrong.mp3";
 
 import classNames from "classnames";
 import "./Answers.css";
+import { animationAfterChooseAnswer } from "../../../animations/animationAfterChooseAnswer";
 
 const Answers = () => {
   const {
@@ -30,9 +31,12 @@ const Answers = () => {
     selectedAnswer,
     twoIdsWrongAnswers,
     probabilityAnswers,
+    changeQuestionAnimation,
+    wrongAnswerAnimation,
   } = useAppSelector((state) => state.questions);
   const { award } = useAppSelector((state) => state.gameOver);
   const { allMuted } = useAppSelector((state) => state.sound);
+  const { isMobile } = useAppSelector((state) => state.responsive);
 
   const dispatch = useAppDispatch();
   const calculateAward = useCalculateAward();
@@ -41,6 +45,7 @@ const Answers = () => {
   const wrongAudioRef = useRef<HTMLAudioElement>(null);
   const gameAudioRef = useRef<HTMLAudioElement>(null);
   const goodKingAudioRef = useRef<HTMLAudioElement>(null);
+  const answerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     gameAudioFn();
@@ -159,6 +164,20 @@ const Answers = () => {
       localStorage.setItem("score", award.toString());
     }
   }, [award, selectedAnswer]);
+  
+
+  // Animation after choosen answer
+  const answersWidth = answerRef.current ? answerRef.current.offsetWidth : 0;
+  const winowWidth = window.innerWidth;
+  useEffect(() => {
+    animationAfterChooseAnswer({
+      wrongAnswerAnimation,
+      isMobile,
+      changeQuestionAnimation,
+      answersWidth,
+      winowWidth,
+    });
+  }, [changeQuestionAnimation, wrongAnswerAnimation]);
 
   return (
     <div>
@@ -184,6 +203,7 @@ const Answers = () => {
 
           return (
             <button
+              ref={answerRef}
               className={classNames(`answer btn answer${answer.id}`, {
                 checked: selected, // only for animation
                 [answer.isCorrect ? "correct" : "wrong"]: selected,

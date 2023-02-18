@@ -5,7 +5,7 @@
   border-radius: 5px;
   box-shadow: 4px 2px 6px 5px #000f2d;
 }
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .question {
     min-height: 70px;
     display: flex;

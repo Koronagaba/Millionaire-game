@@ -4,12 +4,16 @@ interface AnimationAnswerProps {
   wrongAnswerAnimation: boolean;
   isMobile: boolean;
   changeQuestionAnimation: boolean;
+  answersWidth: number;
+  winowWidth: number;
 }
 
 export const animationAfterChooseAnswer = ({
   wrongAnswerAnimation,
   isMobile,
   changeQuestionAnimation,
+  answersWidth,
+  winowWidth,
 }: AnimationAnswerProps) => {
   const tl = gsap.timeline({
     defaults: { ease: "power4.inOut", duration: 1.2 },
@@ -36,8 +40,8 @@ export const animationAfterChooseAnswer = ({
       tl2
         .to(".answer1, .answer2", { y: 50 })
         .addLabel("moveX")
-        .to(".answer2, .answer4", { x: -120 }, "-=1")
-        .to(".answer1, .answer3", { x: 122 }, "moveX-=1")
+        .to(".answer2, .answer4", { x: -answersWidth / 2 - 7 }, "-=1")
+        .to(".answer1, .answer3", { x: answersWidth / 2 + 7 }, "moveX-=1")
         .addLabel("disappear")
         .to(".answer", { opacity: 0 }, "-=1")
         .to(".question", { opacity: 0 }, "disappear-=1");
@@ -45,7 +49,7 @@ export const animationAfterChooseAnswer = ({
   } else {
     // animation after correct answer
     if (changeQuestionAnimation) {
-      tl.to(".question", { x: 750 })
+      tl.to(".question", { x: winowWidth })
         .to(".question", { x: 0 })
         .to(".answer", { stagger: 0.1, opacity: 0, y: 150 }, "-=2")
         .to(".answer", { opacity: 1, y: 0 })

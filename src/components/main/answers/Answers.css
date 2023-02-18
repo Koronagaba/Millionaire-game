@@ -10,7 +10,6 @@
   display: flex;
   align-items: center;
   width: 48.5%;
-  font-size: 1em;
   padding: 20px;
 }
 .answers .answer .answer_letter {
@@ -31,7 +30,7 @@
 .answers .disabled:hover {
   cursor: auto;
 }
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .answers {
     flex-direction: column;
   }

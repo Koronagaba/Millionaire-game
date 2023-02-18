@@ -38,7 +38,7 @@ const Timer = () => {
       <CountdownCircleTimer
         key={key}
         isPlaying={!stopTimer}
-        duration={300 + extraTime}
+        duration={30 + extraTime}
         colors={["#F7B801", "#F7B801", "#A30000"]}
         colorsTime={[10, 7, 0]}
         onComplete={() => ({ delay: 1 })}
