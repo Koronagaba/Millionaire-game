@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0 5%;
+  padding: 0 5% 5px;
 }
 .header .volume {
   width: 50px;
@@ -12,6 +12,12 @@
 .header .volume:hover {
   cursor: pointer;
   transform: scale(1.06);
+}
+.header .header_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 30px;
 }
 .header .best_score {
   margin: auto 0;

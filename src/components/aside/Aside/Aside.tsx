@@ -7,13 +7,13 @@ import "./Aside.css";
 import classNames from "classnames";
 
 const Aside = () => {
-  const { gameOver } = useAppSelector((state) => state.questions);
+  const { gameOver, startGame } = useAppSelector((state) => state.questions);
 
   return (
     <>
       <div
         className={classNames("aside", {
-          dim: gameOver,
+          dim: gameOver || !startGame,
         })}
       >
         <LifeBuoys />

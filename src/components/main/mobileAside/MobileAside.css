@@ -1,14 +1,10 @@
-.dim {
-  filter: brightness(35%);
-}
-
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .mobileAside {
-    background: rgba(7, 7, 37, 0.92);
+    background: rgba(0, 0, 0, 0.9);
     position: absolute;
     top: 0;
     right: 30px;
-    min-width: 200px;
+    min-width: 220px;
     height: 100vh;
     display: flex;
     flex-direction: column;

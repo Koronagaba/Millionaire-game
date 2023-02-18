@@ -3,13 +3,14 @@
 
 .aside {
   @include setFlex(column);
-  background: $main-bg;
-  width: 30%;
-  z-index: 10
+  background: linear-gradient(to left, rgba(0, 0, 0, 0)  90%,  #01102b 100%), $main-bg;;
+  min-width: 230px;
+  width: 20%;
+  z-index: 10;
 }
 
 .dim {
-  filter: brightness(35%);
+  filter: brightness(25%);
 }
 
 .stretch {

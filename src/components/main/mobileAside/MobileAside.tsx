@@ -7,12 +7,14 @@ import Pyramid from "../../aside/Pyramid/Pyramid";
 import classNames from "classnames";
 import gsap from "gsap";
 import "./MobileAside.css";
+import Lifebuoys from "../../aside/LifeBous/LifeBuoys";
 
 const MobileAside = () => {
   const [expandAside, setExpandAside] = useState(false);
   const { gameOver, initialAnimations } = useAppSelector(
     (state) => state.questions
   );
+  const {isMobile} = useAppSelector(state => state.responsive)
 
   useEffect(() => {
     if (initialAnimations) {
@@ -34,6 +36,11 @@ const MobileAside = () => {
         })}
         onClick={() => setExpandAside(!expandAside)}
       >
+        {isMobile && (
+          <div>
+            <Lifebuoys />
+          </div>
+        )}
         <Pyramid />
       </div>
     </>

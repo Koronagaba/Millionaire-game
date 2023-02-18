@@ -10,12 +10,12 @@ function App() {
   const { isMobile } = useAppSelector((state) => state.responsive);
 
   useEffect(() => {
-    if (window.innerWidth < 700) {
+    if (window.innerWidth < 900) {
       dispatch(setIsMobileTrue());
     } else dispatch(setIsMobileFalse());
 
     window.addEventListener("resize", () => {
-      if (window.innerWidth < 700) {
+      if (window.innerWidth < 900) {
         dispatch(setIsMobileTrue());
       } else dispatch(setIsMobileFalse());
     });

@@ -16,13 +16,10 @@ const Timer = () => {
   const calculateAward = useCalculateAward();
 
   useEffect(() => {
-  //   console.log("Jestem");
-
-  //   // Reset stopwatch
+    //   // Reset stopwatch
     setKey((prevState) => prevState + 1);
-  //   //Remove extra time
+    //   //Remove extra time
     dispatch(setExtraTime(0));
-
     dispatch(setStopTimer(false));
   }, [questionNumber]);
 
@@ -37,11 +34,11 @@ const Timer = () => {
   };
 
   return (
-    <div className="timer">
+    <div className="timer_container">
       <CountdownCircleTimer
         key={key}
         isPlaying={!stopTimer}
-        duration={30 + extraTime}
+        duration={300 + extraTime}
         colors={["#F7B801", "#F7B801", "#A30000"]}
         colorsTime={[10, 7, 0]}
         onComplete={() => ({ delay: 1 })}

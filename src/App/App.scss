@@ -10,9 +10,8 @@
 
   .app_container {
     display: flex;
-    max-width: 700px;
     width: 100%;
-    min-height: 500px;
+    min-height: 100vh;
     overflow: hidden;
 
     @include mq() {

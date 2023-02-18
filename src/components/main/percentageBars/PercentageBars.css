@@ -2,12 +2,13 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin: auto;
+  margin: 6% auto;
   padding: 10px;
   border: solid 3px #fff;
   border-radius: 5px;
   min-height: 25%;
-  min-width: 40%;
+  width: 220px;
+  background: rgba(0, 0, 0, 0.8);
 }
 .percentageBars_single {
   width: 35px;

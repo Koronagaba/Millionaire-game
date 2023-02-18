@@ -8,7 +8,7 @@
   }
 }
 
-@mixin mq($size: 700px) {
+@mixin mq($size: 900px) {
   @media (max-width: $size) {
     @content;
   }
@@ -28,7 +28,7 @@
   border: none;
   border-radius: 5px;
   box-shadow: variables.$main-shadow;
-  // transition: background 0.08s;
+  font-size: 1.1em;
 
   &:hover {
     @include hoverOver();

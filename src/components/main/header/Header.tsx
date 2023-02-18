@@ -37,7 +37,6 @@ const Header = () => {
         />
       )}
       {/* <p>Millionaire</p> */}
-
       <p className="best_score">Best Score: {localStorage.getItem("score")}</p>
     </div>
   );

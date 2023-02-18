@@ -7,12 +7,11 @@
 }
 .wrapper .app_container {
   display: flex;
-  max-width: 700px;
   width: 100%;
-  min-height: 500px;
+  min-height: 100vh;
   overflow: hidden;
 }
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .wrapper .app_container {
     height: 100vh;
   }
@@ -25,12 +24,13 @@
   border: none;
   border-radius: 5px;
   box-shadow: 4px 2px 6px 5px #000f2d;
+  font-size: 1.1em;
 }
 .wrapper .app_container .btn:hover {
   cursor: pointer;
   background: #001337;
 }
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .wrapper .app_container .btn:hover {
     background: linear-gradient(18deg, #013185 30%, #011c4d 70%);
   }

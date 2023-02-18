@@ -2,15 +2,18 @@
 
 .lifebous {
   @include setFlex();
-  margin: auto 0;
+  // margin: auto 0;
   .img_lifebous {
-    transition: all 0.1s ease-in,;
+    transition: all 0.1s ease-in;
+    
   }
 
   @include mq() {
     & {
+      display: flex;
       justify-content: center;
-      gap: 15%
+      gap: 10px
+
     }
   }
 }

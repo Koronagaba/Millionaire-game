@@ -7,7 +7,6 @@ import { useAppSelector } from "../../../hooks/hooks";
 import GameOver from "../gameOver/GameOver";
 import PercentageBars from "../percentageBars/PercentageBars";
 
-import Lifebuoys from "../../aside/LifeBous/LifeBuoys";
 import MobileAside from "../mobileAside/MobileAside";
 import YouAreMillionaire from "../youAreMillionaire/YouAreMillionaire";
 import StartView from "../startView/StartView";
@@ -25,6 +24,7 @@ const Main = () => {
       <div
         className={classNames("main", {
           darkened: gameOver,
+          mobile_device: isMobile,
         })}
       >
         <Header />
@@ -40,13 +40,7 @@ const Main = () => {
                   <GameOver />
                 ) : (
                   <>
-                    {isMobile && (
-                      <div>
-                        <Lifebuoys />
-                        <Timer />
-                      </div>
-                    )}
-                    {!isMobile ? <Timer /> : <div></div>}
+                    <Timer />
                     <div className="quiz">
                       {probabilityAnswers.length !== 0 && <PercentageBars />}
                       <div>

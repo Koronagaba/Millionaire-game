@@ -128,30 +128,14 @@ const Lifebuoys = () => {
   // life bous animation
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
-
     if (!isMobile && initialAnimations) {
       tl.set(".img_lifebous", { scale: 1, filter: "invert(1)" })
         .fromTo(
           ".img_lifebous",
-          { scale: 2, filter: "invert(0)" },
+          { scale: 1.5, filter: "invert(0)" },
           { delay: 1.7, duration: 0.2, scale: 1, stagger: 0.9 }
         )
         .set(".img_lifebous", { clearProps: "filter,scale" });
-      dispatch(setInitialAnimations(false));
-    }
-
-    if (isMobile && initialAnimations) {
-      tl.set(".img_lifebous", { scale: 1 });
-      tl.fromTo(
-        ".img_lifebous",
-        { scale: 1.6 },
-        {
-          delay: 0.5,
-          duration: 0.4,
-          scale: 1,
-          stagger: 0.9,
-        }
-      ).set(".img_lifebous", { clearProps: "all" });
       dispatch(setInitialAnimations(false));
     }
   }, [initialAnimations]);
@@ -165,6 +149,7 @@ const Lifebuoys = () => {
         onClick={handlePublicHelp}
         src={public_white_transparent}
         alt="public help lifebous"
+        width={65}
       />
       <img
         className={classNames("img_lifebous b", {
@@ -174,6 +159,7 @@ const Lifebuoys = () => {
         onClick={handleFiftyFifty}
         src={fiftyfifty_white_transparent}
         alt="fifty-fifty lifebous"
+        width={65}
       />
       <img
         className={classNames("img_lifebous c", {
@@ -182,6 +168,7 @@ const Lifebuoys = () => {
         onClick={handleExtraTime}
         src={thirtySec_white_transparent}
         alt="Additional 30 seconds lifebous"
+        width={65}
       />
     </div>
   );

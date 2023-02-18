@@ -1,7 +1,7 @@
 @use "../../../scss/mixins" as *;
 .header {
   @include setFlex(row, space-between);
-  padding: 0 5%;
+  padding: 0 5% 5px;
 
   .volume {
     width: 50px;
@@ -12,6 +12,10 @@
       cursor: pointer;
       transform: scale(1.06);
     }
+  }
+  .header_row {
+    @include setFlex();
+    gap: 30px
   }
   .best_score {
     margin: auto 0;

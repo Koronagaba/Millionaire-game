@@ -1,4 +1,5 @@
 .drop_aside_container {
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   width: 30px;
   padding-left: 8px;
