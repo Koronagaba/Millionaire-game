@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addAnswersWithCalculatedPercents } from "../../../features/lifebuoysSlice";
 import { setExtraTime } from "../../../features/timerSlice";
-import { useAppSelector } from "../../../hooks/hooks";
+import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
 
 import thirtySec_white_transparent from "../../../assets/icons/30sec-white-transparent.svg";
 import fiftyfifty_white_transparent from "../../../assets/icons/fiftyfifty-white-transparent.svg";
@@ -19,14 +19,14 @@ import {
   setTwoIdsWrongAnswers,
 } from "../../../features/questionsSlice";
 import "./LifeBous.css";
+import { lifebousAnimation } from "../../../animations/lifebousAnimation";
 
 const Lifebuoys = () => {
   const [sumProbabilityAnswers, setSumProbabilityAnswers] = useState(0);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const { isMobile } = useAppSelector((state) => state.responsive);
 
-  const {} = useAppSelector((state) => state.lifebuoys);
   const {
     currentQuestion,
     selectedAnswer,
@@ -127,17 +127,8 @@ const Lifebuoys = () => {
 
   // life bous animation
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
-    if (!isMobile && initialAnimations) {
-      tl.set(".img_lifebous", { scale: 1, filter: "invert(1)" })
-        .fromTo(
-          ".img_lifebous",
-          { scale: 1.5, filter: "invert(0)" },
-          { delay: 1.7, duration: 0.2, scale: 1, stagger: 0.9 }
-        )
-        .set(".img_lifebous", { clearProps: "filter,scale" });
-      dispatch(setInitialAnimations(false));
-    }
+    lifebousAnimation({isMobile, initialAnimations, setInitialAnimations})
+    dispatch(setInitialAnimations(false));
   }, [initialAnimations]);
 
   return (
