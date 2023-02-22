@@ -1,9 +1,20 @@
-.drop_aside_container { 
-  background: rgba(0, 0, 0, 0.7);
+@use "../../../scss/variables" as *;
+
+.drop_aside_container {
+  position: absolute;
+  right: 6px;
+  top: 120px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 30px;
+  height: 80px;
   padding-left: 8px;
   z-index: 10;
+  background: $main_bg;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+
   &:hover {
     cursor: pointer;
   }

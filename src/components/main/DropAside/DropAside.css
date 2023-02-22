@@ -1,9 +1,17 @@
 .drop_aside_container {
-  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  right: 6px;
+  top: 120px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 30px;
+  height: 80px;
   padding-left: 8px;
   z-index: 10;
+  background: linear-gradient(18deg, #013185 30%, #011c4d 70%);
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
 }
 .drop_aside_container:hover {
   cursor: pointer;

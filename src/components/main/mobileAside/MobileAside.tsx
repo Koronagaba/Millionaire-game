@@ -14,16 +14,16 @@ const MobileAside = () => {
   const { gameOver, initialAnimations } = useAppSelector(
     (state) => state.questions
   );
-  const {isMobile} = useAppSelector(state => state.responsive)
+  const { isMobile } = useAppSelector((state) => state.responsive);
 
   useEffect(() => {
     if (initialAnimations) {
       gsap.set(".mobileAside", { autoAlpha: 0 });
     }
     if (expandAside && !gameOver) {
-      gsap.to(".mobileAside", { autoAlpha: 1 });
+      gsap.to(".mobileAside", { duration: 0.3, autoAlpha: 1 });
     } else if (!expandAside && !gameOver) {
-      gsap.to(".mobileAside", { autoAlpha: 0 });
+      gsap.to(".mobileAside", { duration: 0.2, autoAlpha: 0 });
     }
   }, [expandAside, gameOver]);
 

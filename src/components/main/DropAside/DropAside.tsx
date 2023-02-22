@@ -14,6 +14,7 @@ interface PropsDropAside {
 const DropAside = ({ expandAside, setExpandAside }: PropsDropAside) => {
   const { gameOver } = useAppSelector((state) => state.questions);
   const blinkRef = useRef(null);
+  const dropAsideRef = useRef(null);
 
   useEffect(() => {
     if (gameOver) setExpandAside(false);
@@ -21,7 +22,7 @@ const DropAside = ({ expandAside, setExpandAside }: PropsDropAside) => {
       const tl = gsap.timeline();
       tl.set(blinkRef.current, { scale: 1 }).fromTo(
         blinkRef.current,
-        { scale: 1.4 },
+        { scale: 1.2 },
         { delay: 4, duration: 1, ease: "power1.inOut", repeat: 2, scale: 1 }
       );
     }
@@ -29,10 +30,21 @@ const DropAside = ({ expandAside, setExpandAside }: PropsDropAside) => {
 
   const toggleDropDown = () => {
     setExpandAside(!expandAside);
+
+    if (!expandAside) {
+      const tl = gsap.timeline();
+      tl.to(dropAsideRef.current, { duration: 0.2, x: "-214px" });
+    } else {
+      gsap.to(dropAsideRef.current, { duration: 0.2, x: 0 });
+    }
   };
 
   return (
-    <div className="drop_aside_container" onClick={toggleDropDown}>
+    <div
+      ref={dropAsideRef}
+      className="drop_aside_container"
+      onClick={toggleDropDown}
+    >
       {gameOver ? (
         <></>
       ) : expandAside ? (
