@@ -11,7 +11,7 @@ import Lifebuoys from "../../aside/LifeBous/LifeBuoys";
 
 const MobileAside = () => {
   const [expandAside, setExpandAside] = useState(false);
-  const { gameOver, initialAnimations } = useAppSelector(
+  const { gameOver, initialAnimations, selectedAnswer } = useAppSelector(
     (state) => state.questions
   );
   const { isMobile } = useAppSelector((state) => state.responsive);
@@ -20,12 +20,12 @@ const MobileAside = () => {
     if (initialAnimations) {
       gsap.set(".mobileAside", { autoAlpha: 0 });
     }
-    if (expandAside && !gameOver) {
+    if (expandAside && !gameOver && !selectedAnswer) {
       gsap.to(".mobileAside", { duration: 0.3, autoAlpha: 1 });
-    } else if (!expandAside && !gameOver) {
+    } else {
       gsap.to(".mobileAside", { duration: 0.2, autoAlpha: 0 });
     }
-  }, [expandAside, gameOver]);
+  }, [expandAside, gameOver, selectedAnswer]);
 
   return (
     <>

@@ -12,12 +12,23 @@ interface PropsDropAside {
 }
 
 const DropAside = ({ expandAside, setExpandAside }: PropsDropAside) => {
-  const { gameOver } = useAppSelector((state) => state.questions);
+  const { gameOver, selectedAnswer } = useAppSelector(
+    (state) => state.questions
+  );
   const blinkRef = useRef(null);
   const dropAsideRef = useRef(null);
 
   useEffect(() => {
-    if (gameOver) setExpandAside(false);
+    gsap.set(dropAsideRef.current, { autoAlpha: 1 });
+    console.log();
+    if (gameOver) {
+      setExpandAside(false);
+      gsap.to(dropAsideRef.current, { autoAlpha: 0 });
+    } else if (selectedAnswer) {
+      setExpandAside(false);
+      gsap.to(dropAsideRef.current, { duration: 0.3, x: 0 });
+    }
+
     if (blinkRef.current) {
       const tl = gsap.timeline();
       tl.set(blinkRef.current, { scale: 1 }).fromTo(
@@ -26,12 +37,13 @@ const DropAside = ({ expandAside, setExpandAside }: PropsDropAside) => {
         { delay: 4, duration: 1, ease: "power1.inOut", repeat: 2, scale: 1 }
       );
     }
-  }, [gameOver]);
+  }, [gameOver, selectedAnswer]);
 
   const toggleDropDown = () => {
-    setExpandAside(!expandAside);
-
-    if (!expandAside) {
+    if (!selectedAnswer) {
+      setExpandAside(!expandAside);
+    }
+    if (!expandAside && !selectedAnswer) {
       const tl = gsap.timeline();
       tl.to(dropAsideRef.current, { duration: 0.2, x: "-214px" });
     } else {
