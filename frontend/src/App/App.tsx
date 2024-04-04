@@ -4,6 +4,7 @@ import Main from "../components/main/main/Main";
 import { setIsMobileFalse, setIsMobileTrue } from "../features/responsiveSlice";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import "./App.css";
+import { log } from "console";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -21,7 +22,6 @@ function App() {
     });
   }, [dispatch]);
 
-  
   return (
     <div className="wrapper">
       <div className="app_container">
