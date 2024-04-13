@@ -4,11 +4,16 @@ import Main from "../components/main/main/Main";
 import { setIsMobileFalse, setIsMobileTrue } from "../features/responsiveSlice";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import "./App.css";
-import { log } from "console";
 
 function App() {
   const dispatch = useAppDispatch();
   const { isMobile } = useAppSelector((state) => state.responsive);
+
+  const fetchData = async () => {
+    const response = await fetch("http://localhost:4000/");
+    const data = await response.json();
+    console.log(data);
+  };
 
   useEffect(() => {
     if (window.innerWidth < 900) {
@@ -20,6 +25,8 @@ function App() {
         dispatch(setIsMobileTrue());
       } else dispatch(setIsMobileFalse());
     });
+
+    fetchData();
   }, [dispatch]);
 
   return (
