@@ -1,7 +1,9 @@
 import { NextFunction, Request, Response } from "express";
+import dotenv from "dotenv";
 
 const MongoClient = require("mongodb").MongoClient;
-const url = "";
+dotenv.config();
+const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.x0qk9pz.mongodb.net/products_test?retryWrites=true&w=majority&appName=Cluster0`;
 
 const getProducts = async (req: Request, res: Response, next: NextFunction) => {
   const client = new MongoClient(url);
