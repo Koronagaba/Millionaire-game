@@ -9,12 +9,6 @@ function App() {
   const dispatch = useAppDispatch();
   const { isMobile } = useAppSelector((state) => state.responsive);
 
-  const fetchData = async () => {
-    const response = await fetch("http://localhost:4000/");
-    const data = await response.json();
-    console.log(data);
-  };
-
   useEffect(() => {
     if (window.innerWidth < 900) {
       dispatch(setIsMobileTrue());
@@ -25,8 +19,6 @@ function App() {
         dispatch(setIsMobileTrue());
       } else dispatch(setIsMobileFalse());
     });
-
-    fetchData();
   }, [dispatch]);
 
   return (

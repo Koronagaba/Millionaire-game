@@ -39,4 +39,4 @@ const StartView = () => {
   );
 };
 
-export default StartView;
+export default StartView

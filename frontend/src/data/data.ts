@@ -433,7 +433,7 @@ const difficultData: SingleData[] = [
   },
 ];
 
-export const pyramid: Pyramid[] = [
+const pyramid: Pyramid[] = [
   { id: 1, quantity: 500, currency: "$", safeHaven: "" },
   { id: 2, quantity: 1000, currency: "$", safeHaven: "safeHaven" },
   { id: 3, quantity: 2000, currency: "$", safeHaven: "" },
@@ -448,4 +448,6 @@ export const pyramid: Pyramid[] = [
   { id: 12, quantity: 1000000, currency: "$", safeHaven: "safeHaven" },
 ];
 
-export { easyData, mediumData, quiteDifficultData, difficultData };
+export { 
+  easyData, 
+  mediumData, quiteDifficultData, difficultData, pyramid };

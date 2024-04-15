@@ -1,14 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
   difficultData,
-  easyData,
   mediumData,
   quiteDifficultData,
 } from "../data/data";
 import { AnswerType, SingleData } from "../types/types";
 
 interface DataStateWithUsedIds {
-  data: SingleData[];
+  data: SingleData[] | any;
   usedIds: number[];
 }
 interface PorbabilityAnswers {
@@ -40,6 +39,7 @@ interface QuestionState {
   changeQuestionAnimation: boolean;
   wrongAnswerAnimation: boolean;
   disappearPercentageAnimation: boolean;
+  easyData: SingleData[] | null;
   // availableQuestions: SingleData[];
 }
 
@@ -47,8 +47,9 @@ const initialState: QuestionState = {
   selectedAnswer: null,
   questionNumber: 1,
   currentQuestion: null,
+  easyData: null,
   easyDataCopy: {
-    data: [...easyData],
+    data: [],
     usedIds: [],
   },
   mediumDataCopy: {
@@ -75,7 +76,6 @@ const initialState: QuestionState = {
   changeQuestionAnimation: false,
   wrongAnswerAnimation: false,
   disappearPercentageAnimation: false,
-  // availableQuestions: [],
 };
 
 const questionsSlice = createSlice({
@@ -117,12 +117,10 @@ const questionsSlice = createSlice({
       state.disappearPercentageAnimation = false;
       state.startGame = true;
       state.gameOver = false;
-      state.easyDataCopy.data = easyData;
+      state.easyDataCopy.data = state.easyData;
       state.mediumDataCopy.data = mediumData;
       state.quiteDifficultDataCopy.data = quiteDifficultData;
       state.difficultDataCopy.data = difficultData;
-      // state.availableQuestions = [];
-
       state.youAreMillionaire = false;
       state.questionNumber = 1;
       state.probabilityAnswers = [];
@@ -133,7 +131,7 @@ const questionsSlice = createSlice({
         Math.random() * state.easyDataCopy.data.length
       );
       state.currentQuestion = state.easyDataCopy.data[state.randomIndex];
-      state.easyDataCopy.data = easyData.filter(
+      state.easyDataCopy.data = state.easyData?.filter(
         (item, index) => index !== state.randomIndex
       );
       // state.easyDataCopy.usedIds.push(state.easyDataCopy.data[state.randomIndex].id);
@@ -205,6 +203,6 @@ export const {
   setInitialAnimations,
   setChangeQuestionAnimation,
   setWrongAnswerAnimation,
-  setToInitialQuestionNumber
+  setToInitialQuestionNumber,
 } = questionsSlice.actions;
 export default questionsSlice.reducer;
