@@ -1,10 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {
-  difficultData,
-  mediumData,
-  quiteDifficultData,
-} from "../data/data";
+import { difficultData, mediumData, quiteDifficultData } from "../data/data";
 import { AnswerType, SingleData } from "../types/types";
+import { getInitialEasyData } from "../api/fetchData";
 
 interface DataStateWithUsedIds {
   data: SingleData[] | any;
@@ -127,13 +124,17 @@ const questionsSlice = createSlice({
       state.disableThirtySecLifebous = false;
       state.disablePublicHelpLifebous = false;
       state.twoIdsWrongAnswers = { wrongAnswersIds: [], questionId: undefined };
-      state.randomIndex = Math.floor(
-        Math.random() * state.easyDataCopy.data.length
-      );
-      state.currentQuestion = state.easyDataCopy.data[state.randomIndex];
-      state.easyDataCopy.data = state.easyData?.filter(
-        (item, index) => index !== state.randomIndex
-      );
+      if (state.easyData && state.easyData.length) {
+        console.log(state.easyData)
+        state.randomIndex = Math.floor(
+          Math.random() * state.easyDataCopy.data.length
+        );
+        state.currentQuestion = state.easyDataCopy.data[state.randomIndex];
+        state.easyDataCopy.data = state.easyData.filter(
+          (item, index) => index !== state.randomIndex
+        );
+      }
+
       // state.easyDataCopy.usedIds.push(state.easyDataCopy.data[state.randomIndex].id);
       // state.availableQuestions = state.easyDataCopy.data.filter(
       //   (item) => !state.easyDataCopy.usedIds.includes(item.id)
@@ -182,9 +183,15 @@ const questionsSlice = createSlice({
     setDisappearPercentageAnimation(state, { payload }) {
       state.disappearPercentageAnimation = payload;
     },
-    setToInitialQuestionNumber(state){
-      state.questionNumber = 1
-    }
+    setToInitialQuestionNumber(state) {
+      state.questionNumber = 1;
+    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getInitialEasyData.fulfilled, (state, action) => {
+      state.easyData = action.payload;
+      state.easyDataCopy.data = action.payload; // Assuming easyDataCopy.data needs to be initialized with the same data
+    });
   },
 });
 

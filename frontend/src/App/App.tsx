@@ -4,6 +4,7 @@ import Main from "../components/main/main/Main";
 import { setIsMobileFalse, setIsMobileTrue } from "../features/responsiveSlice";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import "./App.css";
+import { getInitialEasyData } from "../api/fetchData";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -19,6 +20,7 @@ function App() {
         dispatch(setIsMobileTrue());
       } else dispatch(setIsMobileFalse());
     });
+    dispatch(getInitialEasyData())
   }, [dispatch]);
 
   return (
