@@ -25,16 +25,17 @@ const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster
 //   }
 // };
 
-const getQuestions = async (req: Request, res: Response, next: NextFunction) => {
+const getQuestions = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const client = new MongoClient(url);
   let questions;
   try {
     await client.connect();
     const db = client.db("millionaire");
-    questions = await db
-      .collection("questions")
-      .find()
-      .toArray();
+    questions = await db.collection("questions").find().toArray();
   } catch (error) {
     return res.json({ message: "Could not retrieve questions", error });
   }
@@ -42,24 +43,9 @@ const getQuestions = async (req: Request, res: Response, next: NextFunction) => 
 
   res.json(questions);
 };
-const getEasyQuestions = async (req: Request, res: Response, next: NextFunction) => {
-  const client = new MongoClient(url);
-  let questions;
-  try {
-    await client.connect();
-    const db = client.db("millionaire");
-    questions = await db
-      .collection("questions")
-      .find({level: "easy"})
-      .toArray();
-  } catch (error) {
-    return res.json({ message: "Could not retrieve questions", error });
-  }
-  client.close();
 
-  res.json(questions);
-}
 
-export { getQuestions, getEasyQuestions
-  // , insertQuestions 
+export {
+  getQuestions,
+  // , insertQuestions
 };

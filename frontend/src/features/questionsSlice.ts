@@ -190,7 +190,7 @@ const questionsSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getInitialEasyData.fulfilled, (state, action) => {
       state.easyData = action.payload;
-      state.easyDataCopy.data = action.payload; // Assuming easyDataCopy.data needs to be initialized with the same data
+      state.easyDataCopy.data = action.payload; 
     });
   },
 });
