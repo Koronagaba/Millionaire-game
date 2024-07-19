@@ -33,5 +33,31 @@ const getEasyQuestions = async (
 ) => {
   getQuestionsByDifficultyLevel(Level.Easy, req, res, next);
 };
+const getMediumQuestions = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  getQuestionsByDifficultyLevel(Level.Medium, req, res, next);
+};
+const getQuiteDifficultQuestions = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  getQuestionsByDifficultyLevel(Level.QuiteDifficult, req, res, next);
+};
+const getDifficultQuestions = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  getQuestionsByDifficultyLevel(Level.Difficult, req, res, next);
+};
 
-export { getEasyQuestions };
+export {
+  getEasyQuestions,
+  getMediumQuestions,
+  getQuiteDifficultQuestions,
+  getDifficultQuestions,
+};

@@ -1,7 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { difficultData, mediumData, quiteDifficultData } from "../data/data";
+import {
+  getDifficultQuestions,
+  getEasyQuestions,
+  getMediumQuestions,
+  getQuiteDifficultQuestions,
+} from "../api/fetchData";
+import { difficultData, quiteDifficultData } from "../data/data";
 import { AnswerType, SingleData } from "../types/types";
-import { getInitialEasyData } from "../api/fetchData";
 
 interface DataStateWithUsedIds {
   data: SingleData[] | any;
@@ -37,6 +42,9 @@ interface QuestionState {
   wrongAnswerAnimation: boolean;
   disappearPercentageAnimation: boolean;
   easyData: SingleData[] | null;
+  mediumData: SingleData[] | null;
+  quiteDifficultData: SingleData[] | null;
+  difficultData: SingleData[] | null;
   // availableQuestions: SingleData[];
 }
 
@@ -49,16 +57,19 @@ const initialState: QuestionState = {
     data: [],
     usedIds: [],
   },
+  mediumData: null,
   mediumDataCopy: {
-    data: [...mediumData],
+    data: [],
     usedIds: [],
   },
+  quiteDifficultData: null,
   quiteDifficultDataCopy: {
-    data: [...quiteDifficultData],
+    data: [],
     usedIds: [],
   },
+  difficultData: null,
   difficultDataCopy: {
-    data: [...difficultData],
+    data: [],
     usedIds: [],
   },
   randomIndex: null,
@@ -115,7 +126,7 @@ const questionsSlice = createSlice({
       state.startGame = true;
       state.gameOver = false;
       state.easyDataCopy.data = state.easyData;
-      state.mediumDataCopy.data = mediumData;
+      state.mediumDataCopy.data = state.mediumData;
       state.quiteDifficultDataCopy.data = quiteDifficultData;
       state.difficultDataCopy.data = difficultData;
       state.youAreMillionaire = false;
@@ -125,7 +136,6 @@ const questionsSlice = createSlice({
       state.disablePublicHelpLifebous = false;
       state.twoIdsWrongAnswers = { wrongAnswersIds: [], questionId: undefined };
       if (state.easyData && state.easyData.length) {
-        console.log(state.easyData)
         state.randomIndex = Math.floor(
           Math.random() * state.easyDataCopy.data.length
         );
@@ -134,13 +144,6 @@ const questionsSlice = createSlice({
           (item, index) => index !== state.randomIndex
         );
       }
-
-      // state.easyDataCopy.usedIds.push(state.easyDataCopy.data[state.randomIndex].id);
-      // state.availableQuestions = state.easyDataCopy.data.filter(
-      //   (item) => !state.easyDataCopy.usedIds.includes(item.id)
-      // );
-      // console.log('used',state.easyDataCopy.usedIds);
-      // console.log('available',state.availableQuestions);
     },
 
     stopTheGame(state) {
@@ -188,10 +191,23 @@ const questionsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(getInitialEasyData.fulfilled, (state, action) => {
-      state.easyData = action.payload;
-      state.easyDataCopy.data = action.payload; 
-    });
+    builder
+      .addCase(getEasyQuestions.fulfilled, (state, action) => {
+        state.easyData = action.payload;
+        state.easyDataCopy.data = action.payload;
+      })
+      .addCase(getMediumQuestions.fulfilled, (state, action) => {
+        state.mediumData = action.payload;
+        state.mediumDataCopy.data = action.payload;
+      })
+      .addCase(getQuiteDifficultQuestions.fulfilled, (state, action) => {
+        state.quiteDifficultData = action.payload;
+        state.quiteDifficultDataCopy.data = action.payload;
+      })
+      .addCase(getDifficultQuestions.fulfilled, (state, action) => {
+        state.difficultData = action.payload;
+        state.difficultDataCopy.data = action.payload;
+      });
   },
 });
 

@@ -4,8 +4,8 @@ import { showCurrentAward } from "../../../features/gameOverSlice";
 import {
   chooseAnswer,
   handleNextQuestion,
-  setDisappearPercentageAnimation,
   setChangeQuestionAnimation,
+  setDisappearPercentageAnimation,
   setGameOver,
   setWrongAnswerAnimation,
   youAreMillionaire,
@@ -21,8 +21,13 @@ import startGame from "../../../assets/sounds/startGame.mp3";
 import wrong from "../../../assets/sounds/wrong.mp3";
 
 import classNames from "classnames";
-import "./Answers.css";
 import { animationAfterChooseAnswer } from "../../../animations/animationAfterChooseAnswer";
+import {
+  getDifficultQuestions,
+  getMediumQuestions,
+  getQuiteDifficultQuestions,
+} from "../../../api/fetchData";
+import "./Answers.css";
 
 const Answers = () => {
   const {
@@ -82,6 +87,13 @@ const Answers = () => {
 
   const onNextQuest = () => {
     dispatch(handleNextQuestion());
+    if (questionNumber === 2) {
+      dispatch(getMediumQuestions());
+    } else if (questionNumber === 5) {
+      dispatch(getQuiteDifficultQuestions());
+    } else if (questionNumber === 8) {
+      dispatch(getDifficultQuestions());
+    }
   };
 
   const wrongAnswer = () => {
@@ -164,7 +176,6 @@ const Answers = () => {
       localStorage.setItem("score", award.toString());
     }
   }, [award, selectedAnswer]);
-  
 
   // Animation after choosen answer
   const answersWidth = answerRef.current ? answerRef.current.offsetWidth : 0;
