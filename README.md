@@ -28,6 +28,8 @@ Project was deployed on netlify and its available at this link: https://koronaga
     * React.js,
     * TypeScript,
     * Redux Toolkit,
+    * Express.js
+    * Mongo DB
     * CSS/Sass - Sass was used to learn this technology.
 
 ## New skills
@@ -36,5 +38,6 @@ Project was deployed on netlify and its available at this link: https://koronaga
 
     * Basic knowledge of creating text/quiz style games such as randomizing questions, polling the audience, resetting the game state, storing the highest score
     * Sass, 
-    * using sound.
+    * Express.js,
+    * Mongo DB.
 
