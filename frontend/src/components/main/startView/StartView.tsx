@@ -6,7 +6,6 @@ import ChatAI from "./ChatAI";
 
 const StartView = () => {
   const dispatch = useAppDispatch();
-  const { userName } = useAppSelector((state) => state.userName);
 
   const startGame = () => {
     dispatch(setInitialQuestion());

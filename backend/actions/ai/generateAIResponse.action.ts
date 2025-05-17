@@ -1,6 +1,5 @@
 import OpenAI from "openai";
 import { Request, Response } from "express";
-// app.use(express.json())/;
 
 const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
