@@ -6,16 +6,22 @@ const openai = new OpenAI({
   apiKey: process.env.DEEPSEEK_API_KEY,
 });
 
-const generateAIResponse = async (req: Request, res: Response) => {  
+const generateAIResponse = async (req: Request, res: Response) => {
   const { prompt } = req.body;
+  try {
+    const completion = await openai.chat.completions.create({
+      model: "deepseek/deepseek-r1:fre",
+      messages: [{ role: "user", content: prompt }],
+      max_completion_tokens: 250,
+    });
 
-  const completion = await openai.chat.completions.create({
-    model: "deepseek/deepseek-r1:fre",
-    messages: [{ role: "user", content: prompt }],
-  });
-  console.log(completion.choices[0].message.content);
-
-  res.json({ message: completion.choices[0].message.content });
+    res.json({ message: completion.choices[0].message.content });
+  } catch (error: any) {
+    console.error("AI ERROR", error);
+    res
+      .status(500)
+      .json({ message: "AI request failed", error: error.message });
+  }
 };
 
 export { generateAIResponse };
