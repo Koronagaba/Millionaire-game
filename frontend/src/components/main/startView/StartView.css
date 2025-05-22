@@ -7,9 +7,18 @@
 /* # sourceMappingURL=StartView.css.map */
 
 .chatForm {
-  height: 300px;
+  display: flex;
+  flex-direction: column;
+  transition: height 0.3s ease;
+  overflow: hidden;
+}
+.chatForm.collapsed {
+  height: 50px;
 }
 
+.chatForm.expanded {
+  height: 300px;
+}
 .chatBox {
   max-width: 250px;
   background-color: white;
@@ -18,12 +27,6 @@
   padding: 24px;
   margin-bottom: 20px;
   border: 2px pink;
-}
-
-.chatForm {
-  border: 2px pink;
-  display: flex;
-  flex-direction: column;
 }
 
 .chatInput {
