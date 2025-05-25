@@ -19,7 +19,9 @@ const getQuestionsByDifficultyLevel = async (
     const db = client.db("millionaire");
     questions = await db.collection("questions").find({ level }).toArray();
   } catch (error) {
-    return res.json({ message: "Could not retrieve questions", error });
+    return res
+      .status(500)
+      .json({ message: "Could not retrieve questions", error });
   }
   client.close();
 
