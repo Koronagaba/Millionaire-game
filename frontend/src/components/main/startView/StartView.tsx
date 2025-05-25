@@ -14,7 +14,7 @@ const StartView = () => {
   return (
     <div className="startView">
       <ChatAI />
-      <button className="btn" onClick={startGame}>
+      <button className="btn absolute" onClick={startGame}>
         Start Game
       </button>
     </div>

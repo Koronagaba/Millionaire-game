@@ -1,10 +1,61 @@
 .startView {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   height: 100vh;
+  padding-top: 100px;
 }
-/* # sourceMappingURL=StartView.css.map */
+
+.chat-img {
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+  position: fixed;
+  top: 150px;
+  left: 50px;
+  z-index: 999;
+  transition: transform 0.2s ease;
+}
+
+.chat-img:hover {
+  transform: scale(1.1);
+}
+
+.close-chat {
+  position: absolute;
+  top: -5px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.chatBox {
+  max-width: 250px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 2px pink;
+  position: relative;
+  animation: fadeInUp 0.4s ease-out;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .chatForm {
   display: flex;
@@ -18,15 +69,6 @@
 
 .chatForm.expanded {
   height: 300px;
-}
-.chatBox {
-  max-width: 250px;
-  background-color: white;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  padding: 24px;
-  margin-bottom: 20px;
-  border: 2px pink;
 }
 
 .chatInput {
@@ -53,4 +95,10 @@
   max-height: 220px;
   overflow-y: auto;
   white-space: pre-wrap;
+}
+
+.absolute {
+  position: absolute;
+  bottom: 200px;
+  width: 98%;
 }
